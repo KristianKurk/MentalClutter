@@ -13,7 +13,7 @@ public class Word : Thought
     {
         base.Start();
         
-        word = "test";
+        word = "color = word class";
         text = GetComponentInChildren<Text>();
         text.text = word;
     }

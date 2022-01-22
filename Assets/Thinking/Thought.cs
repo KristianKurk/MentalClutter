@@ -9,15 +9,15 @@ public class Thought : EventTrigger
 
     // Velocity system
     protected GameObject thoughts;
-    protected Vector2 velocity;
+    protected Vector2 velocity, newVelocity;
     protected int lastBoundCrossed;
     protected float maxSpeed = 75f, minSpeed = 100f, minVelocityChangeCooldown = 4f, maxVelocityChangeCooldown = 6f, velocityChangeCooldown;
     protected bool justChangedVelocity;
 
     protected virtual void Start()
     {
-        velocity = RandomVelocity();
-        RandomVelocityChangeCooldown();
+        newVelocity = RandomVelocity();
+        velocityChangeCooldown = RandomVelocityChangeCooldown();
         thoughts = GameManager.instance.thoughts;
     }
 
@@ -47,6 +47,7 @@ public class Thought : EventTrigger
 
     protected void Move()
     {
+        velocity = Vector3.Slerp(velocity, newVelocity, Time.deltaTime);
         transform.Translate(velocity * Time.deltaTime);
 
         if(IsInvisible())
@@ -57,7 +58,7 @@ public class Thought : EventTrigger
             if(velocityChangeCooldown < 0)
             {
                 velocityChangeCooldown = RandomVelocityChangeCooldown();
-                velocity = RandomVelocity();
+                newVelocity = RandomVelocity();
             }
         }
     }
