@@ -1,0 +1,42 @@
+{ "frames": {
+   "Sprite-0002 0.": {
+    "frame": { "x": 0, "y": 0, "w": 400, "h": 400 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 400, "h": 400 },
+    "sourceSize": { "w": 400, "h": 400 },
+    "duration": 250
+   },
+   "Sprite-0002 1.": {
+    "frame": { "x": 400, "y": 0, "w": 400, "h": 400 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 400, "h": 400 },
+    "sourceSize": { "w": 400, "h": 400 },
+    "duration": 250
+   },
+   "Sprite-0002 2.": {
+    "frame": { "x": 800, "y": 0, "w": 400, "h": 400 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 400, "h": 400 },
+    "sourceSize": { "w": 400, "h": 400 },
+    "duration": 250
+   }
+ },
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.2.32-x64",
+  "image": "thoughtBubble_sprsheet.png",
+  "format": "RGBA8888",
+  "size": { "w": 1200, "h": 400 },
+  "scale": "1",
+  "frameTags": [
+  ],
+  "layers": [
+   { "name": "Layer 1", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}
