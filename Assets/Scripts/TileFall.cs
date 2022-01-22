@@ -36,14 +36,14 @@ public class TileFall : MonoBehaviour
 
             if (Input.GetKeyDown(keyCode) && isInTargetZone())
             {
+                ScoreManager.instance.IncrementSuccesses();
                 Destroy(gameObject);
-                //Count successful hits
             }
         }
         else
         {
+            ScoreManager.instance.IncrementFailures();
             Destroy(gameObject);
-            //Count unsuccessful hits
         }
     }
 

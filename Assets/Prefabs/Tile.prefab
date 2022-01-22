@@ -93,7 +93,7 @@ MonoBehaviour:
   yEnd: -353
   targetCenter: -280
   targetHeight: 100
-  secondsToFall: 3
+  secondsToFall: 1
   keyCode: 0
 --- !u!1 &3384619062677596044
 GameObject:
