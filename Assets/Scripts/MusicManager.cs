@@ -20,6 +20,7 @@ public class MusicManager : MonoBehaviour
     public float loopPositionInBeats;
 
     public float loopPositionInAnalog;
+    private int previousWholeBeat;
 
     private void Awake()
     {
@@ -38,6 +39,13 @@ public class MusicManager : MonoBehaviour
     {
         songPosition = (float)(AudioSettings.dspTime - dspSongTime);
         songPositionInBeats = songPosition / secPerBeat;
+
+        if (previousWholeBeat < (int)songPositionInBeats)
+        {
+            RhythmManager.instance.NextBeat();
+        }
+
+        previousWholeBeat = (int)songPositionInBeats;
 
         if (songPositionInBeats >= (completedLoops + 1) * beatsPerLoop)
             completedLoops++;
