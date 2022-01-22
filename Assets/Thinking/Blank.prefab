@@ -168,4 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f89ee063eee83f4da4392b40f7215db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wordClass: 0
+  nounColor: {r: 0.6462264, g: 0.92990196, b: 1, a: 1}
+  verbColor: {r: 1, g: 0.7544637, b: 0.4198113, a: 1}
+  adjectiveColor: {r: 0.7670597, g: 1, b: 0.5801887, a: 1}
+  adverbColor: {r: 1, g: 0.5707547, b: 0.8858804, a: 1}

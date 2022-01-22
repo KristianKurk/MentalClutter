@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Word")]
+[CreateAssetMenu(fileName = "Word", menuName = "Word")]
 public class WordData : ScriptableObject
 {
     public string word;
     public WordClass wordClass;
 }
 
-public enum WordClass { noun, verb, adverb, adjective }
+public enum WordClass { Noun, Verb, Adverb, Adjective }

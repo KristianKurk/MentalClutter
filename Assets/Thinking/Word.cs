@@ -4,16 +4,14 @@ using UnityEngine.EventSystems;
 
 public class Word : Thought
 {
-    public string word;
-    public WordClass wordClass;
-
+    string word;
+    WordClass wordClass;
     Text text;
 
     protected override void Start()
     {
         base.Start();
         
-        word = "color = word class";
         text = GetComponentInChildren<Text>();
         text.text = word;
     }
@@ -27,9 +25,9 @@ public class Word : Thought
         var blank = results.Find(x => x.gameObject.GetComponent<Blank>()).gameObject?.GetComponent<Blank>();
         if(blank)
         {
-            if(blank.wordClass == wordClass)
+            if(blank.WordClass == wordClass)
             {
-                blank.text = word;
+                blank.Word = word;
                 Destroy(gameObject);
             }
             else
@@ -41,6 +39,21 @@ public class Word : Thought
         else
         {
             ReturnToPosition();
+        }
+    }
+
+    public string WordValue
+    {
+        set { word = value; }
+    }
+
+    public WordClass WordClass
+    {
+        get { return wordClass; }
+        set
+        {
+            wordClass = value;
+            GetComponent<Image>().color = QuestionsManager.instance.WordClassToColor(wordClass);
         }
     }
 }

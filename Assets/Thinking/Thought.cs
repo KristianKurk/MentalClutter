@@ -18,7 +18,7 @@ public class Thought : EventTrigger
     {
         newVelocity = RandomVelocity();
         velocityChangeCooldown = RandomVelocityChangeCooldown();
-        thoughts = GameManager.instance.thoughts;
+        thoughts = QuestionsManager.instance.thoughts;
     }
 
     protected virtual void Update() 
@@ -35,7 +35,7 @@ public class Thought : EventTrigger
     {
         dragging = true;
         mouseDelta = transform.position - Input.mousePosition;
-        transform.SetParent(GameManager.instance.thoughtsParent);
+        transform.SetParent(QuestionsManager.instance.thoughtsDragParent);
         lastPosition = new Vector2(transform.position.x, transform.position.y);
     }
 

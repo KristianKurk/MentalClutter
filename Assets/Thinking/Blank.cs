@@ -3,8 +3,7 @@ using UnityEngine.UI;
 
 public class Blank : MonoBehaviour
 {
-    public WordClass wordClass;
-
+    WordClass wordClass;
     Text word;
 
     void Awake()
@@ -12,8 +11,18 @@ public class Blank : MonoBehaviour
         word = GetComponentInChildren<Text>();
     }
 
-    public string text
+    public string Word
     {
         set { word.text = value; }
+    }
+
+    public WordClass WordClass
+    {
+        get { return wordClass; }
+        set
+        {
+            wordClass = value;
+            GetComponent<Image>().color = QuestionsManager.instance.WordClassToColor(wordClass);
+        }
     }
 }
