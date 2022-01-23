@@ -2,12 +2,14 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class QuestionsManager : MonoBehaviour
+public class ThinkingManager : MonoBehaviour
 {
-    public static QuestionsManager instance;
+    public static ThinkingManager instance;
 
     public GameObject thoughts;
+    public Image clockFill;
     public AnswerSlot answerSlotPrefab;
     public Word wordPrefab;
     public Transform thoughtsDragParent;
@@ -21,10 +23,27 @@ public class QuestionsManager : MonoBehaviour
     List<AnswerSlotData> allAnswerSlots;
     List<WordClass> wordClasses = new List<WordClass> { WordClass.Noun, WordClass.Verb, WordClass.Adverb, WordClass.Adjective };
 
+    bool thinking;
+    float thinkingTimer, thinkingCooldown;
+
     void Awake()
     {
         if(instance != null) return;
         instance = this;
+    }
+
+    void Update()
+    {
+        if(thinking)
+        {
+            thinkingTimer -= Time.deltaTime;
+            clockFill.fillAmount = Mathf.Max(0f, thinkingTimer / GameManager.instance.thinkingTime);
+        }
+
+        if(thinkingTimer < 0f && thinking)
+        {
+            Debug.Log("Thinking process over. Time to talk!");
+        }
     }
 
     public QuestionData StartNewQuestion()
@@ -121,9 +140,12 @@ public class QuestionsManager : MonoBehaviour
             var mentalClutter = mentalCluttersCopy[random];
             //mentalCluttersCopy.Remove(mentalClutter);
 
-            var newWord = Instantiate(mentalClutter, thoughts.transform.position /*RandomPositionWithinThoughts()*/, Quaternion.identity, thoughts.transform);
+            var newWord = Instantiate(mentalClutter, thoughts.transform.position, Quaternion.identity, thoughts.transform);
             newWord.transform.SetAsLastSibling();
         }
+
+        thinkingTimer = GameManager.instance.thinkingTime;
+        thinking = true;
     }
 
     public void LoadAllAssets()

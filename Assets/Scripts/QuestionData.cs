@@ -12,7 +12,7 @@ public class AnswerThresholdPair
 [CreateAssetMenu(fileName = "Question", menuName = "Question")]
 public class QuestionData : ScriptableObject
 {
-    public string question;
+    public List<string> question;
     public List<AnswerThresholdPair> answers = new List<AnswerThresholdPair>();
     public List<WordData> goodWords = new List<WordData>();
     public List<WordData> okWords = new List<WordData>();

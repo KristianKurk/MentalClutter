@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,11 +5,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public GameObject mainCharacter, satan, questionDialogBox, thinkingBubble;
-    [Min(1f)] public float questionReadingTime = 5f;
-    public int numberOfOkWords = 1, numberOfBadWords = 1, goodWordValue = 1, okWordValue = 1, badWordValue = 1;
+    public GameObject mainCharacter, satan, questionDialogBox, thinkingBubble, ready1Prefab, ready2Prefab, ready3Prefab, readyThinkPrefab;
+    public Transform readyDisplayPosition;
+    [Min(1f)] public float thinkingTime = 10f;
+    public int numberOfOkWords = 1, numberOfBadWords = 1, goodWordValue = 1, okWordValue = 1, badWordValue = 1, currentReadyPhase = 0;
 
-    int level = 1;
+    int level = 1, questionIndex;
+    QuestionData question;
 
     void Awake()
     {
@@ -21,34 +21,66 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        QuestionsManager.instance.LoadAllAssets();
+        ThinkingManager.instance.LoadAllAssets();
         PrepareNextLevel();
+    }
+
+    public void DisplayNextSentence()
+    {
+        if(question.question.Count > questionIndex)
+            questionDialogBox.GetComponentInChildren<Text>().text = question.question[questionIndex++];
+        else
+        {
+            questionDialogBox.GetComponent<Button>().enabled = false;
+            Instantiate(ready1Prefab, readyDisplayPosition.position, Quaternion.identity, readyDisplayPosition);
+        }
+    }
+
+    public void DisplayNextReadyPhase()
+    {
+        currentReadyPhase++;
+
+        GameObject readyPrefab = null;
+        switch(currentReadyPhase)
+        {
+        case 1:
+            readyPrefab = ready2Prefab;
+            break;
+        case 2:
+            readyPrefab = ready3Prefab;
+            break;
+        case 3:
+            StartThinking(question);
+            return;
+        default:
+            return;
+        }
+
+        Instantiate(readyPrefab, readyDisplayPosition.position, Quaternion.identity, readyDisplayPosition);
     }
 
     void PrepareNextLevel()
     {
-        // Setting up satan and the main character
+        // Set up
+        questionIndex = 0;
+        currentReadyPhase = 0;
         satan.SetActive(true);
-        mainCharacter.SetActive(true);
+        questionDialogBox.GetComponent<Button>().enabled = true;
 
         // Asking the character a question
-        var question = QuestionsManager.instance.StartNewQuestion();
-        questionDialogBox.GetComponentInChildren<Text>().text = question.question;
+        question = ThinkingManager.instance.StartNewQuestion();
+        questionDialogBox.GetComponentInChildren<Text>().text = question.question[questionIndex++];
         questionDialogBox.SetActive(true);
-
-        // Time to read the question
-        var timeToRead = Time.time + questionReadingTime;
-        StartCoroutine(StartThinking(question, timeToRead));
     }
 
-    IEnumerator StartThinking(QuestionData question, float timeToRead)
+    void StartThinking(QuestionData question)
     {
-        yield return new WaitForSeconds(timeToRead);
+        Instantiate(readyThinkPrefab, readyDisplayPosition.position, Quaternion.identity, readyDisplayPosition);
 
         // Thinking of an appropriate answer
-        mainCharacter.SetActive(false);
+        satan.SetActive(false);
         questionDialogBox.SetActive(false);
         thinkingBubble.SetActive(true);
-        QuestionsManager.instance.StartThinking(question);
+        ThinkingManager.instance.StartThinking(question);
     }
 }
