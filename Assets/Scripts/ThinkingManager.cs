@@ -18,9 +18,6 @@ public class ThinkingManager : MonoBehaviour
     public int mentalClutters = 5;
     public float thoughtsMinSpeed = 75f, thoughtsMaxSpeed = 150f, thoughtsExplosionSpeed = 500f, minVelocityCooldown = 4f, maxVelocityCooldown = 6f;
 
-    List<QuestionData> allQuestions;
-    List<MentalClutter> allMentalClutters;
-    List<AnswerSlotData> allAnswerSlots;
     List<WordClass> wordClasses = new List<WordClass> { WordClass.Noun, WordClass.Verb, WordClass.Adverb, WordClass.Adjective };
 
     bool thinking;
@@ -48,8 +45,8 @@ public class ThinkingManager : MonoBehaviour
 
     public QuestionData StartNewQuestion()
     {
-        var index = Random.Range(0, allQuestions.Count);
-        var question = allQuestions[index];
+        var index = Random.Range(0, Database.instance.allQuestions.Count);
+        var question = Database.instance.allQuestions[index];
 
         return question;
     }
@@ -57,7 +54,7 @@ public class ThinkingManager : MonoBehaviour
     public void StartThinking(QuestionData question)
     {
         // Answer slots
-        var answerSlotsData = new List<AnswerSlotData>(allAnswerSlots);
+        var answerSlotsData = new List<AnswerSlotData>(Database.instance.allAnswerSlots);
         var wordClassesCopy = new List<WordClass>(wordClasses);
         var answerSlots = new List<AnswerSlot>();
         for(var i = 0; i < 4; i++)
@@ -133,7 +130,7 @@ public class ThinkingManager : MonoBehaviour
         }
 
         // Mental clutters
-        var mentalCluttersCopy = new List<MentalClutter>(allMentalClutters);
+        var mentalCluttersCopy = new List<MentalClutter>(Database.instance.allMentalClutters);
         for(var i = 0; i < mentalClutters; i++)
         {
             var random = Random.Range(0, mentalCluttersCopy.Count);
@@ -146,33 +143,5 @@ public class ThinkingManager : MonoBehaviour
 
         thinkingTimer = GameManager.instance.thinkingTime;
         thinking = true;
-    }
-
-    public void LoadAllAssets()
-    {
-        LoadAllQuestions();
-        LoadAllMentalClutters();
-        LoadAllAnswerSlots();
-    }
-
-	void LoadAllQuestions()
-	{
-		/*var guids = AssetDatabase.FindAssets("", new [] {"Assets/Data Objects/Questions"});
-		var assetPathes = guids.Select(x => AssetDatabase.GUIDToAssetPath(x));
-		allQuestions = assetPathes.Select(x => AssetDatabase.LoadAssetAtPath(x, typeof(QuestionData)) as QuestionData).ToList();*/
-	}
-
-    void LoadAllMentalClutters()
-    {
-      /*  var guids = AssetDatabase.FindAssets("", new [] {"Assets/Prefabs/Mental Clutters"});
-		var assetPathes = guids.Select(x => AssetDatabase.GUIDToAssetPath(x));
-		allMentalClutters = assetPathes.Select(x => AssetDatabase.LoadAssetAtPath(x, typeof(MentalClutter)) as MentalClutter).ToList();*/
-    }
-
-    void LoadAllAnswerSlots()
-    {
-       /* var guids = AssetDatabase.FindAssets("", new [] {"Assets/Data Objects/Answer Slots"});
-		var assetPathes = guids.Select(x => AssetDatabase.GUIDToAssetPath(x));
-		allAnswerSlots = assetPathes.Select(x => AssetDatabase.LoadAssetAtPath(x, typeof(AnswerSlotData)) as AnswerSlotData).ToList();*/
     }
 }

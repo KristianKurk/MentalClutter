@@ -8,9 +8,9 @@ public class GameManager : MonoBehaviour
     public GameObject mainCharacter, satan, questionDialogBox, thinkingBubble, ready1Prefab, ready2Prefab, ready3Prefab, readyThinkPrefab;
     public Transform readyDisplayPosition;
     [Min(1f)] public float thinkingTime = 10f;
-    public int numberOfOkWords = 1, numberOfBadWords = 1, goodWordValue = 1, okWordValue = 1, badWordValue = 1, currentReadyPhase = 0;
+    public int numberOfOkWords = 1, numberOfBadWords = 1, goodWordValue = 1, okWordValue = 1, badWordValue = 1;
 
-    int level = 1, questionIndex;
+    int level = 1, questionIndex, currentReadyPhase = 0;
     QuestionData question;
 
     void Awake()
@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        ThinkingManager.instance.LoadAllAssets();
         PrepareNextLevel();
     }
 
