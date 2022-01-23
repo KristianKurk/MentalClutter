@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Question 1
   m_EditorClassIdentifier: 
   question: Why do you want this job?
-  answers: []
+  answers:
+  - answer: 
+    threshold: 0
   goodWords:
   - {fileID: 11400000, guid: 9b71b4667b8d10d4dad72c62401a807e, type: 2}
   - {fileID: 11400000, guid: dcc609f36b5e1834fb917f1c4629d981, type: 2}

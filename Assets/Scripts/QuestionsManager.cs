@@ -2,13 +2,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class QuestionsManager : MonoBehaviour
 {
     public static QuestionsManager instance;
 
-    public GameObject thoughts/*, questionDialogBox, thinkingBubble*/;
+    public GameObject thoughts;
     public AnswerSlot answerSlotPrefab;
     public Word wordPrefab;
     public Transform thoughtsDragParent;
@@ -28,39 +27,16 @@ public class QuestionsManager : MonoBehaviour
         instance = this;
     }
 
-    void Start()
-    {
-        LoadAllQuestions();
-        LoadAllMentalClutters();
-        LoadAllAnswerSlots();
-
-        var question = StartNewQuestion();
-        StartThinking(question);
-    }
-
-    void Update()
-    {
-
-    }
-
     public QuestionData StartNewQuestion()
     {
         var index = Random.Range(0, allQuestions.Count);
         var question = allQuestions[index];
-
-        // Actual question
-        // questionDialogBox.GetComponentInChildren<Text>().text = question.question;
-        // questionDialogBox.SetActive(true);
 
         return question;
     }
 
     public void StartThinking(QuestionData question)
     {
-        // Prepating the UI
-        // questionDialogBox.SetActive(false);
-        // thinkingBubble.SetActive(true);
-
         // Answer slots
         var answerSlotsData = new List<AnswerSlotData>(allAnswerSlots);
         var wordClassesCopy = new List<WordClass>(wordClasses);
@@ -148,6 +124,13 @@ public class QuestionsManager : MonoBehaviour
             var newWord = Instantiate(mentalClutter, thoughts.transform.position /*RandomPositionWithinThoughts()*/, Quaternion.identity, thoughts.transform);
             newWord.transform.SetAsLastSibling();
         }
+    }
+
+    public void LoadAllAssets()
+    {
+        LoadAllQuestions();
+        LoadAllMentalClutters();
+        LoadAllAnswerSlots();
     }
 
 	void LoadAllQuestions()
