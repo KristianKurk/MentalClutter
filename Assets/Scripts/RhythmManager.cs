@@ -15,6 +15,9 @@ public class RhythmManager : MonoBehaviour
     public int currentWordIndex = 0;
     public int currentDifficulty; //to be implemented
 
+    public int[] beatToDrop;
+    public int currentBeat;
+
     private void Awake()
     {
         instance = this;
@@ -29,21 +32,27 @@ public class RhythmManager : MonoBehaviour
     {
         currentSentence = sentence.Split(' ');
         currentWordIndex = 0;
+        currentBeat = 0;
     }
 
     public void NextBeat()
     {
+        currentBeat++;
+
         if (currentWordIndex < currentSentence.Length)
         {
-            //Randomly select a shute down which the tile will fall
-            int randomShuteIndex = Random.Range(0, shutes.Length);
-            GameObject randomShute = shutes[randomShuteIndex];
+            if (currentBeat == beatToDrop[currentWordIndex])
+            {
+                //Randomly select a shute down which the tile will fall
+                int randomShuteIndex = Random.Range(0, shutes.Length);
+                GameObject randomShute = shutes[randomShuteIndex];
 
-            GameObject newTile = Instantiate(tilePrefab, randomShute.transform);
-            Debug.Log(currentSentence[currentWordIndex]);
-            newTile.GetComponentInChildren<Text>().text = currentSentence[currentWordIndex];
-            newTile.GetComponent<TileFall>().keyCode = keyCodes[randomShuteIndex];
-            currentWordIndex++;
+                GameObject newTile = Instantiate(tilePrefab, randomShute.transform);
+                Debug.Log(currentSentence[currentWordIndex]);
+                newTile.GetComponentInChildren<Text>().text = currentSentence[currentWordIndex];
+                newTile.GetComponent<TileFall>().keyCode = keyCodes[randomShuteIndex];
+                currentWordIndex++;
+            }
         }
     }
 }
