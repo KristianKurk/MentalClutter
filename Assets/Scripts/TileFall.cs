@@ -20,7 +20,7 @@ public class TileFall : MonoBehaviour
     void Start()
     {
         startPoint = new Vector2(0, ySpawn);
-        endPoint = new Vector2(0, yEnd);
+        endPoint = new Vector2(0, targetCenter);
         difference = endPoint - startPoint;
         transform.localPosition = startPoint;
     }
@@ -42,8 +42,17 @@ public class TileFall : MonoBehaviour
         }
         else
         {
-            ScoreManager.instance.IncrementFailures();
-            Destroy(gameObject);
+            if (Mathf.Abs(transform.localPosition.y - yEnd) > 10)
+            {
+                timer += Time.deltaTime;
+                percent = timer / secondsToFall;
+                transform.localPosition = startPoint + difference * percent;
+            }
+            else
+            {
+                ScoreManager.instance.IncrementFailures();
+                Destroy(gameObject);
+            }
         }
     }
 
