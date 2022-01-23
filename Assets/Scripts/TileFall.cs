@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TileFall : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class TileFall : MonoBehaviour
     public int yEnd = -353;
     public int targetCenter = -280;
     public int targetHeight = 100;
+    public int beatMargin = 6;
     public float secondsToFall;
     public KeyCode keyCode;
 
@@ -16,6 +18,8 @@ public class TileFall : MonoBehaviour
     private Vector2 startPoint;
     private Vector2 endPoint;
     private Vector2 difference;
+
+    public int beatToHit;
 
     void Start()
     {
@@ -26,19 +30,25 @@ public class TileFall : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (timer <= secondsToFall)
         {
-            timer += Time.fixedDeltaTime;
+            timer += Time.deltaTime;
             percent = timer / secondsToFall;
             transform.localPosition = startPoint + difference * percent;
 
-            if (Input.GetKeyDown(keyCode) && isInTargetZone())
+            GetComponent<Image>().color = Color.white;
+            if (Mathf.Abs(MusicManager.instance.songPositionInBeats - beatToHit) < beatMargin)
             {
-                ScoreManager.instance.IncrementSuccesses();
-                Destroy(gameObject);
+                GetComponent<Image>().color = Color.blue;
+                if (Input.GetKeyDown(keyCode))
+                {
+                    ScoreManager.instance.IncrementSuccesses();
+                    Destroy(gameObject);
+                }
             }
+
         }
         else
         {
@@ -54,10 +64,5 @@ public class TileFall : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-    }
-
-    private bool isInTargetZone()
-    {
-        return (Mathf.Abs(transform.localPosition.y - targetCenter) < targetHeight);
     }
 }

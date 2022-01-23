@@ -157,22 +157,22 @@ public class ThinkingManager : MonoBehaviour
 
 	void LoadAllQuestions()
 	{
-		var guids = AssetDatabase.FindAssets("", new [] {"Assets/Data Objects/Questions"});
+		/*var guids = AssetDatabase.FindAssets("", new [] {"Assets/Data Objects/Questions"});
 		var assetPathes = guids.Select(x => AssetDatabase.GUIDToAssetPath(x));
-		allQuestions = assetPathes.Select(x => AssetDatabase.LoadAssetAtPath(x, typeof(QuestionData)) as QuestionData).ToList();
+		allQuestions = assetPathes.Select(x => AssetDatabase.LoadAssetAtPath(x, typeof(QuestionData)) as QuestionData).ToList();*/
 	}
 
     void LoadAllMentalClutters()
     {
-        var guids = AssetDatabase.FindAssets("", new [] {"Assets/Prefabs/Mental Clutters"});
+      /*  var guids = AssetDatabase.FindAssets("", new [] {"Assets/Prefabs/Mental Clutters"});
 		var assetPathes = guids.Select(x => AssetDatabase.GUIDToAssetPath(x));
-		allMentalClutters = assetPathes.Select(x => AssetDatabase.LoadAssetAtPath(x, typeof(MentalClutter)) as MentalClutter).ToList();
+		allMentalClutters = assetPathes.Select(x => AssetDatabase.LoadAssetAtPath(x, typeof(MentalClutter)) as MentalClutter).ToList();*/
     }
 
     void LoadAllAnswerSlots()
     {
-        var guids = AssetDatabase.FindAssets("", new [] {"Assets/Data Objects/Answer Slots"});
+       /* var guids = AssetDatabase.FindAssets("", new [] {"Assets/Data Objects/Answer Slots"});
 		var assetPathes = guids.Select(x => AssetDatabase.GUIDToAssetPath(x));
-		allAnswerSlots = assetPathes.Select(x => AssetDatabase.LoadAssetAtPath(x, typeof(AnswerSlotData)) as AnswerSlotData).ToList();
+		allAnswerSlots = assetPathes.Select(x => AssetDatabase.LoadAssetAtPath(x, typeof(AnswerSlotData)) as AnswerSlotData).ToList();*/
     }
 }

@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     public Button[] buttons;
+    public GameObject settingsPanel;
+    public GameObject creditsPanel;
 
     public const string MAIN_SCENE = "RhythmTest";  //needs to be changed to actual scene
 
@@ -23,15 +25,15 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(MAIN_SCENE);
     }
 
-    public void Settings() { 
-    
+    public void Settings() {
+        settingsPanel.SetActive(!settingsPanel.activeInHierarchy);
     }
 
-    public void Credits() { 
-    
+    public void Credits() {
+        creditsPanel.SetActive(!creditsPanel.activeInHierarchy);
     }
 
-    public void Exit() { 
-        
+    public void Exit() {
+        Application.Quit();
     }
 }
