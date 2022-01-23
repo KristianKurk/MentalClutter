@@ -4,18 +4,25 @@ using UnityEngine.EventSystems;
 public class Thought : EventTrigger
 {
     // Dragging system
-    protected bool dragging;
+    protected bool dragging, disabled;
     protected Vector2 lastPosition, mouseDelta = Vector2.zero;
 
     // Velocity system
     protected GameObject thoughts;
     protected Vector2 velocity, newVelocity;
     protected int lastBoundCrossed;
-    protected float maxSpeed = 75f, minSpeed = 100f, minVelocityChangeCooldown = 4f, maxVelocityChangeCooldown = 6f, velocityChangeCooldown;
+    protected float minSpeed, maxSpeed, explosionSpeed, minVelocityChangeCooldown, maxVelocityChangeCooldown, velocityChangeCooldown;
     protected bool justChangedVelocity;
 
     protected virtual void Start()
     {
+        minSpeed = QuestionsManager.instance.thoughtsMinSpeed;
+        maxSpeed = QuestionsManager.instance.thoughtsMaxSpeed;
+        explosionSpeed = QuestionsManager.instance.thoughtsExplosionSpeed;
+        maxVelocityChangeCooldown = QuestionsManager.instance.minVelocityCooldown;
+        minVelocityChangeCooldown = QuestionsManager.instance.maxVelocityCooldown;
+
+        velocity = RandomVelocity().normalized * explosionSpeed;
         newVelocity = RandomVelocity();
         velocityChangeCooldown = RandomVelocityChangeCooldown();
         thoughts = QuestionsManager.instance.thoughts;
@@ -23,6 +30,8 @@ public class Thought : EventTrigger
 
     protected virtual void Update() 
     {
+        if(disabled) return;
+
         if (dragging) 
             transform.position = new Vector2(Input.mousePosition.x + mouseDelta.x, Input.mousePosition.y + mouseDelta.y);
         else
@@ -33,6 +42,8 @@ public class Thought : EventTrigger
 
     public override void OnPointerDown(PointerEventData eventData) 
     {
+        if(disabled) return;
+
         dragging = true;
         mouseDelta = transform.position - Input.mousePosition;
         transform.SetParent(QuestionsManager.instance.thoughtsDragParent);

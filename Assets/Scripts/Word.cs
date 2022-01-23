@@ -1,11 +1,14 @@
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class Word : Thought
 {
-    string word;
-    WordClass wordClass;
+    public string word;
+    public WordClass wordClass;
+    public int value;
+
     Text text;
 
     protected override void Start()
@@ -18,42 +21,32 @@ public class Word : Thought
 
     public override void OnPointerUp(PointerEventData eventData) 
     {
+        if(disabled) return;
+
         dragging = false;
         var results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, results);
 
-        var blank = results.Find(x => x.gameObject.GetComponent<Blank>()).gameObject?.GetComponent<Blank>();
-        if(blank)
+        var answerSlot = results.Find(x => x.gameObject.GetComponentInParent<AnswerSlot>()).gameObject?.GetComponentInParent<AnswerSlot>();
+        if(answerSlot)
         {
-            if(blank.WordClass == wordClass)
+            if(answerSlot.wordClass == wordClass && !answerSlot.disabled)
             {
-                blank.Word = word;
-                Destroy(gameObject);
+                disabled = true;
+                answerSlot.value = value;
+                answerSlot.disabled = true;
+                transform.SetParent(answerSlot.transform);
+                transform.SetAsLastSibling();
+                transform.position = answerSlot.transform.position;
             }
             else
             {
-                // TODO Lower the player's health
                 ReturnToPosition();
             }
         }
         else
         {
             ReturnToPosition();
-        }
-    }
-
-    public string WordValue
-    {
-        set { word = value; }
-    }
-
-    public WordClass WordClass
-    {
-        get { return wordClass; }
-        set
-        {
-            wordClass = value;
-            GetComponent<Image>().color = QuestionsManager.instance.WordClassToColor(wordClass);
         }
     }
 }

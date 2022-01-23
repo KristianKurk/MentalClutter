@@ -11,7 +11,7 @@ public class MentalClutter : Thought
         var results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, results);
 
-        var blank = results.Find(x => x.gameObject.GetComponent<Blank>()).gameObject?.GetComponent<Blank>();
+        var blank = results.Find(x => x.gameObject.GetComponent<AnswerSlot>()).gameObject?.GetComponent<AnswerSlot>();
         if(blank)
         {
             
