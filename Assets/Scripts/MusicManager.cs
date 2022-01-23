@@ -13,6 +13,7 @@ public class MusicManager : MonoBehaviour
     public float songPositionInBeats;
     public float dspSongTime;
     public AudioSource musicSource;
+    public float firstBeatOffset;
 
     //Looping Parameters
     public float beatsPerLoop;
@@ -37,7 +38,7 @@ public class MusicManager : MonoBehaviour
 
     void Update()
     {
-        songPosition = (float)(AudioSettings.dspTime - dspSongTime);
+        songPosition = (float)(AudioSettings.dspTime - dspSongTime - firstBeatOffset);
         songPositionInBeats = songPosition / secPerBeat;
 
         if (previousWholeBeat < (int)songPositionInBeats)

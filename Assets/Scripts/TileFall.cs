@@ -26,11 +26,11 @@ public class TileFall : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (timer <= secondsToFall)
         {
-            timer += Time.deltaTime;
+            timer += Time.fixedDeltaTime;
             percent = timer / secondsToFall;
             transform.localPosition = startPoint + difference * percent;
 

@@ -37,8 +37,6 @@ public class RhythmManager : MonoBehaviour
 
     public void NextBeat()
     {
-        currentBeat++;
-
         if (currentWordIndex < currentSentence.Length)
         {
             if (currentBeat == beatToDrop[currentWordIndex])
@@ -48,11 +46,12 @@ public class RhythmManager : MonoBehaviour
                 GameObject randomShute = shutes[randomShuteIndex];
 
                 GameObject newTile = Instantiate(tilePrefab, randomShute.transform);
-                Debug.Log(currentSentence[currentWordIndex]);
                 newTile.GetComponentInChildren<Text>().text = currentSentence[currentWordIndex];
                 newTile.GetComponent<TileFall>().keyCode = keyCodes[randomShuteIndex];
                 currentWordIndex++;
             }
         }
+
+        currentBeat++;
     }
 }

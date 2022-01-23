@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9.9987, y: -276.27002}
+  m_AnchoredPosition: {x: -9.998688, y: -276.27002}
   m_SizeDelta: {x: 430.61, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &233231310
@@ -388,8 +388,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 226, y: -33}
-  m_SizeDelta: {x: 344.85, y: 84.77}
+  m_AnchoredPosition: {x: 171.76, y: -18.49}
+  m_SizeDelta: {x: 236.36, y: 55.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &549097534
 MonoBehaviour:
@@ -519,7 +519,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -375, y: 89}
+  m_AnchoredPosition: {x: -522, y: 24}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &687875188
@@ -570,12 +570,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -661,11 +661,11 @@ RectTransform:
   m_Father: {fileID: 562966273}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 37.9, y: -86.52}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -0.0000076293945}
   m_SizeDelta: {x: 533.1, y: 871.09}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &789274875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1138,7 +1138,7 @@ MonoBehaviour:
   - test
   currentWordIndex: 0
   currentDifficulty: 0
-  beatToDrop: 1200000016000000180000001a0000001e00000022000000260000002a0000002c00000030000000
+  beatToDrop: 1000000016000000180000001a000000270000002200000026000000280000002a0000002e000000
   currentBeat: 0
 --- !u!114 &996378873
 MonoBehaviour:
@@ -1190,7 +1190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 196, y: 299}
+  m_AnchoredPosition: {x: 213, y: 156}
   m_SizeDelta: {x: 315.1, y: 104.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1128621473
@@ -1335,7 +1335,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 196, y: 244}
+  m_AnchoredPosition: {x: 213, y: 91.89002}
   m_SizeDelta: {x: 315.1, y: 104.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1556007060
