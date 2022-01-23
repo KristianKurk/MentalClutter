@@ -13,11 +13,9 @@ public class TileFall : MonoBehaviour
     public float secondsToFall;
     public KeyCode keyCode;
 
-    private float timer = 0f;
-    private float percent;
     private Vector2 startPoint;
     private Vector2 endPoint;
-    private Vector2 difference;
+    private float requiredSpeed;
 
     public int beatToHit;
 
@@ -25,44 +23,39 @@ public class TileFall : MonoBehaviour
     {
         startPoint = new Vector2(0, ySpawn);
         endPoint = new Vector2(0, targetCenter);
-        difference = endPoint - startPoint;
+        Debug.DrawLine(new Vector2(-1000, targetCenter), new Vector2(1000, targetCenter), Color.green, 1000, false);
+
         transform.localPosition = startPoint;
+        requiredSpeed = (startPoint.y - endPoint.y) / secondsToFall;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (timer <= secondsToFall)
+        if (transform.localPosition.y > endPoint.y + 1)
         {
-            timer += Time.deltaTime;
-            percent = timer / secondsToFall;
-            transform.localPosition = startPoint + difference * percent;
-
-            GetComponent<Image>().color = Color.white;
-            if (Mathf.Abs(MusicManager.instance.songPositionInBeats - beatToHit) < beatMargin)
-            {
-                GetComponent<Image>().color = Color.blue;
-                if (Input.GetKeyDown(keyCode))
-                {
-                    ScoreManager.instance.IncrementSuccesses();
-                    Destroy(gameObject);
-                }
-            }
-
+            transform.localPosition = Vector2.MoveTowards(transform.localPosition, endPoint, Time.fixedDeltaTime * requiredSpeed);
         }
         else
         {
-            if (Mathf.Abs(transform.localPosition.y - yEnd) > 10)
+            transform.localPosition = Vector2.MoveTowards(transform.localPosition, new Vector2(0, yEnd), Time.fixedDeltaTime * requiredSpeed);
+        }
+
+        GetComponent<Image>().color = Color.white;
+        if (Mathf.Abs(MusicManager.instance.songPositionInBeats - beatToHit) < beatMargin)
+        {
+            GetComponent<Image>().color = Color.blue;
+            if (Input.GetKeyDown(keyCode))
             {
-                timer += Time.deltaTime;
-                percent = timer / secondsToFall;
-                transform.localPosition = startPoint + difference * percent;
-            }
-            else
-            {
-                ScoreManager.instance.IncrementFailures();
+                ScoreManager.instance.IncrementSuccesses();
                 Destroy(gameObject);
             }
         }
+
+        if (transform.localPosition.y < yEnd)
+        {
+            ScoreManager.instance.IncrementFailures();
+            Destroy(gameObject);
+        }
     }
 }
+

@@ -13,7 +13,6 @@ public class MusicManager : MonoBehaviour
     public float songPositionInBeats;
     public float dspSongTime;
     public AudioSource musicSource;
-    public float firstBeatOffset;
 
     //Looping Parameters
     public float beatsPerLoop;
@@ -30,15 +29,12 @@ public class MusicManager : MonoBehaviour
 
     void Start()
     {
-        musicSource = GetComponent<AudioSource>();
-        secPerBeat = 60f / songBpm;
-        dspSongTime = (float)AudioSettings.dspTime;
-        musicSource.Play();
+        Init();
     }
 
     void Update()
     {
-        songPosition = (float)(AudioSettings.dspTime - dspSongTime - firstBeatOffset);
+        songPosition = (float)(AudioSettings.dspTime - dspSongTime);
         songPositionInBeats = songPosition / secPerBeat;
 
         if (previousWholeBeat < (int)songPositionInBeats)
@@ -53,5 +49,23 @@ public class MusicManager : MonoBehaviour
         loopPositionInBeats = songPositionInBeats - completedLoops * beatsPerLoop;
 
         loopPositionInAnalog = loopPositionInBeats / beatsPerLoop;
+    }
+
+    public void Init()
+    {
+        musicSource = GetComponent<AudioSource>();
+        secPerBeat = 60f / songBpm;
+        dspSongTime = (float)AudioSettings.dspTime;
+        musicSource.Play();
+    }
+    public void Init(AudioClip clip, float songBpm, float beatsPerLoop)
+    {
+        this.songBpm = songBpm;
+        this.beatsPerLoop = beatsPerLoop;
+        musicSource = GetComponent<AudioSource>();
+        musicSource.clip = clip;
+        secPerBeat = 60f / songBpm;
+        dspSongTime = (float)AudioSettings.dspTime;
+        musicSource.Play();
     }
 }
