@@ -17,20 +17,15 @@ MonoBehaviour:
   - Tell me... Why do you actually want this job?
   - It's an unusual request!
   answers:
-  - answer: 
-    threshold: 0
-  goodWords:
-  - {fileID: 11400000, guid: 9b71b4667b8d10d4dad72c62401a807e, type: 2}
-  - {fileID: 11400000, guid: dcc609f36b5e1834fb917f1c4629d981, type: 2}
-  - {fileID: 11400000, guid: 7c82da1d8c8377445b6ac72c698b5410, type: 2}
-  - {fileID: 11400000, guid: 6913abb8ab465034ca042b67c2eecfaa, type: 2}
-  okWords:
-  - {fileID: 11400000, guid: 7c3a2070d8f98a145b9b5300166bc8f4, type: 2}
-  - {fileID: 11400000, guid: bbf5ae3859804ed4ea3073abe47633df, type: 2}
-  - {fileID: 11400000, guid: 78aa322655ad8a849af3fc3bb829f863, type: 2}
-  - {fileID: 11400000, guid: 913d722de6afe2145abe26a787ff4469, type: 2}
-  badWords:
-  - {fileID: 11400000, guid: 4fdfe0ea3b42d884b8bf0e7a5bcbc669, type: 2}
-  - {fileID: 11400000, guid: 49841ec3b7925c345b9bdddf586d80ff, type: 2}
-  - {fileID: 11400000, guid: 6b13cead5c4f6314980be92dacd72263, type: 2}
-  - {fileID: 11400000, guid: d2466198aa511334eb9a8aad10ca1028, type: 2}
+  - answer: I need to (verb) (adverb) because I am a (adjective) (noun)
+    threshold: 4
+  - answer: The (noun) I am wants to (adverb) (verb) on a (adjective) person I knew
+    threshold: 8
+  - answer: I want to work in hell because you are (adverb) (adjective) and I must
+      (verb) the (noun) you have become
+    threshold: 666
+  wordSets:
+  - {fileID: 11400000, guid: ef34898e93146934b9b04c3bb1417dc7, type: 2}
+  - {fileID: 11400000, guid: 32423ab6dcb8cb9428497e2881d45b24, type: 2}
+  - {fileID: 11400000, guid: 5fa1097b8975c1e48b83568ba5b7c14d, type: 2}
+  - {fileID: 11400000, guid: bce4956339eb0904494b4490615e5a58, type: 2}

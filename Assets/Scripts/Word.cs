@@ -1,23 +1,11 @@
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class Word : Thought
 {
     public string word;
     public WordClass wordClass;
-    public int value;
-
-    Text text;
-
-    protected override void Start()
-    {
-        base.Start();
-        
-        text = GetComponentInChildren<Text>();
-        text.text = word;
-    }
+    public int index, value;
 
     public override void OnPointerUp(PointerEventData eventData) 
     {
@@ -27,13 +15,13 @@ public class Word : Thought
         var results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, results);
 
-        var answerSlot = results.Find(x => x.gameObject.GetComponentInParent<AnswerSlot>()).gameObject?.GetComponentInParent<AnswerSlot>();
+        var answerSlot = results.Find(x => x.gameObject.GetComponent<AnswerSlot>()).gameObject?.GetComponent<AnswerSlot>();
         if(answerSlot)
         {
-            if(answerSlot.wordClass == wordClass && !answerSlot.disabled)
+            if(answerSlot.index == index && !answerSlot.disabled)
             {
                 disabled = true;
-                answerSlot.value = value;
+                answerSlot.word = this;
                 answerSlot.disabled = true;
                 transform.SetParent(answerSlot.transform);
                 transform.SetAsLastSibling();
