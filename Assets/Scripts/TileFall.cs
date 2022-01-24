@@ -5,19 +5,16 @@ using UnityEngine.UI;
 
 public class TileFall : MonoBehaviour
 {
-    public int ySpawn = 353;
+    public int ySpawn;
     public int yEnd = -353;
     public int targetCenter = -280;
-    public int targetHeight = 100;
     public int beatMargin = 6;
     public float secondsToFall;
     public KeyCode keyCode;
 
-    private float timer = 0f;
-    private float percent;
     private Vector2 startPoint;
     private Vector2 endPoint;
-    private Vector2 difference;
+    private float requiredSpeed;
 
     public int beatToHit;
 
@@ -25,44 +22,42 @@ public class TileFall : MonoBehaviour
     {
         startPoint = new Vector2(0, ySpawn);
         endPoint = new Vector2(0, targetCenter);
-        difference = endPoint - startPoint;
+
         transform.localPosition = startPoint;
+        requiredSpeed = (startPoint.y - endPoint.y) / secondsToFall;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (timer <= secondsToFall)
+        GetComponent<Image>().color = Color.white;
+        if (Mathf.Abs(MusicManager.instance.songPositionInBeats - beatToHit) < beatMargin)
         {
-            timer += Time.deltaTime;
-            percent = timer / secondsToFall;
-            transform.localPosition = startPoint + difference * percent;
-
-            GetComponent<Image>().color = Color.white;
-            if (Mathf.Abs(MusicManager.instance.songPositionInBeats - beatToHit) < beatMargin)
+            GetComponent<Image>().color = Color.blue;
+            if (Input.GetKeyDown(keyCode))
             {
-                GetComponent<Image>().color = Color.blue;
-                if (Input.GetKeyDown(keyCode))
-                {
-                    ScoreManager.instance.IncrementSuccesses();
-                    Destroy(gameObject);
-                }
-            }
-
-        }
-        else
-        {
-            if (Mathf.Abs(transform.localPosition.y - yEnd) > 10)
-            {
-                timer += Time.deltaTime;
-                percent = timer / secondsToFall;
-                transform.localPosition = startPoint + difference * percent;
-            }
-            else
-            {
-                ScoreManager.instance.IncrementFailures();
+                ScoreManager.instance.IncrementSuccesses();
+                SFX.instance.PlayTileSuccessSFX();
                 Destroy(gameObject);
             }
         }
+
+        if (transform.localPosition.y < yEnd + 1)
+        {
+            ScoreManager.instance.IncrementFailures();
+            Destroy(gameObject);
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (transform.localPosition.y > endPoint.y + 1)
+        {
+            transform.localPosition = Vector2.MoveTowards(transform.localPosition, endPoint, Time.fixedDeltaTime * requiredSpeed);
+        }
+        else
+        {
+            transform.localPosition = Vector2.MoveTowards(transform.localPosition, new Vector2(0, yEnd), Time.fixedDeltaTime * requiredSpeed);
+        }
     }
 }
+
