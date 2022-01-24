@@ -5,12 +5,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public GameObject mainCharacter, satan, questionDialogBox, thinkingBubble, ready1Prefab, ready2Prefab, ready3Prefab, readyThinkPrefab;
+    public GameObject satan, questionDialogBox, thinkingBubble, ready1Prefab, ready2Prefab, ready3Prefab, readyThinkPrefab;
     public Transform readyDisplayPosition;
-    [Min(1f)] public float thinkingTime = 10f;
+    public float thinkingTime = 10f, animationMultiplier = 1f;
     public int numberOfOkWords = 1, numberOfBadWords = 1, goodWordValue = 1, okWordValue = 1, badWordValue = 1;
 
-    int level = 1, questionIndex, currentReadyPhase = 0;
+    int level = 0, questionIndex = 0, currentReadyPhase = 0;
     QuestionData question;
 
     void Awake()
@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        PrepareNextLevel();
+        NextLevel();
     }
 
     public void DisplayNextSentence()
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         else
         {
             questionDialogBox.GetComponent<Button>().enabled = false;
-            Instantiate(ready1Prefab, readyDisplayPosition.position, Quaternion.identity, readyDisplayPosition);
+            InstantiateReadyPhase(ready1Prefab);
         }
     }
 
@@ -55,11 +55,14 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        Instantiate(readyPrefab, readyDisplayPosition.position, Quaternion.identity, readyDisplayPosition);
+        InstantiateReadyPhase(readyPrefab);
     }
 
-    void PrepareNextLevel()
+    void NextLevel()
     {
+        level++;
+        IncreaseGamePace();
+
         // Set up
         questionIndex = 0;
         currentReadyPhase = 0;
@@ -74,12 +77,30 @@ public class GameManager : MonoBehaviour
 
     void StartThinking(QuestionData question)
     {
-        Instantiate(readyThinkPrefab, readyDisplayPosition.position, Quaternion.identity, readyDisplayPosition);
+        InstantiateReadyPhase(readyThinkPrefab);
 
         // Thinking of an appropriate answer
         satan.SetActive(false);
         questionDialogBox.SetActive(false);
         thinkingBubble.SetActive(true);
         ThinkingManager.instance.StartThinking(question);
+    }
+
+    void IncreaseGamePace()
+    {
+        thinkingTime -= 1.5f;
+        animationMultiplier += 0.1f;
+
+        ThinkingManager.instance.thoughtsMinSpeed += 25;
+        ThinkingManager.instance.thoughtsMaxSpeed += 25;
+        ThinkingManager.instance.thoughtsExplosionSpeed += 50;
+        ThinkingManager.instance.minVelocityCooldown -= 0.3f;
+        ThinkingManager.instance.maxVelocityCooldown -= 0.3f;
+    }
+
+    void InstantiateReadyPhase(GameObject readyPhase)
+    {
+        var phase = Instantiate(readyPhase, readyDisplayPosition.position, Quaternion.identity, readyDisplayPosition);
+        phase.GetComponent<Animator>().speed = animationMultiplier;
     }
 }

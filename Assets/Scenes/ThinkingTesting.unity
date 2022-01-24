@@ -195,7 +195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2b0b6318efd554ab8c798a78c2f7ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCharacter: {fileID: 1886134901}
   satan: {fileID: 1740393305}
   questionDialogBox: {fileID: 606700852}
   thinkingBubble: {fileID: 922757382}
@@ -205,12 +204,12 @@ MonoBehaviour:
   readyThinkPrefab: {fileID: 5742703442806296046, guid: 3e5f99696fa5c9f46abb75ca0562aa92, type: 3}
   readyDisplayPosition: {fileID: 1155682759}
   thinkingTime: 20
+  animationMultiplier: 2
   numberOfOkWords: 1
   numberOfBadWords: 1
   goodWordValue: 1
   okWordValue: 2
   badWordValue: 3
-  currentReadyPhase: 0
 --- !u!1 &246762133
 GameObject:
   m_ObjectHideFlags: 0

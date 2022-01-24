@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cc7f8a0c1418e54686214d2cfd5c601, type: 3}
-  m_Name: Rectangle 1
+  m_Name: Cross
   m_EditorClassIdentifier: 
   shadowSlot: {fileID: 6674638666986475700, guid: 20c07c8a37ce7414d9f86913e22803d8, type: 3}
   goodAnswerShape: {fileID: 6674638666986475700, guid: 9cc416cb99adb8f4a84f3955c9f0226c, type: 3}

@@ -16,7 +16,7 @@ public class ThinkingManager : MonoBehaviour
     public Transform[] answerSlotsPositions = new Transform[4];
 
     public int mentalClutters = 5;
-    public float thoughtsMinSpeed = 75f, thoughtsMaxSpeed = 150f, thoughtsExplosionSpeed = 500f, minVelocityCooldown = 4f, maxVelocityCooldown = 6f;
+    public float thoughtsMinSpeed = 200f, thoughtsMaxSpeed = 400f, thoughtsExplosionSpeed = 1000f, minVelocityCooldown = 4f, maxVelocityCooldown = 6f;
 
     List<WordClass> wordClasses = new List<WordClass> { WordClass.Noun, WordClass.Verb, WordClass.Adverb, WordClass.Adjective };
 
@@ -61,6 +61,7 @@ public class ThinkingManager : MonoBehaviour
         {
             var random = Random.Range(0, answerSlotsData.Count);
             var data = answerSlotsData[random];
+            answerSlotsData.Remove(data);
             var answerSlot = Instantiate(answerSlotPrefab, answerSlotsPositions[i]);
             answerSlot.data = data;
             var shape = Instantiate(data.shadowSlot, answerSlot.transform);
@@ -86,7 +87,7 @@ public class ThinkingManager : MonoBehaviour
 
             var shape = Instantiate(slot.data.goodAnswerShape, goodWord.transform);
             shape.transform.SetAsFirstSibling();
-            goodWord.word = wordData.word;
+            //goodWord.word = wordData.word;
             goodWord.value = GameManager.instance.goodWordValue;
             goodWord.wordClass = slot.wordClass;
 
@@ -104,7 +105,7 @@ public class ThinkingManager : MonoBehaviour
                 random = Random.Range(0, slot.data.okAnswersShapes.Count());
                 shape = Instantiate(slot.data.okAnswersShapes[random], okWord.transform);
                 shape.transform.SetAsFirstSibling();
-                okWord.word = wordData.word;
+                //okWord.word = wordData.word;
                 okWord.value = GameManager.instance.okWordValue;
                 okWord.wordClass = slot.wordClass;
             }
@@ -123,7 +124,7 @@ public class ThinkingManager : MonoBehaviour
                 random = Random.Range(0, slot.data.badAnswersShapes.Count());
                 shape = Instantiate(slot.data.badAnswersShapes[random], badWord.transform);
                 shape.transform.SetAsFirstSibling();
-                badWord.word = wordData.word;
+                //badWord.word = wordData.word;
                 badWord.value = GameManager.instance.badWordValue;
                 badWord.wordClass = slot.wordClass;
             }

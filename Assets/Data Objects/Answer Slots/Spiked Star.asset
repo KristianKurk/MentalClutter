@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cc7f8a0c1418e54686214d2cfd5c601, type: 3}
-  m_Name: Rectangle 2
+  m_Name: Spiked Star
   m_EditorClassIdentifier: 
-  shadowSlot: {fileID: 6674638666986475700, guid: 20c07c8a37ce7414d9f86913e22803d8, type: 3}
-  goodAnswerShape: {fileID: 6674638666986475700, guid: 9cc416cb99adb8f4a84f3955c9f0226c, type: 3}
+  shadowSlot: {fileID: 6674638666986475700, guid: ffab25b62b2ccd644932161e98f634df, type: 3}
+  goodAnswerShape: {fileID: 6674638666986475700, guid: b1ed6331ec65dd84c944b5e8f6a75c3a, type: 3}
   okAnswersShapes:
-  - {fileID: 6674638666986475700, guid: 55ebe807c8c7c764397d77dc2b1b1206, type: 3}
+  - {fileID: 6674638666986475700, guid: cd9dc48d43eee6a4c96358d909fdfaba, type: 3}
   badAnswersShapes:
-  - {fileID: 6674638666986475700, guid: 461f43c4b2b083e43b55766e3fb58381, type: 3}
+  - {fileID: 6674638666986475700, guid: efe6480195ff0684eb317094b98856f6, type: 3}
