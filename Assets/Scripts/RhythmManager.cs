@@ -20,6 +20,9 @@ public class RhythmManager : MonoBehaviour
     public float secondsToFall;
     public int currentBeat;
 
+    public AudioClip newClip;
+    public int beatOffset;
+
     private void Awake()
     {
         instance = this;
@@ -29,6 +32,8 @@ public class RhythmManager : MonoBehaviour
     {
         currentWordIndex = 0;
         beatToSpawn = new int[beatToHit.Length];
+        for (int i = 0; i < beatToHit.Length; i++)
+            beatToHit[i] += beatOffset;
         CalculateBeatsToSpawn();
     }
 
@@ -39,13 +44,18 @@ public class RhythmManager : MonoBehaviour
         currentBeat = 0;
     }
 
-    public void SetNewSong(AudioClip clip, int beatsPerMinute, int beatsPerLoop, int[] beatToHit, float secondsToFall, string sentence)
+    public void SetNewSong(AudioClip clip, int beatsPerMinute, int beatsPerLoop, int[] beatToHit, float firstBeatOffset, float secondsToFall, string sentence)
     {
         SetCurrentSentence(sentence);
-        MusicManager.instance.Init(clip, beatsPerMinute, beatsPerLoop);
+        MusicManager.instance.Init(clip, beatsPerMinute, beatsPerLoop, firstBeatOffset);
         this.beatToHit = beatToHit;
         this.secondsToFall = secondsToFall;
         CalculateBeatsToSpawn();
+    }
+
+    public void ButtonPress()
+    {
+        SetNewSong(newClip, 480, 40, new int[] { 20, 22, 24, 27, 30, 35, 40, 20 }, 0, 2, "Hello this is a test of the set new song.");
     }
 
     public void NextBeat()
@@ -60,9 +70,14 @@ public class RhythmManager : MonoBehaviour
 
                 GameObject newTile = Instantiate(tilePrefab, randomShute.transform);
                 newTile.GetComponentInChildren<Text>().text = currentSentence[currentWordIndex];
-                newTile.GetComponent<TileFall>().keyCode = keyCodes[randomShuteIndex];
-                newTile.GetComponent<TileFall>().beatToHit = beatToHit[currentWordIndex];
-                newTile.GetComponent<TileFall>().secondsToFall = this.secondsToFall;
+                TileFall tileFall = newTile.GetComponent<TileFall>();
+                tileFall.keyCode = keyCodes[randomShuteIndex];
+                tileFall.beatToHit = beatToHit[currentWordIndex];
+                tileFall.secondsToFall = this.secondsToFall;
+                tileFall.ySpawn = 353;
+                tileFall.yEnd = -353;
+                tileFall.targetCenter = -100;
+                tileFall.beatMargin = 1;
 
                 currentWordIndex++;
             }

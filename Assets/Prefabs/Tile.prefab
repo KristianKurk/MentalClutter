@@ -93,7 +93,7 @@ MonoBehaviour:
   yEnd: -353
   targetCenter: -280
   targetHeight: 100
-  beatMargin: 2
+  beatMargin: 1
   secondsToFall: 1
   keyCode: 0
   beatToHit: 0

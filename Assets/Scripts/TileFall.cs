@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 public class TileFall : MonoBehaviour
 {
-    public int ySpawn = 353;
+    public int ySpawn;
     public int yEnd = -353;
     public int targetCenter = -280;
-    public int targetHeight = 100;
     public int beatMargin = 6;
     public float secondsToFall;
     public KeyCode keyCode;
@@ -23,23 +22,13 @@ public class TileFall : MonoBehaviour
     {
         startPoint = new Vector2(0, ySpawn);
         endPoint = new Vector2(0, targetCenter);
-        Debug.DrawLine(new Vector2(-1000, targetCenter), new Vector2(1000, targetCenter), Color.green, 1000, false);
 
         transform.localPosition = startPoint;
         requiredSpeed = (startPoint.y - endPoint.y) / secondsToFall;
     }
 
-    void FixedUpdate()
+    private void Update()
     {
-        if (transform.localPosition.y > endPoint.y + 1)
-        {
-            transform.localPosition = Vector2.MoveTowards(transform.localPosition, endPoint, Time.fixedDeltaTime * requiredSpeed);
-        }
-        else
-        {
-            transform.localPosition = Vector2.MoveTowards(transform.localPosition, new Vector2(0, yEnd), Time.fixedDeltaTime * requiredSpeed);
-        }
-
         GetComponent<Image>().color = Color.white;
         if (Mathf.Abs(MusicManager.instance.songPositionInBeats - beatToHit) < beatMargin)
         {
@@ -51,10 +40,22 @@ public class TileFall : MonoBehaviour
             }
         }
 
-        if (transform.localPosition.y < yEnd)
+        if (transform.localPosition.y < yEnd + 1)
         {
             ScoreManager.instance.IncrementFailures();
             Destroy(gameObject);
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (transform.localPosition.y > endPoint.y + 1)
+        {
+            transform.localPosition = Vector2.MoveTowards(transform.localPosition, endPoint, Time.fixedDeltaTime * requiredSpeed);
+        }
+        else
+        {
+            transform.localPosition = Vector2.MoveTowards(transform.localPosition, new Vector2(0, yEnd), Time.fixedDeltaTime * requiredSpeed);
         }
     }
 }

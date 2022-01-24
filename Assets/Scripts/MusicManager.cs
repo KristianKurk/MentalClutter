@@ -12,6 +12,7 @@ public class MusicManager : MonoBehaviour
     public float songPosition;
     public float songPositionInBeats;
     public float dspSongTime;
+    public float firstBeatOffset;
     public AudioSource musicSource;
 
     //Looping Parameters
@@ -34,10 +35,10 @@ public class MusicManager : MonoBehaviour
 
     void Update()
     {
-        songPosition = (float)(AudioSettings.dspTime - dspSongTime);
+        songPosition = (float)(AudioSettings.dspTime - dspSongTime - firstBeatOffset);
         songPositionInBeats = songPosition / secPerBeat;
 
-        if (previousWholeBeat < (int)songPositionInBeats)
+        if (previousWholeBeat < (int)songPositionInBeats && songPositionInBeats > 0)
         {
             RhythmManager.instance.NextBeat();
         }
@@ -58,10 +59,11 @@ public class MusicManager : MonoBehaviour
         dspSongTime = (float)AudioSettings.dspTime;
         musicSource.Play();
     }
-    public void Init(AudioClip clip, float songBpm, float beatsPerLoop)
+    public void Init(AudioClip clip, float songBpm, float beatsPerLoop, float firstBeatOffset)
     {
         this.songBpm = songBpm;
         this.beatsPerLoop = beatsPerLoop;
+        this.firstBeatOffset = firstBeatOffset;
         musicSource = GetComponent<AudioSource>();
         musicSource.clip = clip;
         secPerBeat = 60f / songBpm;
