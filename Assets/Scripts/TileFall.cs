@@ -36,6 +36,7 @@ public class TileFall : MonoBehaviour
             if (Input.GetKeyDown(keyCode))
             {
                 ScoreManager.instance.IncrementSuccesses();
+                SFX.instance.PlayTileSuccessSFX();
                 Destroy(gameObject);
             }
         }
