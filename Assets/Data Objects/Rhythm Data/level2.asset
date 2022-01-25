@@ -13,27 +13,101 @@ MonoBehaviour:
   m_Name: level2
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 3f3bf0c58eef155438dc072210308c7f, type: 3}
-  beatsPerMinute: 480
+  beatsPerMinute: 240
   beatsPerLoop: 40
-  firstBeatOffset: 20
-  beatOffset: 0
+  firstBeatOffset: 0
+  beatOffset: 6
   secondsToFall: 1
   sequence:
+  - beat: 0
+    word: Prior
+  - beat: 2
+    word: to
+  - beat: 4
+    word: working
+  - beat: 6
+    word: here
+  - beat: 8
+    word: I
   - beat: 10
-    word: this
+    word: spent
   - beat: 12
-    word: is
+    word: 10
   - beat: 14
-    word: 
+    word: years
+  - beat: 15
+    word: at
   - beat: 16
-    word: test
-  - beat: 17
-    word: nice!
-  - beat: 17
-    word: nice!
-  - beat: 17
-    word: nice!
-  - beat: 17
-    word: nice!
-  - beat: 17
-    word: nice!
+    word: '*noun*'
+  - beat: 20
+    word: My
+  - beat: 22
+    word: job
+  - beat: 23
+    word: was
+  - beat: 24
+    word: to
+  - beat: 26
+    word: explain
+  - beat: 28
+    word: 'to '
+  - beat: 30
+    word: customers
+  - beat: 34
+    word: why
+  - beat: 35
+    word: running
+  - beat: 36
+    word: over
+  - beat: 38
+    word: their
+  - beat: 39
+    word: phone
+  - beat: 40
+    word: with
+  - beat: 42
+    word: a
+  - beat: 43
+    word: car
+  - beat: 44
+    word: isn't
+  - beat: 45
+    word: covered
+  - beat: 46
+    word: in
+  - beat: 48
+    word: the
+  - beat: 49
+    word: insurance
+  - beat: 50
+    word: plan
+  - beat: 52
+    word: I
+  - beat: 53
+    word: enjoyed
+  - beat: 54
+    word: my
+  - beat: 56
+    word: 5 minute
+  - beat: 58
+    word: breaks
+  - beat: 60
+    word: per
+  - beat: 62
+    word: day
+  - beat: 63
+    word: where
+  - beat: 64
+    word: I
+  - beat: 66
+    word: can
+  - beat: 67
+    word: cry
+  - beat: 68
+    word: in
+  - beat: 69
+    word: the
+  - beat: 70
+    word: bathroom
+  - beat: 72
+    word: stall

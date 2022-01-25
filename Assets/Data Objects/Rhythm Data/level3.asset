@@ -13,15 +13,101 @@ MonoBehaviour:
   m_Name: level3
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 720ff367e749c90438f2081ab49dda05, type: 3}
-  beatsPerMinute: 0
+  beatsPerMinute: 240
   beatsPerLoop: 0
   firstBeatOffset: 0
-  beatOffset: 0
-  secondsToFall: 0
+  beatOffset: 10
+  secondsToFall: 1
   sequence:
   - beat: 0
-    word: 
-  - beat: 0
-    word: 
-  - beat: 0
-    word: 
+    word: my
+  - beat: 2
+    word: greateset
+  - beat: 4
+    word: strength
+  - beat: 6
+    word: is
+  - beat: 7
+    word: probably
+  - beat: 8
+    word: my
+  - beat: 9
+    word: people
+  - beat: 10
+    word: skill
+  - beat: 12
+    word: because
+  - beat: 14
+    word: my
+  - beat: 15
+    word: face
+  - beat: 16
+    word: is
+  - beat: 17
+    word: easy
+  - beat: 18
+    word: to
+  - beat: 20
+    word: read
+  - beat: 22
+    word: and
+  - beat: 24
+    word: I
+  - beat: 25
+    word: was
+  - beat: 26
+    word: told
+  - beat: 27
+    word: that
+  - beat: 28
+    word: I
+  - beat: 29
+    word: have
+  - beat: 30
+    word: a
+  - beat: 32
+    word: nice
+  - beat: 33
+    word: tie.
+  - beat: 34
+    word: My
+  - beat: 36
+    word: weakness
+  - beat: 37
+    word: is
+  - beat: 38
+    word: that
+  - beat: 39
+    word: I'm
+  - beat: 40
+    word: bad
+  - beat: 42
+    word: at
+  - beat: 43
+    word: Maths
+  - beat: 44
+    word: but
+  - beat: 46
+    word: I
+  - beat: 47
+    word: will
+  - beat: 48
+    word: try
+  - beat: 49
+    word: my
+  - beat: 50
+    word: best
+  - beat: 52
+    word: to
+  - beat: 54
+    word: not
+  - beat: 55
+    word: get
+  - beat: 56
+    word: myself
+  - beat: 58
+    word: in
+  - beat: 60
+    word: mathematical
+  - beat: 62
+    word: situations

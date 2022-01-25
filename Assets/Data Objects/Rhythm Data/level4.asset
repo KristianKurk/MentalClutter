@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c5c81c8e2a3a8e4e964772fb3db3e4b, type: 3}
+  m_Name: level4
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 7a830d1c497eccc47a80027abcd944d2, type: 3}
+  beatsPerMinute: 240
+  beatsPerLoop: 0
+  firstBeatOffset: 0
+  beatOffset: 8
+  secondsToFall: 1
+  sequence:
+  - beat: 0
+    word: Professionally
+  - beat: 1
+    word: I
+  - beat: 3
+    word: see
+  - beat: 5
+    word: my
+  - beat: 6
+    word: future
+  - beat: 7
+    word: self
+  - beat: 8
+    word: being
+  - beat: 9
+    word: promoted
+  - beat: 10
+    word: to
+  - beat: 13
+    word: positions
+  - beat: 15
+    word: with
+  - beat: 17
+    word: fancy
+  - beat: 19
+    word: job
+  - beat: 20
+    word: titles
+  - beat: 22
+    word: that
+  - beat: 23
+    word: gives
+  - beat: 24
+    word: the
+  - beat: 25
+    word: sense
+  - beat: 26
+    word: of
+  - beat: 27
+    word: high
+  - beat: 28
+    word: status
+  - beat: 29
+    word: and
+  - beat: 31
+    word: I
+  - beat: 32
+    word: can
+  - beat: 33
+    word: do
+  - beat: 35
+    word: more
+  - beat: 36
+    word: work
+  - beat: 37
+    word: for
+  - beat: 39
+    word: the
+  - beat: 40
+    word: same
+  - beat: 41
+    word: pay
+  - beat: 42
+    word: because
+  - beat: 43
+    word: I
+  - beat: 45
+    word: like
+  - beat: 47
+    word: working
+  - beat: 49
+    word: and
+  - beat: 50
+    word: the
+  - beat: 51
+    word: pursuit
+  - beat: 53
+    word: of
+  - beat: 54
+    word: capital
+  - beat: 55
+    word: has
+  - beat: 56
+    word: destroyed
+  - beat: 57
+    word: my
+  - beat: 59
+    word: life
