@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cc7f8a0c1418e54686214d2cfd5c601, type: 3}
+  m_Name: Spiked Star
+  m_EditorClassIdentifier: 
+  answerSlot: {fileID: 1512420652035764219, guid: ffab25b62b2ccd644932161e98f634df, type: 3}
+  goodWords:
+  - {fileID: -6268145969250432013, guid: b1ed6331ec65dd84c944b5e8f6a75c3a, type: 3}
+  okWords:
+  - {fileID: -2184775484832469391, guid: cd9dc48d43eee6a4c96358d909fdfaba, type: 3}
+  badWords:
+  - {fileID: 5775265401149313232, guid: efe6480195ff0684eb317094b98856f6, type: 3}

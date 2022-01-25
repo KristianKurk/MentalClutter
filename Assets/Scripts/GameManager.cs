@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,10 +10,10 @@ public class GameManager : MonoBehaviour
     public GameObject satan, questionDialogBox, thinkingBubble, ready1Prefab, ready2Prefab, ready3Prefab, readyThinkPrefab;
     public Transform readyDisplayPosition;
     public float thinkingTime = 10f, animationMultiplier = 1f;
-    public int numberOfOkWords = 1, numberOfBadWords = 1, goodWordValue = 1, okWordValue = 1, badWordValue = 1;
+    public int numberOfGoodWords = 1, numberOfOkWords = 1, numberOfBadWords = 1, goodWordValue = 1, okWordValue = 1, badWordValue = 1;
+    [HideInInspector] public Question question;
 
     int level = 0, questionIndex = 0, currentReadyPhase = 0;
-    QuestionData question;
 
     void Awake()
     {
@@ -24,13 +26,20 @@ public class GameManager : MonoBehaviour
         NextLevel();
     }
 
+    public void StartTalking(List<string> answer, int difficulty)
+    {
+        Debug.Log(string.Join(" ", answer));
+    }
+
     public void DisplayNextSentence()
     {
         if(question.question.Count > questionIndex)
+        {
             questionDialogBox.GetComponentInChildren<Text>().text = question.question[questionIndex++];
+        }
         else
         {
-            questionDialogBox.GetComponent<Button>().enabled = false;
+            questionDialogBox.GetComponentInChildren<Button>().enabled = false;
             InstantiateReadyPhase(ready1Prefab);
         }
     }
@@ -60,6 +69,7 @@ public class GameManager : MonoBehaviour
 
     void NextLevel()
     {
+        // Level increase
         level++;
         IncreaseGamePace();
 
@@ -67,7 +77,7 @@ public class GameManager : MonoBehaviour
         questionIndex = 0;
         currentReadyPhase = 0;
         satan.SetActive(true);
-        questionDialogBox.GetComponent<Button>().enabled = true;
+        questionDialogBox.GetComponentInChildren<Button>().enabled = true;
 
         // Asking the character a question
         question = ThinkingManager.instance.StartNewQuestion();
@@ -75,7 +85,7 @@ public class GameManager : MonoBehaviour
         questionDialogBox.SetActive(true);
     }
 
-    void StartThinking(QuestionData question)
+    void StartThinking(Question question)
     {
         InstantiateReadyPhase(readyThinkPrefab);
 

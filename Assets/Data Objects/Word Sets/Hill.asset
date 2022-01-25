@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cc7f8a0c1418e54686214d2cfd5c601, type: 3}
+  m_Name: Hill
+  m_EditorClassIdentifier: 
+  wordClass: 2
+  answerSlot: {fileID: 1619248166616481329, guid: c06223e5823706849b703f9b90ad4e5f, type: 3}
+  goodWords:
+  - {fileID: 1357379037947115143, guid: 73035ef1af8582d43977f51560802b65, type: 3}
+  okWords:
+  - {fileID: 5603538380959238487, guid: 608bcceec33be9145be79a136924e2c3, type: 3}
+  badWords:
+  - {fileID: -2811506142820378385, guid: 95a1865b8b4248a4a944e33bfb570896, type: 3}

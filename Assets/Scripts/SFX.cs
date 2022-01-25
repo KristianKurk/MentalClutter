@@ -17,7 +17,7 @@ public class SFX : MonoBehaviour
 
     public void PlayTileSuccessSFX()
     {
-        source.pitch = Random.Range(0f, 2f);
+        source.pitch = Random.Range(0.75f, 1.25f);
         source.clip = TileSuccessSFX;
         source.Play();
     }

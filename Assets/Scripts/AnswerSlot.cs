@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class AnswerSlot : MonoBehaviour
 {
-    public AnswerSlotData data;
-    public WordClass wordClass;
-    public int value;
-    public bool disabled;
+    [HideInInspector] public Word word;
+    [HideInInspector] public int index;
+    [HideInInspector] public bool disabled;
 }
