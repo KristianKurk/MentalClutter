@@ -28,13 +28,10 @@ public class MusicManager : MonoBehaviour
         instance = this;
     }
 
-    void Start()
-    {
-        Init();
-    }
-
     void Update()
     {
+        if(!GameManager.instance.rythmCanvas.activeSelf) return;
+
         songPosition = (float)(AudioSettings.dspTime - dspSongTime - firstBeatOffset);
         songPositionInBeats = songPosition / secPerBeat;
 

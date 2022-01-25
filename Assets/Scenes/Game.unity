@@ -335,7 +335,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8809030244263837781, guid: 07df78d517486664db58765f0db0b82d, type: 3}
       propertyPath: m_SortingOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8809030244263837783, guid: 07df78d517486664db58765f0db0b82d, type: 3}
       propertyPath: m_Name
@@ -1085,7 +1085,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &411158360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1239,6 +1239,7 @@ MonoBehaviour:
   allMentalClutters:
   - {fileID: 5335560084699569258, guid: 0ad686a60f9041d488d2b62950a23c90, type: 3}
   - {fileID: 5335560084699569258, guid: c953a0ee8bf1898459c2e061aff71c7f, type: 3}
+  terribleWords: []
 --- !u!4 &797677120
 Transform:
   m_ObjectHideFlags: 0
@@ -1540,11 +1541,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 944127395}
+  - component: {fileID: 944127397}
   - component: {fileID: 944127394}
   - component: {fileID: 944127393}
   - component: {fileID: 944127391}
   - component: {fileID: 944127392}
-  - component: {fileID: 944127397}
   - component: {fileID: 944127396}
   m_Layer: 0
   m_Name: Game Manager
@@ -1770,6 +1771,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2b0b6318efd554ab8c798a78c2f7ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interviewCanvas: {fileID: 269017431}
+  rythmCanvas: {fileID: 411158359}
   satan: {fileID: 141097353}
   questionDialogBox: {fileID: 304458146}
   thinkingBubble: {fileID: 397370173}
@@ -2476,8 +2479,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908458817}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.6062, y: 1.0208, z: 0}
-  m_LocalScale: {x: 1.8587784, y: 1.6161138, z: 1.529164}
+  m_LocalPosition: {x: -0.8714, y: 1.0208, z: 0}
+  m_LocalScale: {x: 1.8176994, y: 1.6161138, z: 1.529164}
   m_Children: []
   m_Father: {fileID: 942745830}
   m_RootOrder: 0
@@ -2765,7 +2768,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 944127397}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: DisplayNextSentence
         m_Mode: 1

@@ -127,12 +127,13 @@ public class ThinkingManager : MonoBehaviour
 
     void SendAnswer()
     {
-        var noun = answerSlots.Find(x => x.word.wordClass == WordClass.Noun);
-        var verb = answerSlots.Find(x => x.word.wordClass == WordClass.Verb);
-        var adverb = answerSlots.Find(x => x.word.wordClass == WordClass.Adverb);
-        var adjective = answerSlots.Find(x => x.word.wordClass == WordClass.Adjective);
+        var noun = answerSlots.Find(x => x.word.wordClass == WordClass.Noun)?.word;
+        var verb = answerSlots.Find(x => x.word.wordClass == WordClass.Verb)?.word;
+        var adverb = answerSlots.Find(x => x.word.wordClass == WordClass.Adverb)?.word;
+        var adjective = answerSlots.Find(x => x.word.wordClass == WordClass.Adjective)?.word;
 
-        //RhythmManager.instance.SetNewSong()
+        GameManager.instance.StartTalking();
+        RhythmManager.instance.SetNewSong(GameManager.instance.level, noun, verb, adjective, adverb);
         ResetParameters();
     }
 
