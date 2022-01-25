@@ -14,7 +14,7 @@ public class RhythmData : ScriptableObject
     public AudioClip clip;
     public int beatsPerMinute;
     public int beatsPerLoop;
-    public int firstBeatOffset;
+    public float firstBeatOffset;
     public int beatOffset;
     public float secondsToFall;
     public Sequence[] sequence;

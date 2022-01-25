@@ -16,6 +16,7 @@ public class RhythmManager : MonoBehaviour
     public RhythmData[] rhythms;
     public int currentRhythm;
 
+    public int[] beatToHit;
     public int[] beatToSpawn;
     public int currentBeat;
 
@@ -35,8 +36,9 @@ public class RhythmManager : MonoBehaviour
         currentWordIndex = 0;
         currentBeat = 0;
 
+        beatToHit = new int[rhythms[currentRhythm].sequence.Length];
         for (int i = 0; i < rhythms[currentRhythm].sequence.Length; i++)
-            rhythms[currentRhythm].sequence[i].beat += rhythms[currentRhythm].beatOffset;
+            beatToHit[i] = rhythms[currentRhythm].sequence[i].beat + rhythms[currentRhythm].beatOffset;
 
         MusicManager.instance.Init(rhythms[currentRhythm].clip, rhythms[currentRhythm].beatsPerMinute, rhythms[currentRhythm].beatsPerMinute, rhythms[currentRhythm].firstBeatOffset);
         CalculateBeatsToSpawn();
@@ -64,7 +66,7 @@ public class RhythmManager : MonoBehaviour
                 newTile.GetComponentInChildren<Text>().text = this.rhythms[currentRhythm].sequence[currentWordIndex].word;
                 TileFall tileFall = newTile.GetComponent<TileFall>();
                 tileFall.keyCode = keyCodes[randomShuteIndex];
-                tileFall.beatToHit = rhythms[currentRhythm].sequence[currentWordIndex].beat;
+                tileFall.beatToHit = beatToHit[currentWordIndex];
                 tileFall.secondsToFall = this.rhythms[currentRhythm].secondsToFall;
                 tileFall.ySpawn = 353;
                 tileFall.yEnd = -353;
@@ -84,7 +86,7 @@ public class RhythmManager : MonoBehaviour
         beatToSpawn = new int[rhythms[currentRhythm].sequence.Length];
         for (int i = 0; i < rhythms[currentRhythm].sequence.Length; i++)
         {
-            beatToSpawn[i] = rhythms[currentRhythm].sequence[i].beat - (int)beatsToFall;
+            beatToSpawn[i] = beatToHit[i] - (int)beatsToFall;
         }
     }
 }

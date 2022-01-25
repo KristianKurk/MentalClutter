@@ -16,6 +16,7 @@ MonoBehaviour:
   beatsPerMinute: 480
   beatsPerLoop: 40
   firstBeatOffset: 20
+  beatOffset: 10
   secondsToFall: 2
   sequence:
   - beat: 20
