@@ -11,17 +11,13 @@ public class RhythmManager : MonoBehaviour
     public GameObject[] shutes;
     public KeyCode[] keyCodes;
 
-    public string[] currentSentence;
     public int currentWordIndex = 0;
-    public int currentDifficulty; //to be implemented
 
-    public int[] beatToHit;
+    public RhythmData[] rhythms;
+    public int currentRhythm;
+
     public int[] beatToSpawn;
-    public float secondsToFall;
     public int currentBeat;
-
-    public AudioClip newClip;
-    public int beatOffset;
 
     private void Awake()
     {
@@ -30,37 +26,29 @@ public class RhythmManager : MonoBehaviour
 
     private void Start()
     {
-        currentWordIndex = 0;
-        beatToSpawn = new int[beatToHit.Length];
-        for (int i = 0; i < beatToHit.Length; i++)
-            beatToHit[i] += beatOffset;
-        CalculateBeatsToSpawn();
+        SetNewSong(0);
     }
 
-    public void SetCurrentSentence(string sentence)
+    public void SetNewSong(int rhythmIndex)
     {
-        currentSentence = sentence.Split(' ');
+        this.currentRhythm = rhythmIndex;
         currentWordIndex = 0;
         currentBeat = 0;
-    }
 
-    public void SetNewSong(AudioClip clip, int beatsPerMinute, int beatsPerLoop, int[] beatToHit, float firstBeatOffset, float secondsToFall, string sentence)
-    {
-        SetCurrentSentence(sentence);
-        MusicManager.instance.Init(clip, beatsPerMinute, beatsPerLoop, firstBeatOffset);
-        this.beatToHit = beatToHit;
-        this.secondsToFall = secondsToFall;
+        for (int i = 0; i < rhythms[currentRhythm].beatsToHit.Length; i++)
+            rhythms[currentRhythm].beatsToHit[i] += rhythms[currentRhythm].firstBeatOffset;
+
+        MusicManager.instance.Init(rhythms[currentRhythm].clip, rhythms[currentRhythm].beatsPerMinute, rhythms[currentRhythm].beatsPerMinute, 4);
         CalculateBeatsToSpawn();
     }
 
-    public void ButtonPress()
-    {
-        SetNewSong(newClip, 480, 40, new int[] { 20, 22, 24, 27, 30, 35, 40, 20 }, 0, 2, "Hello this is a test of the set new song.");
+    public void TempGoNext() {
+        SetNewSong(currentRhythm + 1);
     }
 
     public void NextBeat()
     {
-        if (currentWordIndex < currentSentence.Length)
+        if (currentWordIndex < this.rhythms[currentRhythm].words.Length)
         {
             if (currentBeat == beatToSpawn[currentWordIndex])
             {
@@ -69,11 +57,11 @@ public class RhythmManager : MonoBehaviour
                 GameObject randomShute = shutes[randomShuteIndex];
 
                 GameObject newTile = Instantiate(tilePrefab, randomShute.transform);
-                newTile.GetComponentInChildren<Text>().text = currentSentence[currentWordIndex];
+                newTile.GetComponentInChildren<Text>().text = this.rhythms[currentRhythm].words[currentWordIndex];
                 TileFall tileFall = newTile.GetComponent<TileFall>();
                 tileFall.keyCode = keyCodes[randomShuteIndex];
-                tileFall.beatToHit = beatToHit[currentWordIndex];
-                tileFall.secondsToFall = this.secondsToFall;
+                tileFall.beatToHit = rhythms[currentRhythm].beatsToHit[currentWordIndex];
+                tileFall.secondsToFall = this.rhythms[currentRhythm].secondsToFall;
                 tileFall.ySpawn = 353;
                 tileFall.yEnd = -353;
                 tileFall.targetCenter = -100;
@@ -88,10 +76,11 @@ public class RhythmManager : MonoBehaviour
     private void CalculateBeatsToSpawn()
     {
         float beatsPerSec = MusicManager.instance.songBpm / 60;
-        float beatsToFall = secondsToFall * beatsPerSec;
-        for (int i = 0; i < beatToHit.Length; i++)
+        float beatsToFall = rhythms[currentRhythm].secondsToFall * beatsPerSec;
+        beatToSpawn = new int[rhythms[currentRhythm].beatsToHit.Length];
+        for (int i = 0; i < rhythms[currentRhythm].beatsToHit.Length; i++)
         {
-            beatToSpawn[i] = beatToHit[i] - (int)beatsToFall;
+            beatToSpawn[i] = rhythms[currentRhythm].beatsToHit[i] - (int)beatsToFall;
         }
     }
 }
