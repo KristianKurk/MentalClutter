@@ -127,20 +127,26 @@ public class ThinkingManager : MonoBehaviour
 
     void SendAnswer()
     {
-        var noun = answerSlots.Find(x => x.word.wordClass == WordClass.Noun)?.word;
-        var verb = answerSlots.Find(x => x.word.wordClass == WordClass.Verb)?.word;
-        var adverb = answerSlots.Find(x => x.word.wordClass == WordClass.Adverb)?.word;
-        var adjective = answerSlots.Find(x => x.word.wordClass == WordClass.Adjective)?.word;
+        var noun = answerSlots.Find(x => x.word?.wordClass == WordClass.Noun)?.word;
+        var verb = answerSlots.Find(x => x.word?.wordClass == WordClass.Verb)?.word;
+        var adverb = answerSlots.Find(x => x.word?.wordClass == WordClass.Adverb)?.word;
+        var adjective = answerSlots.Find(x => x.word?.wordClass == WordClass.Adjective)?.word;
 
-        GameManager.instance.StartTalking();
-        RhythmManager.instance.SetNewSong(GameManager.instance.level, noun, verb, adjective, adverb);
         ResetParameters();
+        GameManager.instance.StartTalking();
+        RhythmManager.instance.SetNewSong(GameManager.instance.level - 1, noun, verb, adjective, adverb);
     }
 
     void ResetParameters()
     {
         answerSlots = null;
         thinking = false;
+        GameManager.instance.thinkingBubble.SetActive(false);
+        var words = FindObjectsOfType<Word>();
+        foreach(var word in words)
+        {
+            Destroy(word.gameObject);
+        }
     }
 
     // void SendAnswer()

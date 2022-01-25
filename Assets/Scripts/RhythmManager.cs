@@ -27,11 +27,6 @@ public class RhythmManager : MonoBehaviour
         instance = this;
     }
 
-    private void Start()
-    {
-        SetNewSong(0);
-    }
-
     public void SetNewSong(int rhythmIndex, Word selectedNoun = null, Word selectedVerb = null, Word selectedAdjective = null, Word selectedAdverb = null)
     {
         this.currentRhythm = rhythmIndex;

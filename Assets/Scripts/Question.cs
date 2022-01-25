@@ -13,6 +13,5 @@ public class AnswerThresholdPair
 public class Question : ScriptableObject
 {
     public List<string> question;
-    public List<AnswerThresholdPair> answers = new List<AnswerThresholdPair>();
     public List<WordSet> wordSets = new List<WordSet>();
 }

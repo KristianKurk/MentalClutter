@@ -1530,6 +1530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allQuestions:
   - {fileID: 11400000, guid: 46863fce72d77d145b26a3d6448e63b2, type: 2}
+  - {fileID: 11400000, guid: e535c60ff8a41aa45ba477f22de44bcb, type: 2}
   allMentalClutters:
   - {fileID: 5335560084699569258, guid: 0ad686a60f9041d488d2b62950a23c90, type: 3}
   - {fileID: 5335560084699569258, guid: c953a0ee8bf1898459c2e061aff71c7f, type: 3}
@@ -2728,7 +2729,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 160227167}
         m_TargetAssemblyTypeName: RhythmManager, Assembly-CSharp
         m_MethodName: TempGoNext
         m_Mode: 1

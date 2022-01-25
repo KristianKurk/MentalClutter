@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,12 +23,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        NextLevel();
-    }
-
-    public void StartTalking(List<string> answer, int difficulty)
-    {
-        Debug.Log(string.Join(" ", answer));
+        StartCoroutine(NextLevel(0f));
     }
 
     public void DisplayNextSentence()
@@ -72,14 +68,17 @@ public class GameManager : MonoBehaviour
         rythmCanvas.SetActive(true);
     }
 
-    void NextLevel()
+    public IEnumerator NextLevel(float delay)
     {
+        yield return new WaitForSeconds(delay);
+
         // Level increase
         level++;
         IncreaseGamePace();
 
         // Set 
         interviewCanvas.SetActive(true);
+        rythmCanvas.SetActive(false);
         questionIndex = 0;
         currentReadyPhase = 0;
         satan.SetActive(true);
