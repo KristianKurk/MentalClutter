@@ -10,24 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c5c81c8e2a3a8e4e964772fb3db3e4b, type: 3}
-  m_Name: FirstAnswer
+  m_Name: Rhythm Data
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 2eb5d889c2f932440ac3067e877cba7f, type: 3}
-  beatsPerMinute: 480
-  beatsPerLoop: 40
-  firstBeatOffset: 20
-  beatOffset: 10
-  secondsToFall: 2
-  sequence:
-  - beat: 20
-    word: Hello
-  - beat: 24
-    word: My
-  - beat: 28
-    word: Name
-  - beat: 29
-    word: is
-  - beat: 30
-    word: Kris
-  - beat: 34
-    word: Cool!
+  clip: {fileID: 0}
+  beatsPerMinute: 0
+  beatsPerLoop: 0
+  firstBeatOffset: 0
+  beatOffset: 0
+  secondsToFall: 0
+  sequence: []

@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c5c81c8e2a3a8e4e964772fb3db3e4b, type: 3}
+  m_Name: level1
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: fc1ca452ddbf8ea49a7beb8e2c69c7c1, type: 3}
+  beatsPerMinute: 240
+  beatsPerLoop: 0
+  firstBeatOffset: 0
+  beatOffset: 10
+  secondsToFall: 1.5
+  sequence:
+  - beat: 0
+    word: I
+  - beat: 4
+    word: 'have '
+  - beat: 6
+    word: been
+  - beat: 8
+    word: a
+  - beat: 10
+    word: fan
+  - beat: 12
+    word: of
+  - beat: 16
+    word: the
+  - beat: 18
+    word: company's
+  - beat: 22
+    word: products
+  - beat: 24
+    word: and
+  - beat: 26
+    word: services
+  - beat: 30
+    word: I
+  - beat: 32
+    word: really
+  - beat: 34
+    word: appreciate
+  - beat: 36
+    word: 'the '
+  - beat: 40
+    word: way
+  - beat: 44
+    word: they
+  - beat: 46
+    word: make
+  - beat: 48
+    word: people's
+  - beat: 49
+    word: lives
+  - beat: 50
+    word: mildly
+  - beat: 52
+    word: inconvenient
+  - beat: 56
+    word: I
+  - beat: 58
+    word: want
+  - beat: 59
+    word: a
+  - beat: 60
+    word: job
+  - beat: 62
+    word: here

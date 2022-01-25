@@ -686,42 +686,13 @@ MonoBehaviour:
   - {fileID: 503588111}
   - {fileID: 80144826}
   keyCodes: 610000007300000064000000
-  currentSentence:
-  - I
-  - have
-  - been
-  - a
-  - fan
-  - of
-  - the
-  - company's
-  - products
-  - and
-  - services
-  - I
-  - really
-  - appreciate
-  - the
-  - way
-  - they
-  - make
-  - people's
-  - lives
-  - mildly
-  - inconvinient
-  - I
-  - want
-  - a
-  - job
-  - here
   currentWordIndex: 0
-  currentDifficulty: 0
-  beatToHit: 000000000400000006000000080000000a0000000c000000100000001200000016000000180000001a0000001e000000200000002200000024000000280000002c0000002e00000030000000310000003200000034000000380000003a0000003b0000003c0000003e000000
+  rhythms:
+  - {fileID: 11400000, guid: 7c934356d899375429a23756da7ba30b, type: 2}
+  - {fileID: 11400000, guid: 2bdaebb3d4c32ad4e9c00df8892aea66, type: 2}
+  currentRhythm: 0
   beatToSpawn: 
-  secondsToFall: 1
   currentBeat: 0
-  newClip: {fileID: 8300000, guid: 8822bc3277dfe3347b3132b291aa8fc5, type: 3}
-  beatOffset: 10
 --- !u!114 &539766732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,7 +719,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a47698bb734c77e4e9ad3bcf226b5f44, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
