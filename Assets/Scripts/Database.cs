@@ -7,6 +7,7 @@ public class Database : MonoBehaviour
 
     public List<Question> allQuestions;
     public List<MentalClutter> allMentalClutters;
+    public List<string> terribleWords;
 
     void Awake()
     {

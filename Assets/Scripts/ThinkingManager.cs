@@ -127,48 +127,12 @@ public class ThinkingManager : MonoBehaviour
 
     void SendAnswer()
     {
-        answerSlots = answerSlots.Where(x => x.word != null).ToList();
-        var totalScore = answerSlots.Sum(x => x.word.value);
-        totalScore += (4 - answerSlots.Count) * 5;
+        var noun = answerSlots.Find(x => x.word.wordClass == WordClass.Noun);
+        var verb = answerSlots.Find(x => x.word.wordClass == WordClass.Verb);
+        var adverb = answerSlots.Find(x => x.word.wordClass == WordClass.Adverb);
+        var adjective = answerSlots.Find(x => x.word.wordClass == WordClass.Adjective);
 
-        foreach(var answer in GameManager.instance.question.answers)
-        {
-            if(totalScore > answer.threshold) continue;
-            
-            var answerList = answer.answer.Split(' ').Select(x => x.Trim()).ToList();
-            for (int i = 0; i < answerList.Count; i++)
-            {
-                var word = answerList[i];
-                if (!word.StartsWith("(")) continue;
-
-                var wordClass = StringToWordClass(word.Substring(1, word.Length - 2));
-                var answerSlotsOfWordClass = answerSlots.Where(x => x.word.wordClass == wordClass).ToList();
-
-                if(answerSlotsOfWordClass.Count == 0)
-                {
-                    var badWords = GameManager.instance.question.wordSets.Find(x => x.wordClass == wordClass).badWords; // TODO Take from worst words new category?
-                    var random = Random.Range(0, badWords.Count);
-                    var badWord = badWords[random];
-
-                    answerList[i] = badWord.word;
-                }
-                else
-                {
-                    var random = Random.Range(0, answerSlotsOfWordClass.Count);
-                    var answerSlot = answerSlotsOfWordClass[random];
-
-                    answerSlots.Remove(answerSlot);
-                    answerList[i] = answerSlot.word.word;
-                }
-
-                if(i != 0)
-                    answerList[i] = answerList[i].ToLower();
-            }
-
-            GameManager.instance.StartTalking(answerList, totalScore); // Make a function to calculate the difficulty with the total score
-            break;
-        }
-
+        //RhythmManager.instance.SetNewSong()
         ResetParameters();
     }
 
@@ -178,20 +142,67 @@ public class ThinkingManager : MonoBehaviour
         thinking = false;
     }
 
-    WordClass StringToWordClass(string wordClassString)
-    {
-        switch(wordClassString.ToLower())
-        {
-        case "noun":
-            return WordClass.Noun;
-        case "verb":
-            return WordClass.Verb;
-        case "adverb":
-            return WordClass.Adverb;
-        case "adjective":
-            return WordClass.Adjective;
-        default:
-            return WordClass.Noun;
-        }
-    }
+    // void SendAnswer()
+    // {
+    //     answerSlots = answerSlots.Where(x => x.word != null).ToList();
+    //     var totalScore = answerSlots.Sum(x => x.word.value);
+    //     totalScore += (4 - answerSlots.Count) * 5;
+
+    //     foreach(var answer in GameManager.instance.question.answers)
+    //     {
+    //         if(totalScore > answer.threshold) continue;
+            
+    //         var answerList = answer.answer.Split(' ').Select(x => x.Trim()).ToList();
+    //         for (int i = 0; i < answerList.Count; i++)
+    //         {
+    //             var word = answerList[i];
+    //             if (!word.StartsWith("(")) continue;
+
+    //             var wordClass = StringToWordClass(word.Substring(1, word.Length - 2));
+    //             var answerSlotsOfWordClass = answerSlots.Where(x => x.word.wordClass == wordClass).ToList();
+
+    //             if(answerSlotsOfWordClass.Count == 0)
+    //             {
+    //                 var badWords = GameManager.instance.question.wordSets.Find(x => x.wordClass == wordClass).badWords; // TODO Take from worst words new category?
+    //                 var random = Random.Range(0, badWords.Count);
+    //                 var badWord = badWords[random];
+
+    //                 answerList[i] = badWord.word;
+    //             }
+    //             else
+    //             {
+    //                 var random = Random.Range(0, answerSlotsOfWordClass.Count);
+    //                 var answerSlot = answerSlotsOfWordClass[random];
+
+    //                 answerSlots.Remove(answerSlot);
+    //                 answerList[i] = answerSlot.word.word;
+    //             }
+
+    //             if(i != 0)
+    //                 answerList[i] = answerList[i].ToLower();
+    //         }
+
+    //         GameManager.instance.StartTalking(answerList, totalScore); // Make a function to calculate the difficulty with the total score
+    //         break;
+    //     }
+
+    //     ResetParameters();
+    // }
+
+    // WordClass StringToWordClass(string wordClassString)
+    // {
+    //     switch(wordClassString.ToLower())
+    //     {
+    //     case "noun":
+    //         return WordClass.Noun;
+    //     case "verb":
+    //         return WordClass.Verb;
+    //     case "adverb":
+    //         return WordClass.Adverb;
+    //     case "adjective":
+    //         return WordClass.Adjective;
+    //     default:
+    //         return WordClass.Noun;
+    //     }
+    // }
 }
