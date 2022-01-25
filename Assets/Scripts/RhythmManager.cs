@@ -36,9 +36,9 @@ public class RhythmManager : MonoBehaviour
         currentBeat = 0;
 
         for (int i = 0; i < rhythms[currentRhythm].sequence.Length; i++)
-            rhythms[currentRhythm].sequence[i].beat += rhythms[currentRhythm].firstBeatOffset;
+            rhythms[currentRhythm].sequence[i].beat += rhythms[currentRhythm].beatOffset;
 
-        MusicManager.instance.Init(rhythms[currentRhythm].clip, rhythms[currentRhythm].beatsPerMinute, rhythms[currentRhythm].beatsPerMinute, 4);
+        MusicManager.instance.Init(rhythms[currentRhythm].clip, rhythms[currentRhythm].beatsPerMinute, rhythms[currentRhythm].beatsPerMinute, rhythms[currentRhythm].firstBeatOffset);
         CalculateBeatsToSpawn();
     }
 
