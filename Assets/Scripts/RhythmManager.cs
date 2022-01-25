@@ -35,20 +35,24 @@ public class RhythmManager : MonoBehaviour
         currentWordIndex = 0;
         currentBeat = 0;
 
-        for (int i = 0; i < rhythms[currentRhythm].beatsToHit.Length; i++)
-            rhythms[currentRhythm].beatsToHit[i] += rhythms[currentRhythm].firstBeatOffset;
+        for (int i = 0; i < rhythms[currentRhythm].sequence.Length; i++)
+            rhythms[currentRhythm].sequence[i].beat += rhythms[currentRhythm].firstBeatOffset;
 
         MusicManager.instance.Init(rhythms[currentRhythm].clip, rhythms[currentRhythm].beatsPerMinute, rhythms[currentRhythm].beatsPerMinute, 4);
         CalculateBeatsToSpawn();
     }
 
     public void TempGoNext() {
-        SetNewSong(currentRhythm + 1);
+        int nextSong = currentRhythm + 1;
+        if (nextSong >= rhythms.Length)
+            nextSong = 0;
+
+        SetNewSong(nextSong);
     }
 
     public void NextBeat()
     {
-        if (currentWordIndex < this.rhythms[currentRhythm].words.Length)
+        if (currentWordIndex < this.rhythms[currentRhythm].sequence.Length)
         {
             if (currentBeat == beatToSpawn[currentWordIndex])
             {
@@ -57,10 +61,10 @@ public class RhythmManager : MonoBehaviour
                 GameObject randomShute = shutes[randomShuteIndex];
 
                 GameObject newTile = Instantiate(tilePrefab, randomShute.transform);
-                newTile.GetComponentInChildren<Text>().text = this.rhythms[currentRhythm].words[currentWordIndex];
+                newTile.GetComponentInChildren<Text>().text = this.rhythms[currentRhythm].sequence[currentWordIndex].word;
                 TileFall tileFall = newTile.GetComponent<TileFall>();
                 tileFall.keyCode = keyCodes[randomShuteIndex];
-                tileFall.beatToHit = rhythms[currentRhythm].beatsToHit[currentWordIndex];
+                tileFall.beatToHit = rhythms[currentRhythm].sequence[currentWordIndex].beat;
                 tileFall.secondsToFall = this.rhythms[currentRhythm].secondsToFall;
                 tileFall.ySpawn = 353;
                 tileFall.yEnd = -353;
@@ -77,10 +81,10 @@ public class RhythmManager : MonoBehaviour
     {
         float beatsPerSec = MusicManager.instance.songBpm / 60;
         float beatsToFall = rhythms[currentRhythm].secondsToFall * beatsPerSec;
-        beatToSpawn = new int[rhythms[currentRhythm].beatsToHit.Length];
-        for (int i = 0; i < rhythms[currentRhythm].beatsToHit.Length; i++)
+        beatToSpawn = new int[rhythms[currentRhythm].sequence.Length];
+        for (int i = 0; i < rhythms[currentRhythm].sequence.Length; i++)
         {
-            beatToSpawn[i] = rhythms[currentRhythm].beatsToHit[i] - (int)beatsToFall;
+            beatToSpawn[i] = rhythms[currentRhythm].sequence[i].beat - (int)beatsToFall;
         }
     }
 }

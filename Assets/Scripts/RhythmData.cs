@@ -1,15 +1,20 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Rhythm Data", menuName = "Rhythm Data")]
 public class RhythmData : ScriptableObject
 {
+    [Serializable]
+    public struct Sequence {
+        public int beat;
+        public string word;
+    }
     public AudioClip clip;
     public int beatsPerMinute;
     public int beatsPerLoop;
-    public int[] beatsToHit;
     public int firstBeatOffset;
     public float secondsToFall;
-    public string[] words;
+    public Sequence[] sequence;
 }

@@ -1057,7 +1057,7 @@ MonoBehaviour:
   currentWordIndex: 0
   rhythms:
   - {fileID: 11400000, guid: 7c934356d899375429a23756da7ba30b, type: 2}
-  - {fileID: 11400000, guid: 7c934356d899375429a23756da7ba30b, type: 2}
+  - {fileID: 11400000, guid: 2bdaebb3d4c32ad4e9c00df8892aea66, type: 2}
   currentRhythm: 0
   beatToSpawn: 
   currentBeat: 0

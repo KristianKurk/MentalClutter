@@ -10,23 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c5c81c8e2a3a8e4e964772fb3db3e4b, type: 3}
-  m_Name: FirstAnswer
+  m_Name: SecondAnswer
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 2eb5d889c2f932440ac3067e877cba7f, type: 3}
+  clip: {fileID: 8300000, guid: 05b73ac44162d134cb0525410562c68a, type: 3}
   beatsPerMinute: 480
   beatsPerLoop: 40
   firstBeatOffset: 20
-  secondsToFall: 2
+  secondsToFall: 1
   sequence:
-  - beat: 20
-    word: Hello
-  - beat: 24
-    word: My
-  - beat: 28
-    word: Name
-  - beat: 29
+  - beat: 10
+    word: this
+  - beat: 12
     word: is
-  - beat: 30
-    word: Kris
-  - beat: 34
-    word: Cool!
+  - beat: 14
+    word: a
+  - beat: 16
+    word: test
+  - beat: 17
+    word: nice!
