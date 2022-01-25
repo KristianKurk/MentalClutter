@@ -11,6 +11,7 @@ public class TileFall : MonoBehaviour
     public int beatMargin = 6;
     public float secondsToFall;
     public KeyCode keyCode;
+    public int points = 1;
 
     private Vector2 startPoint;
     private Vector2 endPoint;

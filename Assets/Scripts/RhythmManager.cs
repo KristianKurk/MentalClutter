@@ -20,6 +20,8 @@ public class RhythmManager : MonoBehaviour
     public int[] beatToSpawn;
     public int currentBeat;
 
+    public Word selectedNoun, selectedVerb, selectedAdjective, selectedAdverb;
+
     private void Awake()
     {
         instance = this;
@@ -30,11 +32,16 @@ public class RhythmManager : MonoBehaviour
         SetNewSong(0);
     }
 
-    public void SetNewSong(int rhythmIndex)
+    public void SetNewSong(int rhythmIndex, Word selectedNoun = null, Word selectedVerb = null, Word selectedAdjective = null, Word selectedAdverb = null)
     {
         this.currentRhythm = rhythmIndex;
         currentWordIndex = 0;
         currentBeat = 0;
+
+        this.selectedNoun = selectedNoun;
+        this.selectedVerb = selectedVerb;
+        this.selectedAdjective = selectedAdjective;
+        this.selectedAdverb = selectedAdverb;
 
         beatToHit = new int[rhythms[currentRhythm].sequence.Length];
         for (int i = 0; i < rhythms[currentRhythm].sequence.Length; i++)
@@ -44,7 +51,8 @@ public class RhythmManager : MonoBehaviour
         CalculateBeatsToSpawn();
     }
 
-    public void TempGoNext() {
+    public void TempGoNext()
+    {
         int nextSong = currentRhythm + 1;
         if (nextSong >= rhythms.Length)
             nextSong = 0;
@@ -63,8 +71,9 @@ public class RhythmManager : MonoBehaviour
                 GameObject randomShute = shutes[randomShuteIndex];
 
                 GameObject newTile = Instantiate(tilePrefab, randomShute.transform);
-                newTile.GetComponentInChildren<Text>().text = this.rhythms[currentRhythm].sequence[currentWordIndex].word;
                 TileFall tileFall = newTile.GetComponent<TileFall>();
+                tileFall.points = 1;
+                SetText(tileFall);
                 tileFall.keyCode = keyCodes[randomShuteIndex];
                 tileFall.beatToHit = beatToHit[currentWordIndex];
                 tileFall.secondsToFall = this.rhythms[currentRhythm].secondsToFall;
@@ -77,6 +86,34 @@ public class RhythmManager : MonoBehaviour
             }
         }
         currentBeat++;
+    }
+
+    private void SetText(TileFall tile)
+    {
+        string word = this.rhythms[currentRhythm].sequence[currentWordIndex].word;
+
+        if (word == "*noun*" && selectedNoun != null)
+        {
+            word = this.selectedNoun.word;
+            tile.points = selectedNoun.value;
+        }
+        else if (word == "*noun*" && selectedVerb != null)
+        {
+            word = this.selectedVerb.word;
+            tile.points = selectedVerb.value;
+        }
+        else if (word == "*noun*" && selectedAdjective != null)
+        {
+            word = this.selectedAdjective.word;
+            tile.points = selectedAdjective.value;
+        }
+        else if (word == "*noun*" && selectedAdverb != null)
+        {
+            word = this.selectedAdverb.word;
+            tile.points = selectedAdverb.value;
+        }
+
+        tile.gameObject.GetComponentInChildren<Text>().text = word;
     }
 
     private void CalculateBeatsToSpawn()
