@@ -111,8 +111,8 @@ public class GameManager : MonoBehaviour
 
     void IncreaseGamePace()
     {
-        thinkingTime -= 1.5f;
-        animationMultiplier += 0.1f;
+        thinkingTime -= thinkingTime * 0.1f;
+        animationMultiplier += animationMultiplier * 0.1f;
 
         ThinkingManager.instance.thoughtsMinSpeed += 25;
         ThinkingManager.instance.thoughtsMaxSpeed += 25;
