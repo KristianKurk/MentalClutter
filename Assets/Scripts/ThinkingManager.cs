@@ -133,8 +133,7 @@ public class ThinkingManager : MonoBehaviour
         var adjective = answerSlots.Find(x => x.word?.wordClass == WordClass.Adjective)?.word;
 
         ResetParameters();
-        GameManager.instance.StartTalking();
-        RhythmManager.instance.SetNewSong(GameManager.instance.level - 1, noun, verb, adjective, adverb);
+        GameManager.instance.StartTalking(noun, verb, adjective, adverb);
     }
 
     void ResetParameters()

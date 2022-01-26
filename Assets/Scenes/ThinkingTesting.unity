@@ -441,12 +441,16 @@ MonoBehaviour:
   animationMultiplier: 2
   level: 0
   numberOfGoodWords: 1
-  numberOfOkWords: 1
-  numberOfBadWords: 1
+  numberOfOkWords: 2
+  numberOfBadWords: 2
   goodWordValue: 1
   okWordValue: 2
   badWordValue: 3
   question: {fileID: 0}
+  noun: {fileID: 0}
+  verb: {fileID: 0}
+  adverb: {fileID: 0}
+  adjective: {fileID: 0}
 --- !u!1 &246762133
 GameObject:
   m_ObjectHideFlags: 0

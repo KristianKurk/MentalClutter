@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public float thinkingTime = 10f, animationMultiplier = 1f;
     public int level = 0, numberOfGoodWords = 1, numberOfOkWords = 1, numberOfBadWords = 1, goodWordValue = 1, okWordValue = 1, badWordValue = 1;
     [HideInInspector] public Question question;
+    [HideInInspector] public Word noun, verb, adverb, adjective;
 
     int questionIndex = 0, currentReadyPhase = 0;
 
@@ -61,11 +62,6 @@ public class GameManager : MonoBehaviour
         InstantiateReadyPhase(readyPrefab);
     }
 
-    public void StartTalking()
-    {
-        
-    }
-
     public IEnumerator NextLevel(float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -73,6 +69,12 @@ public class GameManager : MonoBehaviour
         // Level increase
         level++;
         IncreaseGamePace();
+
+        // Reset
+        noun = null;
+        verb = null;
+        adverb = null;
+        adjective = null;
 
         // Set 
         questionIndex = 0;
@@ -84,6 +86,16 @@ public class GameManager : MonoBehaviour
         question = ThinkingManager.instance.StartNewQuestion();
         questionDialogBox.GetComponentInChildren<Text>().text = question.question[questionIndex++];
         questionDialogBox.SetActive(true);
+    }
+
+    public void StartTalking(Word noun, Word verb, Word adverb, Word adjective)
+    {
+        this.noun = noun;
+        this.verb = verb;
+        this.adverb = adverb;
+        this.adjective = adjective;
+
+        // TODO Scene switching and call SetNextSong(level--)
     }
 
     void StartThinking(Question question)
