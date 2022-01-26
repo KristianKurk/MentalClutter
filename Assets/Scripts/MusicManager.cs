@@ -5,6 +5,7 @@ using UnityEngine;
 public class MusicManager : MonoBehaviour
 {
     public static MusicManager instance;
+    public bool isPlaying;
 
     //Basic Parameters
     public float songBpm;
@@ -61,6 +62,7 @@ public class MusicManager : MonoBehaviour
     }
     public void Init(AudioClip clip, float songBpm, float beatsPerLoop, float firstBeatOffset)
     {
+        isPlaying = true;
         this.songBpm = songBpm;
         this.beatsPerLoop = beatsPerLoop;
         this.firstBeatOffset = firstBeatOffset;
