@@ -914,10 +914,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2eb5d889c2f932440ac3067e877cba7f, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1017,7 +1017,7 @@ MonoBehaviour:
   songPositionInBeats: 0
   dspSongTime: 0
   firstBeatOffset: 4
-  musicSource: {fileID: 0}
+  musicSource: {fileID: 996378869}
   beatsPerLoop: 40
   completedLoops: 0
   loopPositionInBeats: 0
@@ -1056,11 +1056,16 @@ MonoBehaviour:
   keyCodes: 610000007300000064000000
   currentWordIndex: 0
   rhythms:
-  - {fileID: 11400000, guid: 7c934356d899375429a23756da7ba30b, type: 2}
+  - {fileID: 11400000, guid: 38e057767af851847989d4b5db32fe55, type: 2}
   - {fileID: 11400000, guid: 2bdaebb3d4c32ad4e9c00df8892aea66, type: 2}
   currentRhythm: 0
+  beatToHit: 
   beatToSpawn: 
   currentBeat: 0
+  selectedNoun: {fileID: 0}
+  selectedVerb: {fileID: 0}
+  selectedAdjective: {fileID: 0}
+  selectedAdverb: {fileID: 0}
 --- !u!114 &996378873
 MonoBehaviour:
   m_ObjectHideFlags: 0

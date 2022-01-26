@@ -5,7 +5,6 @@ using UnityEngine;
 public class MusicManager : MonoBehaviour
 {
     public static MusicManager instance;
-    public bool isPlaying;
 
     //Basic Parameters
     public float songBpm;
@@ -33,7 +32,7 @@ public class MusicManager : MonoBehaviour
     {
         if(!musicSource.isPlaying)
         {
-            StartCoroutine(GameManager.instance.NextLevel(2f));
+            StartCoroutine(GameManager.instance.NextLevel(0f));
         }
 
         songPosition = (float)(AudioSettings.dspTime - dspSongTime - firstBeatOffset);
@@ -62,7 +61,6 @@ public class MusicManager : MonoBehaviour
     }
     public void Init(AudioClip clip, float songBpm, float beatsPerLoop, float firstBeatOffset)
     {
-        isPlaying = true;
         this.songBpm = songBpm;
         this.beatsPerLoop = beatsPerLoop;
         this.firstBeatOffset = firstBeatOffset;

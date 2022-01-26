@@ -20,11 +20,38 @@ public class RhythmManager : MonoBehaviour
     public int[] beatToSpawn;
     public int currentBeat;
 
+    public bool areAnyGood = false;
+    public bool areAnyPressed = false;
+
     public Word selectedNoun, selectedVerb, selectedAdjective, selectedAdverb;
 
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        SetNewSong(0);
+    }
+
+    public void Update()
+    {
+        areAnyGood = false;
+        areAnyPressed = false;
+        foreach (KeyCode key in keyCodes)
+        {
+            if (Input.GetKeyDown(key))
+            {
+                areAnyPressed = true;
+            }
+        }
+    }
+
+    public void LateUpdate()
+    {
+        if (areAnyPressed && !areAnyGood)
+            ScoreManager.instance.IncrementFailures();
     }
 
     public void SetNewSong(int rhythmIndex, Word selectedNoun = null, Word selectedVerb = null, Word selectedAdjective = null, Word selectedAdverb = null)

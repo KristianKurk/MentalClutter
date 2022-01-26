@@ -36,6 +36,7 @@ public class TileFall : MonoBehaviour
             GetComponent<Image>().color = Color.blue;
             if (Input.GetKeyDown(keyCode))
             {
+                RhythmManager.instance.areAnyGood = true;
                 ScoreManager.instance.IncrementSuccesses();
                 SFX.instance.PlayTileSuccessSFX();
                 Destroy(gameObject);
