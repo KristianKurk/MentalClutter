@@ -437,12 +437,12 @@ MonoBehaviour:
   ready3Prefab: {fileID: 5742703442806296046, guid: aa7b5340ad071544487fdd81fbb59c09, type: 3}
   readyThinkPrefab: {fileID: 5742703442806296046, guid: 3e5f99696fa5c9f46abb75ca0562aa92, type: 3}
   readyDisplayPosition: {fileID: 1155682759}
-  thinkingTime: 20
-  animationMultiplier: 2
+  thinkingTime: 15
+  animationMultiplier: 1.5
   level: 0
   numberOfGoodWords: 1
-  numberOfOkWords: 2
-  numberOfBadWords: 2
+  numberOfOkWords: 1
+  numberOfBadWords: 1
   goodWordValue: 1
   okWordValue: 2
   badWordValue: 3
