@@ -28,12 +28,20 @@ public class RhythmManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        MusicManager.instance.enabled = false;
+        Invoke("StartMusic", 1.8f);
     }
 
     private void Start()
     {
+        
+    }
+
+    public void StartMusic() {
+        MusicManager.instance.enabled = true;
         SetNewSong(0);
     }
+
 
     public void Update()
     {
