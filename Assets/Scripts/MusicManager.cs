@@ -30,8 +30,6 @@ public class MusicManager : MonoBehaviour
 
     void Update()
     {
-        if(!GameManager.instance.rythmCanvas.activeSelf) return;
-
         if(!musicSource.isPlaying)
         {
             StartCoroutine(GameManager.instance.NextLevel(2f));

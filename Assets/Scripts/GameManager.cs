@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public GameObject interviewCanvas, rythmCanvas, satan, questionDialogBox, thinkingBubble, ready1Prefab, ready2Prefab, ready3Prefab, readyThinkPrefab;
+    public GameObject satan, questionDialogBox, thinkingBubble, ready1Prefab, ready2Prefab, ready3Prefab, readyThinkPrefab;
     public Transform readyDisplayPosition;
     public float thinkingTime = 10f, animationMultiplier = 1f;
     public int level = 0, numberOfGoodWords = 1, numberOfOkWords = 1, numberOfBadWords = 1, goodWordValue = 1, okWordValue = 1, badWordValue = 1;
@@ -64,8 +63,7 @@ public class GameManager : MonoBehaviour
 
     public void StartTalking()
     {
-        interviewCanvas.SetActive(false);
-        rythmCanvas.SetActive(true);
+        
     }
 
     public IEnumerator NextLevel(float delay)
@@ -77,8 +75,6 @@ public class GameManager : MonoBehaviour
         IncreaseGamePace();
 
         // Set 
-        interviewCanvas.SetActive(true);
-        rythmCanvas.SetActive(false);
         questionIndex = 0;
         currentReadyPhase = 0;
         satan.SetActive(true);

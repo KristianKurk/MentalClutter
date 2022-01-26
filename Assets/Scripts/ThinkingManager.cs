@@ -141,12 +141,6 @@ public class ThinkingManager : MonoBehaviour
     {
         answerSlots = null;
         thinking = false;
-        GameManager.instance.thinkingBubble.SetActive(false);
-        var words = FindObjectsOfType<Word>();
-        foreach(var word in words)
-        {
-            Destroy(word.gameObject);
-        }
     }
 
     // void SendAnswer()
