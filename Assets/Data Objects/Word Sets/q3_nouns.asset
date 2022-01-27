@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cc7f8a0c1418e54686214d2cfd5c601, type: 3}
-  m_Name: Cross
+  m_Name: q3_nouns
   m_EditorClassIdentifier: 
-  wordClass: 1
-  answerSlot: {fileID: 6058644807684766307, guid: 20c07c8a37ce7414d9f86913e22803d8, type: 3}
+  wordClass: 0
+  answerSlot: {fileID: 6058644807684766307, guid: 6d9b812c80136cb4ba95f4b217c5bb81, type: 3}
   goodWords:
-  - {fileID: 137784806422767381, guid: 9cc416cb99adb8f4a84f3955c9f0226c, type: 3}
+  - {fileID: -8289064865266649908, guid: cfd0be7f6c162bc4ca4b846a99f61c93, type: 3}
   okWords:
-  - {fileID: -1085007057799588235, guid: 55ebe807c8c7c764397d77dc2b1b1206, type: 3}
+  - {fileID: -8289064865266649908, guid: 36ecbaf6506b219489d33524631581ea, type: 3}
   badWords:
-  - {fileID: -8289064865266649908, guid: 461f43c4b2b083e43b55766e3fb58381, type: 3}
+  - {fileID: -8289064865266649908, guid: 0fd602ad1c625a041a3604d8e689629e, type: 3}

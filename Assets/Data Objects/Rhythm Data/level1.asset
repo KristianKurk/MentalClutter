@@ -28,7 +28,7 @@ MonoBehaviour:
   - beat: 8
     word: a
   - beat: 10
-    word: fan
+    word: '*fan*'
   - beat: 12
     word: of
   - beat: 16
@@ -46,7 +46,7 @@ MonoBehaviour:
   - beat: 32
     word: really
   - beat: 34
-    word: appreciate
+    word: '*verb*'
   - beat: 36
     word: 'the '
   - beat: 40

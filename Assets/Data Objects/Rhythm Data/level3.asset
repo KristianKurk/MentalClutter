@@ -84,7 +84,7 @@ MonoBehaviour:
   - beat: 42
     word: at
   - beat: 43
-    word: Maths
+    word: '*noun*'
   - beat: 44
     word: but
   - beat: 46
@@ -108,6 +108,6 @@ MonoBehaviour:
   - beat: 58
     word: in
   - beat: 60
-    word: mathematical
+    word: '*noun*'
   - beat: 62
     word: situations

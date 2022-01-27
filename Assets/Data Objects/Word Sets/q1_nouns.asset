@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cc7f8a0c1418e54686214d2cfd5c601, type: 3}
-  m_Name: Spiked Star
+  m_Name: q1_nouns
   m_EditorClassIdentifier: 
-  answerSlot: {fileID: 1512420652035764219, guid: ffab25b62b2ccd644932161e98f634df, type: 3}
+  wordClass: 0
+  answerSlot: {fileID: 6058644807684766307, guid: 67eb8a8dd0f865c45906352e616239ef, type: 3}
   goodWords:
-  - {fileID: -6268145969250432013, guid: b1ed6331ec65dd84c944b5e8f6a75c3a, type: 3}
+  - {fileID: -8289064865266649908, guid: c9858b20c6537144e8c0515d26e2a05e, type: 3}
   okWords:
-  - {fileID: -2184775484832469391, guid: cd9dc48d43eee6a4c96358d909fdfaba, type: 3}
+  - {fileID: -8289064865266649908, guid: 87cab9b4695c7ff4a955a739d888b7ca, type: 3}
   badWords:
-  - {fileID: 5775265401149313232, guid: efe6480195ff0684eb317094b98856f6, type: 3}
+  - {fileID: -8289064865266649908, guid: b80bc21fd1897d742888e9ffd79ee068, type: 3}
