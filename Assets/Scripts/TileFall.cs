@@ -32,7 +32,7 @@ public class TileFall : MonoBehaviour
     private void Update()
     {
         GetComponent<Image>().color = Color.white;
-        if (Mathf.Abs(MusicManager.instance.songPositionInBeats - beatToHit) < beatMargin)
+        if (Mathf.Abs(MusicManager.instance.songPositionInBeats - beatToHit) < beatMargin + 0.5f)
         {
             GetComponent<Image>().color = Color.blue;
             if (Input.GetKeyDown(keyCode))

@@ -127,7 +127,7 @@ public class RhythmManager : MonoBehaviour
                 tileFall.ySpawn = 353;
                 tileFall.yEnd = -353;
                 tileFall.targetCenter = -100;
-                tileFall.beatMargin = 1;
+                tileFall.beatMargin = 0;
 
                 currentWordIndex++;
             }
