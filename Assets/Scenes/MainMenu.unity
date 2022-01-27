@@ -461,6 +461,7 @@ GameObject:
   - component: {fileID: 577376019}
   - component: {fileID: 577376018}
   - component: {fileID: 577376020}
+  - component: {fileID: 577376021}
   m_Layer: 5
   m_Name: NewGame
   m_TagString: Untagged
@@ -572,7 +573,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 577376018}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 577376021}
+        m_TargetAssemblyTypeName: SceneSwitcher, Assembly-CSharp
+        m_MethodName: PlayGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &577376021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577376016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8589246fa6403b41a457f2e3729c07b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneBuildIndex: 1
 --- !u!1 &618223926
 GameObject:
   m_ObjectHideFlags: 0
