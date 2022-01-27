@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &21206230
+--- !u!1 &131090898
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,38 +131,150 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 21206233}
-  - component: {fileID: 21206232}
-  - component: {fileID: 21206231}
+  - component: {fileID: 131090899}
+  - component: {fileID: 131090900}
   m_Layer: 0
-  m_Name: SFX Player
+  m_Name: Thinking Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &21206231
+--- !u!4 &131090899
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131090898}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &131090900
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 21206230}
+  m_GameObject: {fileID: 131090898}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82a144880969dec42a1361545c0fa682, type: 3}
+  m_Script: {fileID: 11500000, guid: 478079b3acd475846822982370ee5bd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TileSuccessSFX: {fileID: 8300000, guid: 727214a4d0050bd4497faf022b6712cb, type: 3}
-  HitFailSFX: {fileID: 0}
-  missedNoteSounds: []
---- !u!82 &21206232
+  thoughts: {fileID: 1967982611}
+  satan: {fileID: 8809030244141484225}
+  questionDialogBox: {fileID: 606700852}
+  thinkingBubbleMask: {fileID: 922757382}
+  ready1Prefab: {fileID: 5742703442806296046, guid: 09d21c0a70bd9c940864fe5123b0f962, type: 3}
+  ready2Prefab: {fileID: 5742703442806296046, guid: 5f5c4e6b5f1b4b74eb3fd4cdc08e9475, type: 3}
+  ready3Prefab: {fileID: 5742703442806296046, guid: aa7b5340ad071544487fdd81fbb59c09, type: 3}
+  readyThinkPrefab: {fileID: 5742703442806296046, guid: 3e5f99696fa5c9f46abb75ca0562aa92, type: 3}
+  clockFill: {fileID: 2097477658}
+  thoughtsDragParent: {fileID: 1850504149}
+  readyDisplayPosition: {fileID: 1155682759}
+  answerSlotsPositions:
+  - {fileID: 654110201}
+  - {fileID: 246762134}
+  - {fileID: 1481811162}
+  - {fileID: 1603552571}
+  mentalClutters: 5
+  thinkingTime: 15
+  animationMultiplier: 1.5
+  thoughtsMinSpeed: 200
+  thoughtsMaxSpeed: 400
+  thoughtsExplosionSpeed: 1000
+  minVelocityCooldown: 4
+  maxVelocityCooldown: 6
+  answerSlotsSpeed: 200
+--- !u!1 &160227161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 160227162}
+  - component: {fileID: 160227164}
+  - component: {fileID: 160227163}
+  - component: {fileID: 160227166}
+  - component: {fileID: 160227165}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &160227162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160227161}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &160227163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160227161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6c40f05261485749af80e079859ef52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allQuestions:
+  - {fileID: 11400000, guid: 46863fce72d77d145b26a3d6448e63b2, type: 2}
+  - {fileID: 11400000, guid: e535c60ff8a41aa45ba477f22de44bcb, type: 2}
+  allMentalClutters:
+  - {fileID: 5335560084699569258, guid: 0ad686a60f9041d488d2b62950a23c90, type: 3}
+  - {fileID: 5335560084699569258, guid: c953a0ee8bf1898459c2e061aff71c7f, type: 3}
+  terribleWords: []
+--- !u!114 &160227164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160227161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac2b0b6318efd554ab8c798a78c2f7ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  numberOfGoodWords: 1
+  numberOfOkWords: 1
+  numberOfBadWords: 1
+  goodWordValue: 1
+  okWordValue: 2
+  badWordValue: 3
+  noun: {fileID: 0}
+  verb: {fileID: 0}
+  adverb: {fileID: 0}
+  adjective: {fileID: 0}
+  question: {fileID: 0}
+--- !u!82 &160227165
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 21206230}
+  m_GameObject: {fileID: 160227161}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -252,121 +364,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!4 &21206233
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 21206230}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.066881, y: -0.99519694, z: 69.21968}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &131090898
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 131090899}
-  - component: {fileID: 131090900}
-  m_Layer: 0
-  m_Name: Thinking Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &131090899
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131090898}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &131090900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131090898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 478079b3acd475846822982370ee5bd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thoughts: {fileID: 1967982611}
-  satan: {fileID: 8809030244141484225}
-  questionDialogBox: {fileID: 606700852}
-  thinkingBubbleMask: {fileID: 922757382}
-  ready1Prefab: {fileID: 5742703442806296046, guid: 09d21c0a70bd9c940864fe5123b0f962, type: 3}
-  ready2Prefab: {fileID: 5742703442806296046, guid: 5f5c4e6b5f1b4b74eb3fd4cdc08e9475, type: 3}
-  ready3Prefab: {fileID: 5742703442806296046, guid: aa7b5340ad071544487fdd81fbb59c09, type: 3}
-  readyThinkPrefab: {fileID: 5742703442806296046, guid: 3e5f99696fa5c9f46abb75ca0562aa92, type: 3}
-  clockFill: {fileID: 2097477658}
-  thoughtsDragParent: {fileID: 1850504149}
-  readyDisplayPosition: {fileID: 1155682759}
-  answerSlotsPositions:
-  - {fileID: 654110201}
-  - {fileID: 246762134}
-  - {fileID: 1481811162}
-  - {fileID: 1603552571}
-  mentalClutters: 5
-  thinkingTime: 15
-  animationMultiplier: 1.5
-  thoughtsMinSpeed: 200
-  thoughtsMaxSpeed: 400
-  thoughtsExplosionSpeed: 1000
-  minVelocityCooldown: 4
-  maxVelocityCooldown: 6
-  answerSlotsSpeed: 200
---- !u!1 &160227161
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 160227162}
-  - component: {fileID: 160227164}
-  - component: {fileID: 160227163}
-  m_Layer: 0
-  m_Name: Game Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &160227162
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160227161}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &160227163
+--- !u!114 &160227166
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -375,40 +373,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 160227161}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6c40f05261485749af80e079859ef52, type: 3}
+  m_Script: {fileID: 11500000, guid: 82a144880969dec42a1361545c0fa682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allQuestions:
-  - {fileID: 11400000, guid: 46863fce72d77d145b26a3d6448e63b2, type: 2}
-  - {fileID: 11400000, guid: e535c60ff8a41aa45ba477f22de44bcb, type: 2}
-  allMentalClutters:
-  - {fileID: 5335560084699569258, guid: 0ad686a60f9041d488d2b62950a23c90, type: 3}
-  - {fileID: 5335560084699569258, guid: c953a0ee8bf1898459c2e061aff71c7f, type: 3}
-  terribleWords: []
---- !u!114 &160227164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160227161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac2b0b6318efd554ab8c798a78c2f7ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 0
-  numberOfGoodWords: 1
-  numberOfOkWords: 1
-  numberOfBadWords: 1
-  goodWordValue: 1
-  okWordValue: 2
-  badWordValue: 3
-  noun: {fileID: 0}
-  verb: {fileID: 0}
-  adverb: {fileID: 0}
-  adjective: {fileID: 0}
-  question: {fileID: 0}
+  TileSuccessSFX: {fileID: 8300000, guid: 727214a4d0050bd4497faf022b6712cb, type: 3}
+  HitFailSFX: {fileID: 0}
+  missedNoteSounds: []
 --- !u!1 &246762133
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,7 +510,7 @@ RectTransform:
   - {fileID: 1155682759}
   - {fileID: 1850504149}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1356,7 +1326,7 @@ Transform:
   - {fileID: 8809030244141484236}
   - {fileID: 2626957400318641681}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1967982611
 GameObject:
