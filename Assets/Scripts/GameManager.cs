@@ -46,8 +46,50 @@ public class GameManager : MonoBehaviour
     public void StartTalking(Question question, Word noun, Word verb, Word adverb, Word adjective)
     {
         this.question = question;
-        words = new string[] { noun.word, verb.word, adjective.word, adverb.word };
-        values = new int[] { noun.value, verb.value, adjective.value, adverb.value };
+
+        if (noun != null)
+        {
+            words[0] = noun.word;
+            values[0] = noun.value;
+        }
+        else {
+            words[0] = string.Empty;
+            values[0] = -10;
+        }
+
+        if (verb != null)
+        {
+            words[1] = verb.word;
+            values[1] = verb.value;
+        }
+        else
+        {
+            words[1] = string.Empty;
+            values[1] = -10;
+        }
+
+        if (adjective != null)
+        {
+            words[2] = adjective.word;
+            values[2] = adjective.value;
+        }
+        else
+        {
+            words[2] = string.Empty;
+            values[2] = -10;
+        }
+
+        if (adverb != null)
+        {
+            words[3] = adverb.word;
+            values[3] = adverb.value;
+        }
+        else
+        {
+            words[3] = string.Empty;
+            values[3] = -10;
+        }
+
 
         SceneManager.LoadScene("RhythmTest");
     }
