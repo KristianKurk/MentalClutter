@@ -6,7 +6,7 @@ public class DisplayNextReadyPhase : StateMachineBehaviour
 {
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        GameManager.instance.DisplayNextReadyPhase();
+        InterviewManager.instance.DisplayNextReadyPhase();
         Destroy(animator.gameObject);
     }
 }
