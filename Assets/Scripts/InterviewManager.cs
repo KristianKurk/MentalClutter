@@ -3,21 +3,23 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ThinkingManager : MonoBehaviour
+public class InterviewManager : MonoBehaviour
 {
-    public static ThinkingManager instance;
+    public static InterviewManager instance;
 
-    public GameObject thoughts;
+    public GameObject thoughts, satan, questionDialogBox, thinkingBubbleMask, ready1Prefab, ready2Prefab, ready3Prefab, readyThinkPrefab;
     public Image clockFill;
-    public Transform thoughtsDragParent;
+    public Transform thoughtsDragParent, readyDisplayPosition;
     public Transform[] answerSlotsPositions = new Transform[4];
 
     public int mentalClutters = 5;
-    public float thoughtsMinSpeed = 200f, thoughtsMaxSpeed = 400f, thoughtsExplosionSpeed = 1000f, minVelocityCooldown = 4f, maxVelocityCooldown = 6f;
+    public float thinkingTime = 10f, animationMultiplier = 1f, thoughtsMinSpeed = 200f, thoughtsMaxSpeed = 400f, thoughtsExplosionSpeed = 1000f, minVelocityCooldown = 4f, maxVelocityCooldown = 6f;
 
     bool thinking;
+    int questionIndex = 0, currentReadyPhase = 0;
     float thinkingTimer, thinkingCooldown;
     List<AnswerSlot> answerSlots;
+    Question question;
 
     void Awake()
     {
@@ -30,7 +32,7 @@ public class ThinkingManager : MonoBehaviour
         if(thinking)
         {
             thinkingTimer -= Time.deltaTime;
-            clockFill.fillAmount = Mathf.Max(0f, thinkingTimer / GameManager.instance.thinkingTime);
+            clockFill.fillAmount = Mathf.Max(0f, thinkingTimer / thinkingTime);
         }
 
         if(thinkingTimer < 0f && thinking || answerSlots != null && answerSlots.Count != 0 && answerSlots.All(x => x.disabled))
@@ -41,14 +43,19 @@ public class ThinkingManager : MonoBehaviour
 
     public Question StartNewQuestion()
     {
-        var index = Random.Range(0, Database.instance.allQuestions.Count);
-        var question = Database.instance.allQuestions[index];
-
-        return question;
+        return Database.instance.allQuestions[GameManager.instance.level - 1];
     }
 
     public void StartThinking(Question question)
     {
+        InstantiateReadyPhase(readyThinkPrefab);
+
+        // Disabling question related assets
+        satan.SetActive(false);
+        questionDialogBox.SetActive(false);
+        thinkingBubbleMask.SetActive(true);
+
+        // Instantiating the words and answer slots
         answerSlots = new List<AnswerSlot>();
         var wordSets = new List<WordSet>(question.wordSets);
         for(var i = 0; i < 4; i++)
@@ -121,10 +128,70 @@ public class ThinkingManager : MonoBehaviour
             newWord.transform.SetAsLastSibling();
         }
 
-        thinkingTimer = GameManager.instance.thinkingTime;
+        thinkingTimer = thinkingTime;
         thinking = true;
     }
 
+    public void DisplayNextQuestionPart()
+    {
+        if(question.question.Count > questionIndex)
+        {
+            questionDialogBox.GetComponentInChildren<Text>().text = question.question[questionIndex++];
+        }
+        else
+        {
+            questionDialogBox.GetComponentInChildren<Button>().enabled = false;
+            InstantiateReadyPhase(ready1Prefab);
+        }
+    }
+
+    public void DisplayNextReadyPhase()
+    {
+        currentReadyPhase++;
+
+        GameObject readyPrefab = null;
+        switch(currentReadyPhase)
+        {
+        case 1:
+            readyPrefab = ready2Prefab;
+            break;
+        case 2:
+            readyPrefab = ready3Prefab;
+            break;
+        case 3:
+            StartThinking(question);
+            return;
+        default:
+            return;
+        }
+
+        InstantiateReadyPhase(readyPrefab);
+    }
+
+    public void SetUp()
+    {
+        questionIndex = 0;
+        currentReadyPhase = 0;
+
+        // Asking the character a question
+        question = StartNewQuestion();
+        if(questionDialogBox != null)
+        {
+            questionDialogBox.GetComponentInChildren<Text>().text = question.question[questionIndex++];
+            questionDialogBox.SetActive(true);
+        }
+    }
+
+    public void IncreasePace()
+    {
+        thinkingTime -= 2;
+        animationMultiplier += animationMultiplier * 0.1f;
+        thoughtsMinSpeed += 25;
+        thoughtsMaxSpeed += 25;
+        thoughtsExplosionSpeed += 50;
+        minVelocityCooldown -= 0.3f;
+        maxVelocityCooldown -= 0.3f;
+    }
 
     void SendAnswer()
     {
@@ -134,7 +201,13 @@ public class ThinkingManager : MonoBehaviour
         var adjective = answerSlots.Find(x => x.word?.wordClass == WordClass.Adjective)?.word;
 
         ResetParameters();
-        GameManager.instance.StartTalking(noun, verb, adjective, adverb);
+        GameManager.instance.StartTalking(question, noun, verb, adjective, adverb);
+    }
+
+    void InstantiateReadyPhase(GameObject readyPhase)
+    {
+        var phase = Instantiate(readyPhase, readyDisplayPosition.position, Quaternion.identity, readyDisplayPosition);
+        phase.GetComponent<Animator>().speed = animationMultiplier;
     }
 
     void ResetParameters()

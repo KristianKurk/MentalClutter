@@ -16,16 +16,16 @@ public class Thought : EventTrigger
 
     protected virtual void Start()
     {
-        minSpeed = ThinkingManager.instance.thoughtsMinSpeed;
-        maxSpeed = ThinkingManager.instance.thoughtsMaxSpeed;
-        explosionSpeed = ThinkingManager.instance.thoughtsExplosionSpeed;
-        maxVelocityChangeCooldown = ThinkingManager.instance.minVelocityCooldown;
-        minVelocityChangeCooldown = ThinkingManager.instance.maxVelocityCooldown;
+        minSpeed = InterviewManager.instance.thoughtsMinSpeed;
+        maxSpeed = InterviewManager.instance.thoughtsMaxSpeed;
+        explosionSpeed = InterviewManager.instance.thoughtsExplosionSpeed;
+        maxVelocityChangeCooldown = InterviewManager.instance.minVelocityCooldown;
+        minVelocityChangeCooldown = InterviewManager.instance.maxVelocityCooldown;
 
         velocity = RandomVelocity().normalized * explosionSpeed;
         newVelocity = RandomVelocity();
         velocityChangeCooldown = RandomVelocityChangeCooldown();
-        thoughts = ThinkingManager.instance.thoughts;
+        thoughts = InterviewManager.instance.thoughts;
     }
 
     protected virtual void Update() 
@@ -46,7 +46,7 @@ public class Thought : EventTrigger
 
         dragging = true;
         mouseDelta = transform.position - Input.mousePosition;
-        transform.SetParent(ThinkingManager.instance.thoughtsDragParent);
+        transform.SetParent(InterviewManager.instance.thoughtsDragParent);
         lastPosition = new Vector2(transform.position.x, transform.position.y);
     }
 
