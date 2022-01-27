@@ -26,6 +26,14 @@ public class Word : Thought
                 transform.SetParent(answerSlot.transform);
                 transform.SetAsLastSibling();
                 transform.position = answerSlot.transform.position;
+
+                // Audio feedback
+                if(value == GameManager.instance.goodWordValue)
+                    SFX.instance.PlayGoodWordPlacedSFX();
+                else if(value == GameManager.instance.okWordValue)
+                    SFX.instance.PlayOkWordPlacedSFX();
+                else
+                    SFX.instance.PlayBadWordPlacedSFX();
             }
             else
             {
