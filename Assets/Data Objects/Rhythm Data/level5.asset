@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c5c81c8e2a3a8e4e964772fb3db3e4b, type: 3}
+  m_Name: level5
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 09020ba926755434c97a83ac95c7edc7, type: 3}
+  beatsPerMinute: 240
+  beatsPerLoop: 0
+  firstBeatOffset: 0
+  beatOffset: 10
+  secondsToFall: 1
+  sequence:
+  - beat: 0
+    word: Actually
+  - beat: 1
+    word: Mr.
+  - beat: 3
+    word: Beelzebud,
+  - beat: 4
+    word: 'I '
+  - beat: 5
+    word: won't
+  - beat: 7
+    word: lie
+  - beat: 8
+    word: to
+  - beat: 9
+    word: you.
+  - beat: 10
+    word: Your
+  - beat: 12
+    word: son
+  - beat: 14
+    word: was
+  - beat: 16
+    word: a
+  - beat: 18
+    word: wonderful
+  - beat: 19
+    word: man
+  - beat: 20
+    word: ','
+  - beat: 23
+    word: but
+  - beat: 25
+    word: his
+  - beat: 27
+    word: efforts
+  - beat: 29
+    word: against
+  - beat: 30
+    word: global
+  - beat: 31
+    word: warming
+  - beat: 32
+    word: was
+  - beat: 33
+    word: not
+  - beat: 34
+    word: aligning
+  - beat: 36
+    word: the
+  - beat: 37
+    word: values
+  - beat: 38
+    word: of
+  - beat: 39
+    word: your
+  - beat: 40
+    word: company.
+  - beat: 44
+    word: I
+  - beat: 46
+    word: am
+  - beat: 47
+    word: sorry
+  - beat: 48
+    word: to
+  - beat: 49
+    word: inform
+  - beat: 50
+    word: you
+  - beat: 52
+    word: that
+  - beat: 53
+    word: ','
+  - beat: 55
+    word: your
+  - beat: 56
+    word: son
+  - beat: 57
+    word: is
+  - beat: 58
+    word: an
+  - beat: 59
+    word: environmentalist
+  - beat: 60
+    word: .
+  - beat: 62
+    word: He
+  - beat: 63
+    word: has
+  - beat: 64
+    word: failed
+  - beat: 66
+    word: you.
