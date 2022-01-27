@@ -48,7 +48,10 @@ public class RhythmManager : MonoBehaviour
     public void StartMusic()
     {
         MusicManager.instance.enabled = true;
-        SetNewSong(GameManager.instance.level - 1, GameManager.instance.noun, GameManager.instance.verb, GameManager.instance.adjective, GameManager.instance.adverb);
+        if (GameManager.instance?.noun != null)
+            SetNewSong(GameManager.instance.level - 1, GameManager.instance.noun, GameManager.instance.verb, GameManager.instance.adjective, GameManager.instance.adverb);
+        else
+            SetNewSong(rhythms.Length-1);
     }
 
 
