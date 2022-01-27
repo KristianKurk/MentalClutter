@@ -17,7 +17,7 @@ MonoBehaviour:
   beatsPerLoop: 14000
   firstBeatOffset: 4
   beatOffset: 4
-  secondsToFall: 0.2
+  secondsToFall: 1
   sequence:
   - beat: 0
     word: Lorem
