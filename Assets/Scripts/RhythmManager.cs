@@ -34,19 +34,21 @@ public class RhythmManager : MonoBehaviour
 
         string[] words = LoremImpsum.Split(' ');
         this.rhythms[rhythms.Length - 1].sequence = new RhythmData.Sequence[words.Length];
-        for (int i = 0; i < words.Length; i++) {
+        for (int i = 0; i < words.Length; i++)
+        {
             this.rhythms[rhythms.Length - 1].sequence[i].word = words[i];
             this.rhythms[rhythms.Length - 1].sequence[i].beat = i;
         }
-        
+
         instance = this;
         MusicManager.instance.enabled = false;
         Invoke("StartMusic", 1.8f);
     }
 
-    public void StartMusic() {
+    public void StartMusic()
+    {
         MusicManager.instance.enabled = true;
-        SetNewSong(rhythms.Length - 1);
+        SetNewSong(GameManager.instance.level - 1, GameManager.instance.noun, GameManager.instance.verb, GameManager.instance.adjective, GameManager.instance.adverb);
     }
 
 
