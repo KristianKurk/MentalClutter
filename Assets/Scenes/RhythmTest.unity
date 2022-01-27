@@ -1146,6 +1146,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 64af0103d27da954284e9061af297329, type: 2}
   - {fileID: 11400000, guid: 8600f4b339ef4c14bad2e27aad79d4eb, type: 2}
   - {fileID: 11400000, guid: f41323fa2133a2242abe5a27b2800285, type: 2}
+  - {fileID: 11400000, guid: fe4d4d1320196384684cfb6806720b9b, type: 2}
   currentRhythm: 0
   beatToHit: 
   beatToSpawn: 
