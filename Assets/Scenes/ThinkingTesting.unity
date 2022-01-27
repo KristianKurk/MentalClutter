@@ -445,6 +445,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TileSuccessSFX: {fileID: 8300000, guid: 727214a4d0050bd4497faf022b6712cb, type: 3}
   HitFailSFX: {fileID: 0}
+  badWordPlaced: {fileID: 0}
+  okWordPlaced: {fileID: 0}
+  goodWordPlaced: {fileID: 0}
   missedNoteSounds: []
 --- !u!1 &246762133
 GameObject:

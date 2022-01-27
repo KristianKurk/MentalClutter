@@ -16,7 +16,4 @@ MonoBehaviour:
   - 'Interesting. '
   - Now, tell me about your strengths and weaknesses.
   wordSets:
-  - {fileID: 11400000, guid: ef34898e93146934b9b04c3bb1417dc7, type: 2}
-  - {fileID: 11400000, guid: 32423ab6dcb8cb9428497e2881d45b24, type: 2}
   - {fileID: 11400000, guid: fbecf59c4831b8a44b223831f3474ac1, type: 2}
-  - {fileID: 11400000, guid: 5fa1097b8975c1e48b83568ba5b7c14d, type: 2}

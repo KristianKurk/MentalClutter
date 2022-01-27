@@ -15,8 +15,8 @@ MonoBehaviour:
   wordClass: 0
   answerSlot: {fileID: 6058644807684766307, guid: 2e084e41c392705488a14a7d98bcc75e, type: 3}
   goodWords:
-  - {fileID: 0}
+  - {fileID: -8289064865266649908, guid: 2eb95fd6c4adb2d45befccaa0f3690a2, type: 3}
   okWords:
-  - {fileID: 0}
+  - {fileID: -8289064865266649908, guid: 7284b2dc067c07f4c841e73b493859cf, type: 3}
   badWords:
-  - {fileID: 0}
+  - {fileID: -8289064865266649908, guid: 89dd0e830a5d0ce45b8d52f100114dbc, type: 3}
