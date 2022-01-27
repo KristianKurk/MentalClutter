@@ -72,7 +72,7 @@ MonoBehaviour:
   - beat: 35
     word: more
   - beat: 36
-    word: work
+    word: '*noun*'
   - beat: 37
     word: for
   - beat: 39

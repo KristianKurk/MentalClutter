@@ -149,17 +149,17 @@ public class RhythmManager : MonoBehaviour
             word = this.selectedNoun;
             tile.points = selectedNounValue;
         }
-        else if (word == "*noun*" && selectedVerb != null)
+        else if (word == "*verb*" && selectedVerb != null)
         {
             word = this.selectedVerb;
             tile.points = selectedVerbValue;
         }
-        else if (word == "*noun*" && selectedAdjective != null)
+        else if (word == "*adj*" && selectedAdjective != null)
         {
             word = this.selectedAdjective;
             tile.points = selectedAdjectiveValue;
         }
-        else if (word == "*noun*" && selectedAdverb != null)
+        else if (word == "*adv*" && selectedAdverb != null)
         {
             word = this.selectedAdverb;
             tile.points = selectedAdverbValue;
