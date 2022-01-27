@@ -9,6 +9,7 @@ public class InterviewManager : MonoBehaviour
 
     public GameObject thoughts, satan, questionDialogBox, thinkingBubbleMask, ready1Prefab, ready2Prefab, ready3Prefab, readyThinkPrefab;
     public Image clockFill;
+    public Text questionText;
     public Transform thoughtsDragParent, readyDisplayPosition;
     public Transform[] answerSlotsPositions = new Transform[4];
 
@@ -54,6 +55,7 @@ public class InterviewManager : MonoBehaviour
         // Disabling question related assets
         satan.SetActive(false);
         questionDialogBox.SetActive(false);
+        questionText.gameObject.SetActive(false);
         thinkingBubbleMask.SetActive(true);
 
         // Instantiating the words and answer slots
@@ -137,11 +139,11 @@ public class InterviewManager : MonoBehaviour
     {
         if(question.question.Count > questionIndex)
         {
-            questionDialogBox.GetComponentInChildren<Text>().text = question.question[questionIndex++];
+            questionText.text = question.question[questionIndex++];
         }
         else
         {
-            questionDialogBox.GetComponentInChildren<Button>().enabled = false;
+            questionText.GetComponentInChildren<Button>().enabled = false;
             InstantiateReadyPhase(ready1Prefab);
         }
     }
@@ -178,7 +180,8 @@ public class InterviewManager : MonoBehaviour
         question = StartNewQuestion();
         if(questionDialogBox != null)
         {
-            questionDialogBox.GetComponentInChildren<Text>().text = question.question[questionIndex++];
+            questionText.text = question.question[questionIndex++];
+            questionText.gameObject.SetActive(true);
             questionDialogBox.SetActive(true);
         }
     }
