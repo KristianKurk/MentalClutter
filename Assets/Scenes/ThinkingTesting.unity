@@ -183,8 +183,9 @@ MonoBehaviour:
   - {fileID: 1481811162}
   - {fileID: 1603552571}
   mentalClutters: 5
-  thinkingTime: 15
+  thinkingTime: 99
   animationMultiplier: 1.5
+  travelSpeed: 1000
   thoughtsMinSpeed: 200
   thoughtsMaxSpeed: 400
   thoughtsExplosionSpeed: 1000

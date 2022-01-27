@@ -1,10 +1,11 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Thought : EventTrigger
 {
     // Dragging system
-    protected bool dragging, disabled;
+    protected bool dragging, disabled, returningToPosition;
     protected Vector2 lastPosition, mouseDelta = Vector2.zero;
 
     // Velocity system
@@ -50,14 +51,10 @@ public class Thought : EventTrigger
         lastPosition = new Vector2(transform.position.x, transform.position.y);
     }
 
-    protected void ReturnToPosition()
-    {
-        transform.SetParent(thoughts.transform);
-        transform.position = new Vector3(lastPosition.x, lastPosition.y, transform.position.z);
-    }
-
     protected void Move()
     {
+        //if(returningToPosition) return;
+
         velocity = Vector3.Slerp(velocity, newVelocity, Time.deltaTime);
         transform.Translate(velocity * Time.deltaTime);
 
@@ -91,6 +88,27 @@ public class Thought : EventTrigger
     protected float RandomVelocityChangeCooldown()
     {
         return Random.Range(minVelocityChangeCooldown, maxVelocityChangeCooldown);
+    }
+
+    protected void ReturnToPosition()
+    {
+        returningToPosition = true;
+        StartCoroutine(TravelBack());
+    }
+
+    protected IEnumerator TravelBack()
+    {
+        var destination = new Vector3(lastPosition.x, lastPosition.y, transform.position.z);
+        while(Mathf.Abs((transform.position - destination).magnitude) > 1f )
+        {
+            var direction = (destination - transform.position).normalized;
+            transform.Translate(direction * Time.deltaTime * InterviewManager.instance.travelSpeed);
+
+            yield return null;
+        }
+
+        transform.SetParent(thoughts.transform);
+        returningToPosition = false;
     }
 
     protected bool WithinBounds()
