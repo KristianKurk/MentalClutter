@@ -13,7 +13,8 @@ public class InterviewManager : MonoBehaviour
     public Transform[] answerSlotsPositions = new Transform[4];
 
     public int mentalClutters = 5;
-    public float thinkingTime = 10f, animationMultiplier = 1f, thoughtsMinSpeed = 200f, thoughtsMaxSpeed = 400f, thoughtsExplosionSpeed = 1000f, minVelocityCooldown = 4f, maxVelocityCooldown = 6f;
+    public float thinkingTime = 10f, animationMultiplier = 1f, thoughtsMinSpeed = 200f, thoughtsMaxSpeed = 400f, 
+                 thoughtsExplosionSpeed = 1000f, minVelocityCooldown = 4f, maxVelocityCooldown = 6f, answerSlotsSpeed = 50f;
 
     bool thinking;
     int questionIndex = 0, currentReadyPhase = 0;
@@ -35,7 +36,7 @@ public class InterviewManager : MonoBehaviour
             clockFill.fillAmount = Mathf.Max(0f, thinkingTimer / thinkingTime);
         }
 
-        if(thinkingTimer < 0f && thinking || answerSlots != null && answerSlots.Count != 0 && answerSlots.All(x => x.disabled))
+        if(thinkingTimer < 0f && thinking || answerSlots != null && answerSlots.Count != 0 && answerSlots.All(x => x.occupied))
         {
             SendAnswer();
         }
@@ -191,6 +192,7 @@ public class InterviewManager : MonoBehaviour
         thoughtsExplosionSpeed += 50;
         minVelocityCooldown -= 0.3f;
         maxVelocityCooldown -= 0.3f;
+        answerSlotsSpeed += 20f;
     }
 
     void SendAnswer()

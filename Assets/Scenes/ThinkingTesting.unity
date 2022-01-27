@@ -333,6 +333,7 @@ MonoBehaviour:
   thoughtsExplosionSpeed: 1000
   minVelocityCooldown: 4
   maxVelocityCooldown: 6
+  answerSlotsSpeed: 200
 --- !u!1 &160227161
 GameObject:
   m_ObjectHideFlags: 0

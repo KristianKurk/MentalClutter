@@ -74,7 +74,7 @@ public class Thought : EventTrigger
         }
     }
 
-    protected Vector2 RandomVelocity()
+    protected virtual Vector2 RandomVelocity()
     {
         var x = Random.Range(-1f, 1f);
         var y = Random.Range(-1f, 1f);

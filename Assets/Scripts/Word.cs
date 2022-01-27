@@ -18,11 +18,11 @@ public class Word : Thought
         var answerSlot = results.Find(x => x.gameObject.GetComponent<AnswerSlot>()).gameObject?.GetComponent<AnswerSlot>();
         if(answerSlot)
         {
-            if(answerSlot.index == index && !answerSlot.disabled)
+            if(answerSlot.index == index && !answerSlot.occupied)
             {
                 disabled = true;
                 answerSlot.word = this;
-                answerSlot.disabled = true;
+                answerSlot.occupied = true;
                 transform.SetParent(answerSlot.transform);
                 transform.SetAsLastSibling();
                 transform.position = answerSlot.transform.position;
