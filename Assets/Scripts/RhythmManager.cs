@@ -20,6 +20,10 @@ public class RhythmManager : MonoBehaviour
     public int[] beatToSpawn;
     public int currentBeat;
 
+    public string displayedSentence = "";
+    public Text sentenceDisplayText;
+    public string[] missedNoteTexts;
+
     public bool areAnyGood = false;
     public bool areAnyPressed = false;
 
@@ -30,11 +34,6 @@ public class RhythmManager : MonoBehaviour
         instance = this;
         MusicManager.instance.enabled = false;
         Invoke("StartMusic", 1.8f);
-    }
-
-    private void Start()
-    {
-        
     }
 
     public void StartMusic() {
@@ -59,7 +58,12 @@ public class RhythmManager : MonoBehaviour
     public void LateUpdate()
     {
         if (areAnyPressed && !areAnyGood)
+        {
             ScoreManager.instance.IncrementFailures();
+            SFX.instance.PlayWrongPressSFX();
+        }
+
+        sentenceDisplayText.text = displayedSentence;
     }
 
     public void SetNewSong(int rhythmIndex, Word selectedNoun = null, Word selectedVerb = null, Word selectedAdjective = null, Word selectedAdverb = null)
@@ -143,6 +147,7 @@ public class RhythmManager : MonoBehaviour
             tile.points = selectedAdverb.value;
         }
 
+        tile.word = word;
         tile.gameObject.GetComponentInChildren<Text>().text = word;
     }
 

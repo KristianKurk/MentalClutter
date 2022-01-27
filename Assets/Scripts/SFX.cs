@@ -8,6 +8,9 @@ public class SFX : MonoBehaviour
     AudioSource source;
 
     public AudioClip TileSuccessSFX;
+    public AudioClip HitFailSFX;
+
+    public AudioClip[] missedNoteSounds;
 
     private void Awake()
     {
@@ -19,6 +22,20 @@ public class SFX : MonoBehaviour
     {
         source.pitch = Random.Range(0.75f, 1.25f);
         source.clip = TileSuccessSFX;
+        source.Play();
+    }
+
+    public void PlayMissedNoteSFX(int index) {
+        Debug.Log("pog");
+        source.pitch = Random.Range(0.75f, 1.25f);
+        source.clip = missedNoteSounds[index];
+        source.Play();
+    }
+
+    public void PlayWrongPressSFX()
+    {
+        source.pitch = Random.Range(0.75f, 1.25f);
+        source.clip = HitFailSFX;
         source.Play();
     }
 }

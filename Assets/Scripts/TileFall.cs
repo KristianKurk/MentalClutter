@@ -12,6 +12,7 @@ public class TileFall : MonoBehaviour
     public float secondsToFall;
     public KeyCode keyCode;
     public int points = 1;
+    public string word;
 
     private Vector2 startPoint;
     private Vector2 endPoint;
@@ -37,6 +38,7 @@ public class TileFall : MonoBehaviour
             if (Input.GetKeyDown(keyCode))
             {
                 RhythmManager.instance.areAnyGood = true;
+                RhythmManager.instance.displayedSentence += word + " ";
                 ScoreManager.instance.IncrementSuccesses();
                 SFX.instance.PlayTileSuccessSFX();
                 Destroy(gameObject);
@@ -45,6 +47,9 @@ public class TileFall : MonoBehaviour
 
         if (transform.localPosition.y < yEnd + 1)
         {
+            int random = Random.Range(0, RhythmManager.instance.missedNoteTexts.Length);
+            RhythmManager.instance.displayedSentence += RhythmManager.instance.missedNoteTexts[random] + " ";
+            SFX.instance.PlayMissedNoteSFX(random);
             ScoreManager.instance.IncrementFailures();
             Destroy(gameObject);
         }
