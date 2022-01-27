@@ -26,7 +26,6 @@ public class SFX : MonoBehaviour
     }
 
     public void PlayMissedNoteSFX(int index) {
-        Debug.Log("pog");
         source.pitch = Random.Range(0.75f, 1.25f);
         source.clip = missedNoteSounds[index];
         source.Play();
