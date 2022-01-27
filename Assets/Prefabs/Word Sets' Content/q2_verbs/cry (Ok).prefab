@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 9.4}
+  m_AnchoredPosition: {x: 0, y: -19.8}
   m_SizeDelta: {x: 1366.2472, y: 373.2423}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3205613555789609748
@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: things
+  m_Text: cry
 --- !u!1 &6674638666986475700
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 5545322796913812694}
   - component: {fileID: -8289064865266649908}
   m_Layer: 5
-  m_Name: things(Ok)
+  m_Name: cry (Ok)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,7 +116,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.029296875, y: -0.004272461}
-  m_SizeDelta: {x: 190, y: 165}
+  m_SizeDelta: {x: 81.2241, y: 127.7038}
   m_Pivot: {x: 0.5263017, y: 0.4671189}
 --- !u!222 &1532036414251517036
 CanvasRenderer:
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c83b9d12cc7fb6a41943709f8d14eee4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1358289bac0f1cc4787b907f1931f947, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
-  word: things
-  wordClass: 0
+  word: cry
+  wordClass: 1
   index: 0
   value: 0

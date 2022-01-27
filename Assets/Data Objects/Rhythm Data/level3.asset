@@ -92,7 +92,7 @@ MonoBehaviour:
   - beat: 47
     word: will
   - beat: 48
-    word: try
+    word: '*verb*'
   - beat: 49
     word: my
   - beat: 50

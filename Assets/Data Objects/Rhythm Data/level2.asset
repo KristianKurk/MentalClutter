@@ -102,7 +102,7 @@ MonoBehaviour:
   - beat: 66
     word: can
   - beat: 67
-    word: cry
+    word: '*verb*'
   - beat: 68
     word: in
   - beat: 69
