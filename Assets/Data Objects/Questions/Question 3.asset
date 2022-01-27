@@ -15,4 +15,8 @@ MonoBehaviour:
   question:
   - 'Interesting. '
   - Now, tell me about your strengths and weaknesses.
-  wordSets: []
+  wordSets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
