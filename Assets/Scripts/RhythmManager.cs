@@ -27,7 +27,8 @@ public class RhythmManager : MonoBehaviour
     public bool areAnyGood = false;
     public bool areAnyPressed = false;
 
-    public Word selectedNoun, selectedVerb, selectedAdjective, selectedAdverb;
+    private string selectedNoun, selectedVerb, selectedAdjective, selectedAdverb;
+    private int selectedNounValue, selectedVerbValue, selectedAdjectiveValue, selectedAdverbValue;
 
     private void Awake()
     {
@@ -48,12 +49,11 @@ public class RhythmManager : MonoBehaviour
     public void StartMusic()
     {
         MusicManager.instance.enabled = true;
-        if (GameManager.instance?.noun != null)
-            SetNewSong(GameManager.instance.level - 1, GameManager.instance.noun, GameManager.instance.verb, GameManager.instance.adjective, GameManager.instance.adverb);
+        if (GameManager.instance?.words != null)
+            SetNewSong(GameManager.instance.level - 1, GameManager.instance.words[0], GameManager.instance.words[1], GameManager.instance.words[2], GameManager.instance.words[3], GameManager.instance.values[0], GameManager.instance.values[1], GameManager.instance.values[2], GameManager.instance.values[3]);
         else
-            SetNewSong(rhythms.Length-1);
+            SetNewSong(rhythms.Length - 1, string.Empty, string.Empty, string.Empty, string.Empty,0,0,0,0);
     }
-
 
     public void Update()
     {
@@ -79,7 +79,7 @@ public class RhythmManager : MonoBehaviour
         sentenceDisplayText.text = displayedSentence;
     }
 
-    public void SetNewSong(int rhythmIndex, Word selectedNoun = null, Word selectedVerb = null, Word selectedAdjective = null, Word selectedAdverb = null)
+    public void SetNewSong(int rhythmIndex, string selectedNoun, string selectedVerb, string selectedAdjective, string selectedAdverb, int selectedNounValue, int selectedVerbValue, int selectedAdjectiveValue, int selectedAdverbValue)
     {
         this.currentRhythm = rhythmIndex;
         currentWordIndex = 0;
@@ -89,6 +89,11 @@ public class RhythmManager : MonoBehaviour
         this.selectedVerb = selectedVerb;
         this.selectedAdjective = selectedAdjective;
         this.selectedAdverb = selectedAdverb;
+
+        this.selectedNounValue = selectedNounValue;
+        this.selectedVerbValue = selectedVerbValue;
+        this.selectedAdjectiveValue = selectedAdjectiveValue;
+        this.selectedAdverbValue = selectedAdverbValue;
 
         beatToHit = new int[rhythms[currentRhythm].sequence.Length];
         for (int i = 0; i < rhythms[currentRhythm].sequence.Length; i++)
@@ -104,7 +109,7 @@ public class RhythmManager : MonoBehaviour
         if (nextSong >= rhythms.Length)
             nextSong = 0;
 
-        SetNewSong(nextSong);
+        SetNewSong(nextSong, string.Empty, string.Empty, string.Empty, string.Empty,0,0,0,0);
     }
 
     public void NextBeat()
@@ -141,23 +146,23 @@ public class RhythmManager : MonoBehaviour
 
         if (word == "*noun*" && selectedNoun != null)
         {
-            word = this.selectedNoun.word;
-            tile.points = selectedNoun.value;
+            word = this.selectedNoun;
+            tile.points = selectedNounValue;
         }
         else if (word == "*noun*" && selectedVerb != null)
         {
-            word = this.selectedVerb.word;
-            tile.points = selectedVerb.value;
+            word = this.selectedVerb;
+            tile.points = selectedVerbValue;
         }
         else if (word == "*noun*" && selectedAdjective != null)
         {
-            word = this.selectedAdjective.word;
-            tile.points = selectedAdjective.value;
+            word = this.selectedAdjective;
+            tile.points = selectedAdjectiveValue;
         }
         else if (word == "*noun*" && selectedAdverb != null)
         {
-            word = this.selectedAdverb.word;
-            tile.points = selectedAdverb.value;
+            word = this.selectedAdverb;
+            tile.points = selectedAdverbValue;
         }
 
         tile.word = word;

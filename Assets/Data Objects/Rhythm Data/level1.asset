@@ -17,7 +17,7 @@ MonoBehaviour:
   beatsPerLoop: 0
   firstBeatOffset: 0
   beatOffset: 10
-  secondsToFall: 1.5
+  secondsToFall: 1
   sequence:
   - beat: 0
     word: I
