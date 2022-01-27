@@ -30,6 +30,8 @@ public class RhythmManager : MonoBehaviour
     private string selectedNoun, selectedVerb, selectedAdjective, selectedAdverb;
     private int selectedNounValue, selectedVerbValue, selectedAdjectiveValue, selectedAdverbValue;
 
+    public string[] terribleWords;
+
     private void Awake()
     {
 
@@ -52,7 +54,7 @@ public class RhythmManager : MonoBehaviour
         if (GameManager.instance?.words != null)
             SetNewSong(GameManager.instance.level - 1, GameManager.instance.words[0], GameManager.instance.words[1], GameManager.instance.words[2], GameManager.instance.words[3], GameManager.instance.values[0], GameManager.instance.values[1], GameManager.instance.values[2], GameManager.instance.values[3]);
         else
-            SetNewSong(rhythms.Length - 1, string.Empty, string.Empty, string.Empty, string.Empty,0,0,0,0);
+            SetNewSong(rhythms.Length - 1, string.Empty, string.Empty, string.Empty, string.Empty, 0, 0, 0, 0);
     }
 
     public void Update()
@@ -109,7 +111,7 @@ public class RhythmManager : MonoBehaviour
         if (nextSong >= rhythms.Length)
             nextSong = 0;
 
-        SetNewSong(nextSong, string.Empty, string.Empty, string.Empty, string.Empty,0,0,0,0);
+        SetNewSong(nextSong, string.Empty, string.Empty, string.Empty, string.Empty, 0, 0, 0, 0);
     }
 
     public void NextBeat()
@@ -163,6 +165,12 @@ public class RhythmManager : MonoBehaviour
         {
             word = this.selectedAdverb;
             tile.points = selectedAdverbValue;
+        }
+
+        if (word == string.Empty)
+        {
+            int randomIndex = Random.Range(0, terribleWords.Length);
+            word = terribleWords[randomIndex];
         }
 
         tile.word = word;
