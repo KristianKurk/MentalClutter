@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
     {
         if(instance != null) return;
         instance = this;
+
+        GameObject.DontDestroyOnLoad(gameObject);
     }
 
     void Start()
@@ -95,7 +98,7 @@ public class GameManager : MonoBehaviour
         this.adverb = adverb;
         this.adjective = adjective;
 
-        // TODO Scene switching and call SetNextSong(level--)
+        SceneManager.LoadScene("RhythmTest");
     }
 
     void StartThinking(Question question)
@@ -111,7 +114,7 @@ public class GameManager : MonoBehaviour
 
     void IncreaseGamePace()
     {
-        thinkingTime -= thinkingTime * 0.1f;
+        thinkingTime -= 2;
         animationMultiplier += animationMultiplier * 0.1f;
 
         ThinkingManager.instance.thoughtsMinSpeed += 25;

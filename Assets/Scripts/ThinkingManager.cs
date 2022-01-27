@@ -110,20 +110,21 @@ public class ThinkingManager : MonoBehaviour
         }
 
         // Mental clutters
-            var mentalCluttersCopy = new List<MentalClutter>(Database.instance.allMentalClutters);
-            for(var j = 0; j < mentalClutters; j++)
-            {
-                var random = Random.Range(0, mentalCluttersCopy.Count);
-                var mentalClutter = mentalCluttersCopy[random];
-                //mentalCluttersCopy.Remove(mentalClutter);
+        var mentalCluttersCopy = new List<MentalClutter>(Database.instance.allMentalClutters);
+        for(var j = 0; j < mentalClutters; j++)
+        {
+            var random = Random.Range(0, mentalCluttersCopy.Count);
+            var mentalClutter = mentalCluttersCopy[random];
+            //mentalCluttersCopy.Remove(mentalClutter);
 
-                var newWord = Instantiate(mentalClutter, thoughts.transform.position, Quaternion.identity, thoughts.transform);
-                newWord.transform.SetAsLastSibling();
-            }
+            var newWord = Instantiate(mentalClutter, thoughts.transform.position, Quaternion.identity, thoughts.transform);
+            newWord.transform.SetAsLastSibling();
+        }
 
-            thinkingTimer = GameManager.instance.thinkingTime;
-            thinking = true;
+        thinkingTimer = GameManager.instance.thinkingTime;
+        thinking = true;
     }
+
 
     void SendAnswer()
     {
