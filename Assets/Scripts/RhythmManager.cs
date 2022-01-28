@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,7 +22,7 @@ public class RhythmManager : MonoBehaviour
     public int currentBeat;
 
     public string displayedSentence = "";
-    public Text sentenceDisplayText;
+    public TMP_Text sentenceDisplayText;
     public string[] missedNoteTexts;
 
     public bool areAnyGood = false;
