@@ -1000,10 +1000,7 @@ GameObject:
   - component: {fileID: 1114189887}
   - component: {fileID: 1114189888}
   - component: {fileID: 1114189889}
-<<<<<<< Updated upstream
-=======
   - component: {fileID: 1114189891}
->>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Hello Tag
   m_TagString: Untagged
@@ -1159,8 +1156,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
-<<<<<<< Updated upstream
-=======
 --- !u!114 &1114189891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1174,7 +1169,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneBuildIndex: 1
->>>>>>> Stashed changes
 --- !u!1 &1185114429
 GameObject:
   m_ObjectHideFlags: 0
