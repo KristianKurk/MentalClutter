@@ -39,8 +39,10 @@ public class GameManager : MonoBehaviour
         words = new string[4];
         values = new int[4];
 
-        // Interview setup
-        InterviewManager.instance.SetUp();
+        if (level == 6)
+            SceneManager.LoadScene("EndScene");
+        else
+            InterviewManager.instance.SetUp();        // Interview setup
     }
 
     public void StartTalking(Question question, Word noun, Word verb, Word adverb, Word adjective)
