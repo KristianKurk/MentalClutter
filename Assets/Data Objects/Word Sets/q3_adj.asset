@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc7f8a0c1418e54686214d2cfd5c601, type: 3}
   m_Name: q3_adj
   m_EditorClassIdentifier: 
-  wordClass: 0
+  wordClass: 3
   answerSlot: {fileID: 5005411630146314498, guid: cfdfab180bbbe56478dfd2be326f4734, type: 3}
   goodWords:
   - {fileID: 6231685585683249698, guid: f766c1dc71995c647bc2b4403306c405, type: 3}
