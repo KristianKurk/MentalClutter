@@ -66,7 +66,7 @@ MonoBehaviour:
   - beat: 30
     word: a
   - beat: 32
-    word: nice
+    word: '*adj*'
   - beat: 33
     word: tie.
   - beat: 34

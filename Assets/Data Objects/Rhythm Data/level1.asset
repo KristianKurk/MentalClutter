@@ -62,7 +62,7 @@ MonoBehaviour:
   - beat: 50
     word: mildly
   - beat: 52
-    word: inconvenient
+    word: '*adj*'
   - beat: 56
     word: I
   - beat: 58

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: q1_verbs
   m_EditorClassIdentifier: 
   wordClass: 1
-  answerSlot: {fileID: 6058644807684766307, guid: 20c07c8a37ce7414d9f86913e22803d8, type: 3}
+  answerSlot: {fileID: 6058644807684766307, guid: f7cb4dac509fa7444bea2a4d48974026, type: 3}
   goodWords:
   - {fileID: -8289064865266649908, guid: f4b873e3dd22d874490d4dc9755cbf20, type: 3}
   okWords:

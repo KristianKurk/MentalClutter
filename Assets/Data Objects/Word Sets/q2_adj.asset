@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cc7f8a0c1418e54686214d2cfd5c601, type: 3}
-  m_Name: q3_verbs
+  m_Name: q2_adj
   m_EditorClassIdentifier: 
-  wordClass: 1
-  answerSlot: {fileID: 6058644807684766307, guid: c5a424dd8eb236243b62272478204385, type: 3}
+  wordClass: 0
+  answerSlot: {fileID: 5005411630146314498, guid: 712d26b205679f6409ce0742be788d39, type: 3}
   goodWords:
-  - {fileID: -8289064865266649908, guid: d300dd0cb375379489cbbf2a2fc4ec37, type: 3}
+  - {fileID: 6231685585683249698, guid: 2031babc37355814796a26e303cf1364, type: 3}
   okWords:
-  - {fileID: -8289064865266649908, guid: 389329a0bebc16749a51d1538f8f5416, type: 3}
+  - {fileID: -3444474009488605094, guid: 4768217ad7922074da1f2571d337314c, type: 3}
   badWords:
-  - {fileID: -8289064865266649908, guid: 07c5e30fa35fd6a44b3114530c75093f, type: 3}
+  - {fileID: -1898148076733751380, guid: 2b78d0f11e1ef2b49b40855625dc0ed9, type: 3}

@@ -90,6 +90,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   word: Salsa
-  wordClass: 1
+  wordClass: 3
   index: 0
   value: 0

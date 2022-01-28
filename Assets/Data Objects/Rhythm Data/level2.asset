@@ -32,7 +32,7 @@ MonoBehaviour:
   - beat: 10
     word: spent
   - beat: 12
-    word: 10
+    word: '*adj*'
   - beat: 14
     word: years
   - beat: 15
