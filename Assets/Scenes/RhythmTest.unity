@@ -1633,7 +1633,7 @@ GameObject:
   - component: {fileID: 996378872}
   - component: {fileID: 996378874}
   m_Layer: 0
-  m_Name: Game Manager
+  m_Name: Rhythm Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -9,9 +9,14 @@ public class SFX : MonoBehaviour
 
     public AudioClip TileSuccessSFX;
     public AudioClip HitFailSFX;
+
     public AudioClip badWordPlaced;
     public AudioClip okWordPlaced;
     public AudioClip goodWordPlaced;
+
+    public AudioClip goodWordHit;
+    public AudioClip okWordHit;
+    public AudioClip badWordHit;
 
     public AudioClip[] missedNoteSounds;
 
@@ -45,20 +50,41 @@ public class SFX : MonoBehaviour
     {
         source.pitch = Random.Range(0.75f, 1.25f);
         source.clip = goodWordPlaced;
-        source.PlayOneShot(source.clip);
+        source.Play();
     }
 
     public void PlayOkWordPlacedSFX()
     {
         source.pitch = Random.Range(0.75f, 1.25f);
         source.clip = okWordPlaced;
-        source.PlayOneShot(source.clip);
+        source.Play();
     }
 
     public void PlayBadWordPlacedSFX()
     {
         source.pitch = Random.Range(0.75f, 1.25f);
         source.clip = badWordPlaced;
-        source.PlayOneShot(source.clip);
+        source.Play();
+    }
+
+    public void PlayGoodWordHit()
+    {
+        source.pitch = Random.Range(0.75f, 1.25f);
+        source.clip = goodWordHit;
+        source.Play();
+    }
+
+    public void PlayOKWordHit()
+    {
+        source.pitch = Random.Range(0.75f, 1.25f);
+        source.clip = okWordHit;
+        source.Play();
+    }
+
+    public void PlayBadWordHit()
+    {
+        source.pitch = Random.Range(0.75f, 1.25f);
+        source.clip = badWordHit;
+        source.Play();
     }
 }

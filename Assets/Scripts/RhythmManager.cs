@@ -75,8 +75,11 @@ public class RhythmManager : MonoBehaviour
     {
         if (areAnyPressed && !areAnyGood)
         {
-            ScoreManager.instance.IncrementFailures();
-            SFX.instance.PlayWrongPressSFX();
+            if (GameObject.Find("GameManager"))
+            {
+                ScoreManager.instance.IncrementFailures();
+                SFX.instance.PlayWrongPressSFX();
+            }
         }
 
         sentenceDisplayText.text = displayedSentence;
@@ -129,6 +132,10 @@ public class RhythmManager : MonoBehaviour
                 TileFall tileFall = newTile.GetComponent<TileFall>();
                 tileFall.points = 1;
                 SetText(tileFall);
+
+                if (currentWordIndex == 0)
+                    tileFall.word = tileFall.word.ToLowerInvariant();
+
                 tileFall.keyCode = keyCodes[randomShuteIndex];
                 tileFall.beatToHit = beatToHit[currentWordIndex];
                 tileFall.secondsToFall = this.rhythms[currentRhythm].secondsToFall;
@@ -149,22 +156,22 @@ public class RhythmManager : MonoBehaviour
 
         if (word == "*noun*" && selectedNoun != null)
         {
-            word = this.selectedNoun;
+            word = this.selectedNoun.ToLower();
             tile.points = selectedNounValue;
         }
         else if (word == "*verb*" && selectedVerb != null)
         {
-            word = this.selectedVerb;
+            word = this.selectedVerb.ToLower();
             tile.points = selectedVerbValue;
         }
         else if (word == "*adj*" && selectedAdjective != null)
         {
-            word = this.selectedAdjective;
+            word = this.selectedAdjective.ToLower();
             tile.points = selectedAdjectiveValue;
         }
         else if (word == "*adv*" && selectedAdverb != null)
         {
-            word = this.selectedAdverb;
+            word = this.selectedAdverb.ToLower();
             tile.points = selectedAdverbValue;
         }
 
