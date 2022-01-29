@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cc7f8a0c1418e54686214d2cfd5c601, type: 3}
+  m_Name: q1_adv
+  m_EditorClassIdentifier: 
+  wordClass: 2
+  answerSlot: {fileID: 1619248166616481329, guid: f5df5c69bf7b8134c96ff890ab4aa8e5, type: 3}
+  goodWords:
+  - {fileID: 1357379037947115143, guid: 52458f61dc6958240a31c1c52d5019d4, type: 3}
+  okWords:
+  - {fileID: 5603538380959238487, guid: 51a232a3b19ecdc46b0f4a722064e5e3, type: 3}
+  badWords:
+  - {fileID: -2811506142820378385, guid: 6b73f44a212341d4ca1f8842255ef8f3, type: 3}

@@ -94,7 +94,7 @@ MonoBehaviour:
   - beat: 60
     word: per
   - beat: 62
-    word: day
+    word: '*adv*'
   - beat: 63
     word: where
   - beat: 64

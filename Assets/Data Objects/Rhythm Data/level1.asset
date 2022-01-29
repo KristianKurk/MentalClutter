@@ -60,7 +60,7 @@ MonoBehaviour:
   - beat: 49
     word: lives
   - beat: 50
-    word: mildly
+    word: '*adv*'
   - beat: 52
     word: '*adj*'
   - beat: 56

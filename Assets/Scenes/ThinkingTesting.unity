@@ -445,11 +445,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TileSuccessSFX: {fileID: 8300000, guid: 727214a4d0050bd4497faf022b6712cb, type: 3}
-  HitFailSFX: {fileID: 0}
-  badWordPlaced: {fileID: 0}
-  okWordPlaced: {fileID: 0}
-  goodWordPlaced: {fileID: 0}
-  missedNoteSounds: []
+  HitFailSFX: {fileID: 8300000, guid: a987cf603b52c7b489ec8936e7aa6485, type: 3}
+  badWordPlaced: {fileID: 8300000, guid: 2f6b806c855cf8d4cbc4315a83adffec, type: 3}
+  okWordPlaced: {fileID: 8300000, guid: a60a1afec7bbeae47800bbe6c0a21b20, type: 3}
+  goodWordPlaced: {fileID: 8300000, guid: 1533968b8e0667c4484623cd122aad15, type: 3}
+  goodWordHit: {fileID: 8300000, guid: 1533968b8e0667c4484623cd122aad15, type: 3}
+  okWordHit: {fileID: 8300000, guid: a60a1afec7bbeae47800bbe6c0a21b20, type: 3}
+  badWordHit: {fileID: 8300000, guid: 2f6b806c855cf8d4cbc4315a83adffec, type: 3}
+  missedNoteSounds:
+  - {fileID: 8300000, guid: 575066be3d40ca84088ec95dd7698df2, type: 3}
+  - {fileID: 8300000, guid: 606f61a6a788b4f48bedb221e0d08a1a, type: 3}
 --- !u!114 &160227167
 MonoBehaviour:
   m_ObjectHideFlags: 0
