@@ -46,7 +46,8 @@ public class RhythmManager : MonoBehaviour
 
         instance = this;
         MusicManager.instance.enabled = false;
-        Invoke("StartMusic", 1.8f);
+        //Invoke("StartMusic", 1.8f);
+        StartMusic();
     }
 
     public void StartMusic()

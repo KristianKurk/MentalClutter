@@ -1540,6 +1540,9 @@ MonoBehaviour:
   badWordPlaced: {fileID: 0}
   okWordPlaced: {fileID: 0}
   goodWordPlaced: {fileID: 0}
+  goodWordHit: {fileID: 0}
+  okWordHit: {fileID: 0}
+  badWordHit: {fileID: 0}
   missedNoteSounds:
   - {fileID: 8300000, guid: 575066be3d40ca84088ec95dd7698df2, type: 3}
   - {fileID: 8300000, guid: 575066be3d40ca84088ec95dd7698df2, type: 3}
@@ -1821,7 +1824,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996378868}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c46eafa2415f45943a04acc9df9182b7, type: 3}
