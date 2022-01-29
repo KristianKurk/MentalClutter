@@ -220,7 +220,7 @@ MonoBehaviour:
   mentalClutters: 5
   thinkingTime: 15
   animationMultiplier: 1.5
-  travelSpeed: 1000
+  travelSpeed: 10
   thoughtsMinSpeed: 200
   thoughtsMaxSpeed: 400
   thoughtsExplosionSpeed: 1000
