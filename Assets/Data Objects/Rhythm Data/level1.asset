@@ -28,7 +28,7 @@ MonoBehaviour:
   - beat: 8
     word: a
   - beat: 10
-    word: '*fan*'
+    word: '*noun*'
   - beat: 12
     word: of
   - beat: 16

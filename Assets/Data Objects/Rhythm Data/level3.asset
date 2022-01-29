@@ -20,7 +20,7 @@ MonoBehaviour:
   secondsToFall: 1
   sequence:
   - beat: 0
-    word: my
+    word: My
   - beat: 2
     word: greateset
   - beat: 4
