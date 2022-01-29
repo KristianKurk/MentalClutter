@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 160227163}
   - component: {fileID: 160227166}
   - component: {fileID: 160227165}
+  - component: {fileID: 160227167}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -449,6 +450,20 @@ MonoBehaviour:
   okWordPlaced: {fileID: 0}
   goodWordPlaced: {fileID: 0}
   missedNoteSounds: []
+--- !u!114 &160227167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160227161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1edf99ef54ceb274885efaf586d791c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  successes: 0
+  fails: 0
 --- !u!1 &246762133
 GameObject:
   m_ObjectHideFlags: 0
