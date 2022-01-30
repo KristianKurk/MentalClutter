@@ -21,7 +21,7 @@ public class EndScene : MonoBehaviour
             button.onClick.AddListener(gm.GetComponent<GameManager>().GoToEasterEggScene);
         }
 
-        text.text = sm.successes + " " + sm.fails + "\n" + sm.totalScore + " " + CalculateScore();
+        text.text = CalculateScore().ToString();
     }
 
     private Tier CalculateScore()
