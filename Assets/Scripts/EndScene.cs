@@ -2,17 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class EndScene : MonoBehaviour
 {
     public TMP_Text text;
     ScoreManager sm;
+    public Button button;
 
     public enum Tier { S, A, B, C, D, F }
 
     void Start()
     {
-        sm = GameObject.Find("Game Manager").GetComponent<ScoreManager>();
+        GameObject gm = GameObject.Find("Game Manager");
+        if (gm)
+        {
+            sm = gm.GetComponent<ScoreManager>();
+            button.onClick.AddListener(gm.GetComponent<GameManager>().GoToEasterEggScene);
+        }
+
         text.text = sm.successes + " " + sm.fails + "\n" + sm.totalScore + " " + CalculateScore();
     }
 

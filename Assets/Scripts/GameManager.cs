@@ -45,6 +45,10 @@ public class GameManager : MonoBehaviour
             InterviewManager.instance.SetUp();        // Interview setup
     }
 
+    public void GoToEasterEggScene() {
+        SceneManager.LoadScene("RhythmTest");
+    }
+
     public void StartTalking(Question question, Word noun, Word verb, Word adverb, Word adjective)
     {
         this.question = question;
