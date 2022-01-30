@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Question 4
   m_EditorClassIdentifier: 
   question:
-  - Good answers.
+  - I'm starting to like you.
   - 'So here''s the next question:'
-  - What are your plans for the next 5 years in this company?
+  - What would be your plans for the next 5 years in this company?
   wordSets:
   - {fileID: 11400000, guid: 25248c6d7546d2f4fa1105a5eeae5f83, type: 2}
   - {fileID: 11400000, guid: 5df2b418b21897a47b0926a2f0e39e01, type: 2}

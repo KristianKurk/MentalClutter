@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Question 1
   m_EditorClassIdentifier: 
   question:
-  - So you want to work in hell huh?
+  - Welcome! Please take a seat.
+  - I will ask you a few questions and then I'll decide if you're a fit for my corporation.
+  - Let's begin shall we?
+  - So... You want to work in hell huh?
   - Tell me... Why do you actually want this job?
   wordSets:
   - {fileID: 11400000, guid: bce4956339eb0904494b4490615e5a58, type: 2}
