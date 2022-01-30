@@ -30,61 +30,61 @@ public class SFX : MonoBehaviour
     {
         source.pitch = Random.Range(0.75f, 1.25f);
         source.clip = TileSuccessSFX;
-        source.Play();
+        source.PlayOneShot(source.clip);
     }
 
     public void PlayMissedNoteSFX(int index) {
         source.pitch = Random.Range(0.75f, 1.25f);
         source.clip = missedNoteSounds[index];
-        source.Play();
+        source.PlayOneShot(source.clip);
     }
 
     public void PlayWrongPressSFX()
     {
         source.pitch = Random.Range(0.75f, 1.25f);
         source.clip = HitFailSFX;
-        source.Play();
+        source.PlayOneShot(source.clip);
     }
 
     public void PlayGoodWordPlacedSFX()
     {
         source.pitch = Random.Range(0.75f, 1.25f);
         source.clip = goodWordPlaced;
-        source.Play();
+        source.PlayOneShot(source.clip);
     }
 
     public void PlayOkWordPlacedSFX()
     {
         source.pitch = Random.Range(0.75f, 1.25f);
         source.clip = okWordPlaced;
-        source.Play();
+        source.PlayOneShot(source.clip);
     }
 
     public void PlayBadWordPlacedSFX()
     {
         source.pitch = Random.Range(0.75f, 1.25f);
         source.clip = badWordPlaced;
-        source.Play();
+        source.PlayOneShot(source.clip);
     }
 
     public void PlayGoodWordHit()
     {
         source.pitch = Random.Range(0.75f, 1.25f);
         source.clip = goodWordHit;
-        source.Play();
+        source.PlayOneShot(source.clip);
     }
 
     public void PlayOKWordHit()
     {
         source.pitch = Random.Range(0.75f, 1.25f);
         source.clip = okWordHit;
-        source.Play();
+        source.PlayOneShot(source.clip);
     }
 
     public void PlayBadWordHit()
     {
         source.pitch = Random.Range(0.75f, 1.25f);
         source.clip = badWordHit;
-        source.Play();
+        source.PlayOneShot(source.clip);
     }
 }
