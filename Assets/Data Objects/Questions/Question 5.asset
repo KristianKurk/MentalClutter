@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Question 5
   m_EditorClassIdentifier: 
   question:
-  - Hey...Wait a second,
-  - Were you the asshole who slept with my son..
+  - Hey... Wait a second...
+  - Are you the asshole who slept with my son??
   wordSets:
   - {fileID: 11400000, guid: 32423ab6dcb8cb9428497e2881d45b24, type: 2}
   - {fileID: 11400000, guid: 32423ab6dcb8cb9428497e2881d45b24, type: 2}

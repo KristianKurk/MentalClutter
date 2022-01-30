@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Question 3
   m_EditorClassIdentifier: 
   question:
-  - 'Interesting. '
+  - Interesting.
   - Now, tell me about your strengths and weaknesses.
   wordSets:
   - {fileID: 11400000, guid: fbecf59c4831b8a44b223831f3474ac1, type: 2}
   - {fileID: 11400000, guid: 83ab6aa9d352cb847bf49b726b1f72da, type: 2}
   - {fileID: 11400000, guid: 5f740a9a9335bbe45be740cbdbbc5285, type: 2}
-  - {fileID: 11400000, guid: 32423ab6dcb8cb9428497e2881d45b24, type: 2}
+  - {fileID: 11400000, guid: a27f44f9a914d5b49a0b46f25708f16e, type: 2}
