@@ -18,10 +18,13 @@ public class TileFall : MonoBehaviour
     private Vector2 endPoint;
     private float requiredSpeed;
 
+    private Color clickColor;
+
     public int beatToHit;
 
     void Start()
     {
+        clickColor = new Color32(174, 41, 41, 255);
         startPoint = new Vector2(0, ySpawn);
         endPoint = new Vector2(0, targetCenter);
 
@@ -34,7 +37,7 @@ public class TileFall : MonoBehaviour
         GetComponent<Image>().color = Color.white;
         if (Mathf.Abs(MusicManager.instance.songPositionInBeats - beatToHit) < beatMargin + 0.5f)
         {
-            GetComponent<Image>().color = Color.blue;
+            GetComponent<Image>().color = clickColor;
             if (Input.GetKeyDown(keyCode))
             {
                 RhythmManager.instance.areAnyGood = true;
