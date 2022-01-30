@@ -39,25 +39,25 @@ public class TileFall : MonoBehaviour
             {
                 RhythmManager.instance.areAnyGood = true;
                 RhythmManager.instance.displayedSentence += word + " ";
-                if (GameObject.Find("Game Manager") != null)
+                if (RhythmManager.instance.scoreManager && RhythmManager.instance.sfx)
                 {
-                    ScoreManager.instance.IncrementSuccesses();
+                    RhythmManager.instance.scoreManager.IncrementSuccesses();
                     switch (points)
                     {
                         case 2:
-                            GameObject.Find("Game Manager").GetComponent<SFX>().PlayBadWordHit();
+                            RhythmManager.instance.sfx.PlayBadWordHit();
                             break;
                         case 3:
-                            GameObject.Find("Game Manager").GetComponent<SFX>().PlayOKWordHit();
+                            RhythmManager.instance.sfx.PlayOKWordHit();
                             break;
                         case 4:
-                            GameObject.Find("Game Manager").GetComponent<SFX>().PlayGoodWordHit();
+                            RhythmManager.instance.sfx.PlayGoodWordHit();
                             break;
                         default:
-                            SFX.instance.PlayTileSuccessSFX();
+                            RhythmManager.instance.sfx.PlayTileSuccessSFX();
                             break;
                     }
-                    ScoreManager.instance.totalScore += points;
+                    RhythmManager.instance.scoreManager.totalScore += points;
                 }
                 Destroy(gameObject);
             }
@@ -67,11 +67,11 @@ public class TileFall : MonoBehaviour
         {
             int random = Random.Range(0, RhythmManager.instance.missedNoteTexts.Length);
             RhythmManager.instance.displayedSentence += RhythmManager.instance.missedNoteTexts[random] + " ";
-            if (GameObject.Find("Game Manager"))
+            if (RhythmManager.instance.scoreManager && RhythmManager.instance.sfx)
             {
-                SFX.instance.PlayMissedNoteSFX(random);
-                ScoreManager.instance.IncrementFailures();
-                ScoreManager.instance.totalScore--;
+                RhythmManager.instance.sfx.PlayMissedNoteSFX(random);
+                RhythmManager.instance.scoreManager.IncrementFailures();
+                RhythmManager.instance.scoreManager.totalScore--;
             }
             Destroy(gameObject);
         }

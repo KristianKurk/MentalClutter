@@ -23,7 +23,7 @@ public class SFX : MonoBehaviour
     private void Awake()
     {
         instance = this;
-       // source = GetComponent<AudioSource>();
+        source = GetComponent<AudioSource>();
     }
 
     public void PlayTileSuccessSFX()

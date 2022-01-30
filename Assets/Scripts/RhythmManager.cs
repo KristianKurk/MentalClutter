@@ -32,6 +32,8 @@ public class RhythmManager : MonoBehaviour
     private int selectedNounValue, selectedVerbValue, selectedAdjectiveValue, selectedAdverbValue;
 
     public string[] terribleWords;
+    public ScoreManager scoreManager;
+    public SFX sfx;
 
     private void Awake()
     {
@@ -48,6 +50,12 @@ public class RhythmManager : MonoBehaviour
         MusicManager.instance.enabled = false;
         //Invoke("StartMusic", 1.8f);
         StartMusic();
+    }
+
+    private void Start()
+    {
+        scoreManager = GameObject.Find("Game Manager").GetComponent<ScoreManager>();
+        sfx = GameObject.Find("Game Manager").GetComponent<SFX>();
     }
 
     public void StartMusic()
@@ -76,11 +84,12 @@ public class RhythmManager : MonoBehaviour
     {
         if (areAnyPressed && !areAnyGood)
         {
-            if (GameObject.Find("GameManager"))
+
+            if (scoreManager)
             {
-                ScoreManager.instance.totalScore--;
-                ScoreManager.instance.IncrementFailures();
-                SFX.instance.PlayWrongPressSFX();
+                scoreManager.totalScore--;
+                scoreManager.IncrementFailures();
+                sfx.PlayWrongPressSFX();
             }
         }
 
