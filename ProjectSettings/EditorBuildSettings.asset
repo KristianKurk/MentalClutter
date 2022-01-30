@@ -27,6 +27,6 @@ EditorBuildSettings:
     path: Assets/Scenes/TestLevel.unity
     guid: c13a84e9c22e64e4d85444d03e56382d
   - enabled: 1
-    path: Assets/Scenes/UILayoutTest.unity
+    path: Assets/Scenes/Old_Scenea/UILayoutTest.unity
     guid: b79016f05eb521e4b911149be0f9d96d
   m_configObjects: {}
