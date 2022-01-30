@@ -83,7 +83,6 @@ public class Thought : EventTrigger
         var resolution = Screen.currentResolution;
         var xRatio = resolution.width / 1920f;
         var yRatio = resolution.height / 1080f;
-        Debug.Log(xRatio);
         var nonAdjustedVelocity = new Vector2(x, y).normalized;
         var adjustedVelocity = new Vector2(nonAdjustedVelocity.x * xRatio, nonAdjustedVelocity.y * yRatio);
 
