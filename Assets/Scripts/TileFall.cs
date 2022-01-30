@@ -39,23 +39,25 @@ public class TileFall : MonoBehaviour
             {
                 RhythmManager.instance.areAnyGood = true;
                 RhythmManager.instance.displayedSentence += word + " ";
-                if (GameObject.Find("Game Manager"))
+                if (GameObject.Find("Game Manager") != null)
                 {
                     ScoreManager.instance.IncrementSuccesses();
-                    switch (points) {
+                    switch (points)
+                    {
                         case 2:
-                            SFX.instance.PlayBadWordHit();
+                            GameObject.Find("Game Manager").GetComponent<SFX>().PlayBadWordHit();
                             break;
                         case 3:
-                            SFX.instance.PlayOKWordHit();
+                            GameObject.Find("Game Manager").GetComponent<SFX>().PlayOKWordHit();
                             break;
                         case 4:
-                            SFX.instance.PlayGoodWordHit();
+                            GameObject.Find("Game Manager").GetComponent<SFX>().PlayGoodWordHit();
                             break;
                         default:
                             SFX.instance.PlayTileSuccessSFX();
                             break;
                     }
+                    ScoreManager.instance.totalScore += points;
                 }
                 Destroy(gameObject);
             }
@@ -69,6 +71,7 @@ public class TileFall : MonoBehaviour
             {
                 SFX.instance.PlayMissedNoteSFX(random);
                 ScoreManager.instance.IncrementFailures();
+                ScoreManager.instance.totalScore--;
             }
             Destroy(gameObject);
         }

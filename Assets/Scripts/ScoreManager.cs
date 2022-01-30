@@ -10,6 +10,8 @@ public class ScoreManager : MonoBehaviour
     public int successes;
     public int fails;
 
+    public int totalScore;
+
     private void Awake()
     {
         instance = this;

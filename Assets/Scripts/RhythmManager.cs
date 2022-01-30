@@ -78,6 +78,7 @@ public class RhythmManager : MonoBehaviour
         {
             if (GameObject.Find("GameManager"))
             {
+                ScoreManager.instance.totalScore--;
                 ScoreManager.instance.IncrementFailures();
                 SFX.instance.PlayWrongPressSFX();
             }

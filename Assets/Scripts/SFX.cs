@@ -5,7 +5,7 @@ using UnityEngine;
 public class SFX : MonoBehaviour
 {
     public static SFX instance;
-    AudioSource source;
+    public AudioSource source;
 
     public AudioClip TileSuccessSFX;
     public AudioClip HitFailSFX;
@@ -23,7 +23,7 @@ public class SFX : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        source = GetComponent<AudioSource>();
+       // source = GetComponent<AudioSource>();
     }
 
     public void PlayTileSuccessSFX()
