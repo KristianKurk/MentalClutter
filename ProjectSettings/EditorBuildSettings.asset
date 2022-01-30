@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Old_Scenea/UILayoutTest.unity
     guid: b79016f05eb521e4b911149be0f9d96d
+  - enabled: 1
+    path: Assets/Scenes/HowTo.unity
+    guid: 4887bfae4549af544bb2b1c8db6954b1
   m_configObjects: {}
