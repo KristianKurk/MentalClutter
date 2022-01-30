@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("RhythmTest");
     }
 
-    public void StartTalking(Question question, Word noun, Word verb, Word adverb, Word adjective)
+    public void SaveThinkingValues(Question question, Word noun, Word verb, Word adverb, Word adjective)
     {
         this.question = question;
 
@@ -95,8 +95,10 @@ public class GameManager : MonoBehaviour
             words[3] = string.Empty;
             values[3] = -10;
         }
+    }
 
-
+    public void StartTalking()
+    {
         SceneManager.LoadScene("RhythmTest");
     }
 }

@@ -208,6 +208,7 @@ MonoBehaviour:
   ready2Prefab: {fileID: 5742703442806296046, guid: 5f5c4e6b5f1b4b74eb3fd4cdc08e9475, type: 3}
   ready3Prefab: {fileID: 5742703442806296046, guid: aa7b5340ad071544487fdd81fbb59c09, type: 3}
   readyThinkPrefab: {fileID: 5742703442806296046, guid: 3e5f99696fa5c9f46abb75ca0562aa92, type: 3}
+  readyTalkPrefab: {fileID: 5742703442806296046, guid: dac7d33e2122185438ef398e195b3495, type: 3}
   clockFill: {fileID: 2097477658}
   questionText: {fileID: 1316377080}
   thoughtsDragParent: {fileID: 1850504149}
@@ -223,7 +224,7 @@ MonoBehaviour:
   travelSpeed: 10
   thoughtsMinSpeed: 250
   thoughtsMaxSpeed: 500
-  thoughtsExplosionSpeed: 2000
+  thoughtsExplosionSpeed: 1500
   minVelocityCooldown: 4
   maxVelocityCooldown: 6
   answerSlotsSpeed: 250

@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
-  word: hour
+  word: harmoniously
   wordClass: 2
   index: 0
   value: 0
@@ -121,14 +121,14 @@ RectTransform:
   m_GameObject: {fileID: 9021204360344511185}
   m_LocalRotation: {x: -0, y: -0, z: -0.0057225213, w: 0.99998367}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.05}
+  m_LocalScale: {x: 0.13, y: 0.13, z: 0.05}
   m_Children: []
   m_Father: {fileID: 8640923444102560438}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.656}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -25.9, y: -8.8}
+  m_AnchoredPosition: {x: -30.6, y: -13.6}
   m_SizeDelta: {x: 1366.2472, y: 373.2423}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1257728299446660460
@@ -169,7 +169,7 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: hour
+  m_Text: harmoniously

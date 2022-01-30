@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
-  word: day
+  word: wildly
   wordClass: 2
   index: 0
   value: 0
@@ -128,7 +128,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.264}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.6, y: 0.7}
+  m_AnchoredPosition: {x: 14.2, y: -2.9}
   m_SizeDelta: {x: 1366.2472, y: 373.2423}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4869200178315258545
@@ -172,4 +172,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: day
+  m_Text: wildly

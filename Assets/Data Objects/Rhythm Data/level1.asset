@@ -40,7 +40,7 @@ MonoBehaviour:
   - beat: 24
     word: and
   - beat: 26
-    word: services
+    word: services.
   - beat: 30
     word: I
   - beat: 32
@@ -64,7 +64,7 @@ MonoBehaviour:
   - beat: 52
     word: '*adj*'
   - beat: 56
-    word: I
+    word: . I
   - beat: 58
     word: want
   - beat: 59
@@ -72,4 +72,4 @@ MonoBehaviour:
   - beat: 60
     word: job
   - beat: 62
-    word: here
+    word: here.

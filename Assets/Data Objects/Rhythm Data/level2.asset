@@ -40,7 +40,7 @@ MonoBehaviour:
   - beat: 16
     word: '*noun*'
   - beat: 20
-    word: My
+    word: . My
   - beat: 22
     word: job
   - beat: 23
@@ -80,7 +80,7 @@ MonoBehaviour:
   - beat: 49
     word: insurance
   - beat: 50
-    word: plan
+    word: plan.
   - beat: 52
     word: I
   - beat: 53
@@ -110,4 +110,4 @@ MonoBehaviour:
   - beat: 70
     word: bathroom
   - beat: 72
-    word: stall
+    word: stall.

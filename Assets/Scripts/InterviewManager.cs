@@ -7,7 +7,7 @@ public class InterviewManager : MonoBehaviour
 {
     public static InterviewManager instance;
 
-    public GameObject thoughts, satan, questionDialogBox, thinkingBubbleMask, ready1Prefab, ready2Prefab, ready3Prefab, readyThinkPrefab;
+    public GameObject thoughts, satan, questionDialogBox, thinkingBubbleMask, ready1Prefab, ready2Prefab, ready3Prefab, readyThinkPrefab, readyTalkPrefab;
     public Image clockFill;
     public Text questionText;
     public Transform thoughtsDragParent, readyDisplayPosition;
@@ -17,7 +17,7 @@ public class InterviewManager : MonoBehaviour
     public float thinkingTime = 10f, animationMultiplier = 1f, travelSpeed = 1000f, thoughtsMinSpeed = 200f, thoughtsMaxSpeed = 400f,
                  thoughtsExplosionSpeed = 1000f, minVelocityCooldown = 4f, maxVelocityCooldown = 6f, answerSlotsSpeed = 50f;
 
-    bool thinking;
+    bool thinking, talkingCountdown;
     int questionIndex = 0, currentReadyPhase = 0;
     float thinkingTimer, thinkingCooldown;
     List<AnswerSlot> answerSlots;
@@ -162,7 +162,10 @@ public class InterviewManager : MonoBehaviour
             readyPrefab = ready3Prefab;
             break;
         case 3:
-            StartThinking(question);
+            if(!talkingCountdown)
+                StartThinking(question);
+            else
+                DisplayFinalReadyPhase();
             return;
         default:
             return;
@@ -205,14 +208,28 @@ public class InterviewManager : MonoBehaviour
         var adverb = answerSlots.Find(x => x.word?.wordClass == WordClass.Adverb)?.word;
         var adjective = answerSlots.Find(x => x.word?.wordClass == WordClass.Adjective)?.word;
 
+        talkingCountdown = true;
         ResetParameters();
-        GameManager.instance.StartTalking(question, noun, verb, adjective, adverb);
+        GameManager.instance.SaveThinkingValues(question, noun, verb, adjective, adverb);
+        currentReadyPhase = 0;
+        InstantiateReadyPhase(ready1Prefab);
     }
 
     void InstantiateReadyPhase(GameObject readyPhase)
     {
         var phase = Instantiate(readyPhase, readyDisplayPosition.position, Quaternion.identity, readyDisplayPosition);
         phase.GetComponent<Animator>().speed = animationMultiplier;
+    }
+
+    void DisplayFinalReadyPhase()
+    {
+        InstantiateReadyPhase(readyTalkPrefab);
+        Invoke("StartTalking", 0.75f);
+    }
+
+    void StartTalking()
+    {
+        GameManager.instance.StartTalking();
     }
 
     void ResetParameters()
