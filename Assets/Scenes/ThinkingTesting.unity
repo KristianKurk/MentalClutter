@@ -221,12 +221,12 @@ MonoBehaviour:
   thinkingTime: 20
   animationMultiplier: 1.5
   travelSpeed: 10
-  thoughtsMinSpeed: 200
-  thoughtsMaxSpeed: 400
+  thoughtsMinSpeed: 250
+  thoughtsMaxSpeed: 500
   thoughtsExplosionSpeed: 2000
   minVelocityCooldown: 4
   maxVelocityCooldown: 6
-  answerSlotsSpeed: 800
+  answerSlotsSpeed: 250
 --- !u!21 &134502119
 Material:
   serializedVersion: 6

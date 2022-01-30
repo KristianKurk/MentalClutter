@@ -80,9 +80,15 @@ public class Thought : EventTrigger
             maxSpeed = minSpeed + 1f;
         var speed = Random.Range(minSpeed, maxSpeed);
 
-        justChangedVelocity = true;
+        var resolution = Screen.currentResolution;
+        var xRatio = resolution.width / 1920f;
+        var yRatio = resolution.height / 1080f;
+        Debug.Log(xRatio);
+        var nonAdjustedVelocity = new Vector2(x, y).normalized;
+        var adjustedVelocity = new Vector2(nonAdjustedVelocity.x * xRatio, nonAdjustedVelocity.y * yRatio);
 
-        return new Vector2(x, y).normalized * speed;
+        justChangedVelocity = true;
+        return adjustedVelocity * speed;
     }
 
     protected float RandomVelocityChangeCooldown()

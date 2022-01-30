@@ -189,13 +189,13 @@ public class InterviewManager : MonoBehaviour
     public void IncreasePace()
     {
         thinkingTime -= 2;
-        animationMultiplier += animationMultiplier * 0.1f;
-        thoughtsMinSpeed += 25;
-        thoughtsMaxSpeed += 25;
+        animationMultiplier += animationMultiplier * 0.2f;
+        thoughtsMinSpeed += 30;
+        thoughtsMaxSpeed += 30;
         thoughtsExplosionSpeed += 50;
         minVelocityCooldown -= 0.3f;
         maxVelocityCooldown -= 0.3f;
-        answerSlotsSpeed += 20f;
+        answerSlotsSpeed += 30f;
     }
 
     void SendAnswer()
