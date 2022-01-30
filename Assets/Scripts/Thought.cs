@@ -127,10 +127,10 @@ public class Thought : EventTrigger
         var maxY = v[1].y;
         var minY = v[3].y;
 
-        return transform.position.x < maxX - 1f
-            && transform.position.x > minX + 1f
-            && transform.position.y < maxY - 1f
-            && transform.position.y > minY + 1f;
+        return transform.position.x < maxX - 0.01f
+            && transform.position.x > minX + 0.01f
+            && transform.position.y < maxY - 0.01f
+            && transform.position.y > minY + 0.01f;
     }
 
     protected bool IsInvisible()
