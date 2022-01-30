@@ -217,16 +217,16 @@ MonoBehaviour:
   - {fileID: 246762134}
   - {fileID: 1481811162}
   - {fileID: 1603552571}
-  mentalClutters: 5
-  thinkingTime: 180
+  mentalClutters: 0
+  thinkingTime: 20
   animationMultiplier: 1.5
   travelSpeed: 10
   thoughtsMinSpeed: 200
   thoughtsMaxSpeed: 400
-  thoughtsExplosionSpeed: 1000
+  thoughtsExplosionSpeed: 2000
   minVelocityCooldown: 4
   maxVelocityCooldown: 6
-  answerSlotsSpeed: 200
+  answerSlotsSpeed: 800
 --- !u!21 &134502119
 Material:
   serializedVersion: 6
@@ -1427,7 +1427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.9607843, g: 0.8901961, b: 0.8901961, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1954,7 +1954,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: -4380575459051264893, guid: aa29dff6d9c477741b4082350378bd5c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.42745098}
+  m_Color: {r: 0.68235296, g: 0.16078432, b: 0.16078432, a: 0.9411765}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
