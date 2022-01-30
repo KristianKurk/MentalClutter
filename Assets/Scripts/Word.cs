@@ -9,7 +9,7 @@ public class Word : Thought
 
     public override void OnPointerUp(PointerEventData eventData) 
     {
-        if(disabled) return;
+        if(disabled || !InterviewManager.instance.thinking) return;
 
         dragging = false;
         var results = new List<RaycastResult>();

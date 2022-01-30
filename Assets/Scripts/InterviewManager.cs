@@ -17,7 +17,7 @@ public class InterviewManager : MonoBehaviour
     public float thinkingTime = 10f, animationMultiplier = 1f, travelSpeed = 1000f, thoughtsMinSpeed = 200f, thoughtsMaxSpeed = 400f,
                  thoughtsExplosionSpeed = 1000f, minVelocityCooldown = 4f, maxVelocityCooldown = 6f, answerSlotsSpeed = 50f;
 
-    bool thinking, talkingCountdown;
+    public bool thinking, talkingCountdown;
     int questionIndex = 0, currentReadyPhase = 0;
     float thinkingTimer, thinkingCooldown;
     List<AnswerSlot> answerSlots;

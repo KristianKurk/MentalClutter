@@ -43,7 +43,7 @@ public class Thought : EventTrigger
 
     public override void OnPointerDown(PointerEventData eventData) 
     {
-        if(disabled) return;
+        if(disabled || !InterviewManager.instance.thinking) return;
 
         dragging = true;
         mouseDelta = transform.position - Input.mousePosition;
