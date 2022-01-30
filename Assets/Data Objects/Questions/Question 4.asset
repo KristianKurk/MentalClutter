@@ -19,5 +19,5 @@ MonoBehaviour:
   wordSets:
   - {fileID: 11400000, guid: 25248c6d7546d2f4fa1105a5eeae5f83, type: 2}
   - {fileID: 11400000, guid: 5df2b418b21897a47b0926a2f0e39e01, type: 2}
-  - {fileID: 11400000, guid: 32423ab6dcb8cb9428497e2881d45b24, type: 2}
-  - {fileID: 11400000, guid: 32423ab6dcb8cb9428497e2881d45b24, type: 2}
+  - {fileID: 11400000, guid: e4b0fda40fbbb6d4b9b424ef438c4162, type: 2}
+  - {fileID: 11400000, guid: 5f740a9a9335bbe45be740cbdbbc5285, type: 2}
